@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/mains', function () {
+
+	$accounts = DB::table('mains')->get();
+
+    return view('mains.index', compact('accounts'));
+});
+
+Route::get('/mains/{main}', function($id){
+
+	$account  = DB::table('mains')->find($id);
+
+	return view('mains.show', compact('account'));
+
 });
