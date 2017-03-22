@@ -11,16 +11,21 @@
 |
 */
 
+Route::get('/accounts', 'AccountsController@index');
+Route::get('/accounts/{account}', 'AccountsController@show');
+
+use App\Main;
+
 Route::get('/mains', function () {
 
-	$accounts = DB::table('mains')->get();
+	$accounts = Main::all();
 
     return view('mains.index', compact('accounts'));
 });
 
 Route::get('/mains/{main}', function($id){
 
-	$account  = DB::table('mains')->find($id);
+	$account  = Main::find($id);
 
 	return view('mains.show', compact('account'));
 
