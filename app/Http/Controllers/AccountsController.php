@@ -26,7 +26,7 @@ class AccountsController extends Controller
     public function store(){
 
         #dd(request()->all());
-
+/*
         $account = new Account;
 
         $account->name = request('name');
@@ -36,6 +36,22 @@ class AccountsController extends Controller
         $account->notes = request('notes');
 
         $account->save();
+/*
+        Account::create([
+            'name' => request('name'),
+            'tel' => request('tel'),
+            'email' => request('email'),
+            'is_stu' => request('is_stu'),
+            'notes' => request('notes')
+            ]);*/
+        $this->validate(request(),[
+                'name' => 'required',
+                'tel' => 'required',
+                'email' => 'required'
+
+            ]);
+
+        Account::create(request(['name', 'tel', 'email','is_stu', 'notes'])); 
 
         return redirect('/');
     }
