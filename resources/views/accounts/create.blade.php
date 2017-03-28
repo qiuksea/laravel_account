@@ -34,16 +34,23 @@
     <legend>Company Details</legend>
     <div class="form-check">
       <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" name="is_stu" id="is_stu" value="1">
+        <input type="hidden" class="form-check-input" name="is_stu" id="is_stu_0" value="0">
+        <input type="checkbox" class="form-check-input" name="is_stu" id="is_stu_1" value="1">
         Is this a Student?
       </label>
     </div>
    
   </fieldset>
 
-  
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+
+@include ('layouts.errors')
+
 </form>
+
+
 
 @endsection
 
