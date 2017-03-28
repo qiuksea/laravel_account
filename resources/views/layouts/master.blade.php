@@ -31,14 +31,14 @@
       <div class="row">
         @yield ('content')
 
-        @include ('layouts.sidebar')
+       
 
       </div>
 
     </div>
 
 
-    @include ('layouts.footer')
+    <!--@include ('layouts.footer')-->
         
   </body>
 </html>

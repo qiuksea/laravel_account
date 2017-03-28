@@ -1,4 +1,4 @@
-@extends ('layouts.uni')
+@extends ('layouts.master')
 
 @section ('content')
 
