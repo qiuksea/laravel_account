@@ -10,23 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'AccountsController@index');
 
 Route::get('/accounts', 'AccountsController@index');
-Route::get('/accounts/{account}', 'AccountsController@show');
 
-use App\Main;
+#Route::get('/accounts/{account}', 'AccountsController@show');
 
-Route::get('/mains', function () {
+Route::get('/accounts/create', 'AccountsController@create');
 
-	$accounts = Main::all();
+Route::post('/accounts', 'AccountsController@store');
 
-    return view('mains.index', compact('accounts'));
-});
-
-Route::get('/mains/{main}', function($id){
-
-	$account  = Main::find($id);
-
-	return view('mains.show', compact('account'));
-
-});

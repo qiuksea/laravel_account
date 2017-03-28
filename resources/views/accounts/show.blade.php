@@ -8,7 +8,7 @@
 <body>
 <h1>Form</h1>
 
-   <p> {{ $account -> name}} </p>
+   <p> hi</p>
 
 </body>
 </html>
