@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Account</title>
-</head>
+@extends ('layouts.master')
 
-<body>
-<h1>Form</h1>
+@section ('content')
 
-   <p> hi</p>
+<div class="col-md-8 blog-main">
 
-</body>
-</html>
+ 		{{  $account ->email  }}
+</div>
+@endsection
+
+	        

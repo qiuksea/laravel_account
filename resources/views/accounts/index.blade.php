@@ -3,12 +3,15 @@
 
 
 @section ('content')
-	<ul>
+
+	<div class="col-md-8 blog-main">		
+
 	    @foreach ($accounts as $account)
-	        <li>
-	            <a href="/accounts/{{ $account-> id }}">{{ $account ->name}} 
-	            </a>
-	        </li>
+
+			@include ('accounts.account')
+
 	    @endforeach 
-	</ul>
+
+	</div>
+
 @endsection
