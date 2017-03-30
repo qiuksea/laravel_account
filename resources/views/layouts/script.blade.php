@@ -1,18 +1,3 @@
-    <!-- start: Footer sub -->
-    <div class="footer-sub">
-      <div class="container">
-
-        <!-- start: Footer links -->
-        <div class="row">
-            <div class="col-md-9 col-lg-9">
-              <p class="copyright">&copy; 2017 The University of Sheffield</p>
-            </div>
-        </div>
-        <!-- end: Footer links -->
-      </div>
-    </div>
-    <!-- end: Footer sub -->
-
     <!--: start: JS scripts -->
     <script src="/js/uni/script.min.js"></script>
     <!--: end: JS scripts -->
@@ -36,5 +21,21 @@
         });
   </script>
 
-<!-- MGMT SCHL -->
+  <!--
 
+ @section('postJquery')
+    @parent
+    $('#selectAll').on('click',function(){
+        if ($(this).is(':checked')) {
+            $('.chkbox').each(function(){
+                this.checked = true;
+            });
+        }else{
+            $('.chkbox').each(function(){
+                this.checked = false;
+            });
+        }
+    });
+@endsection
+#http://stackoverflow.com/questions/33757236/how-to-use-my-own-jquery-in-laravel-5
+-->
