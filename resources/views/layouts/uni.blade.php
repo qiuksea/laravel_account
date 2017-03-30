@@ -32,11 +32,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet" href="/polopoly_fs/15.375.1489683499!/css/build/ie.css" />
   <![endif]-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 
   <link rel="stylesheet" href="/css/uni/style.min.css" />
   <script src="/js/uni/jquery.min.js"></script>
 </head>
+
+
 <body class="theme-blue p-4933 f-1015">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W5K7W4T"
@@ -142,9 +144,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- end: Main & Local nav -->
 
 
-
-
-
         <!-- start: Main content -->
         <div class="col-md-8 no-gutter">
           <main class="main content" role="main">
@@ -155,13 +154,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <!-- end: Main content -->
 
-
-
       </div>
     </div>
     <!-- end: Central block -->
 
     @include ('layouts.footer')
-<!-- // MGMT SCHL -->
+
+    @include ('layouts.script')
+
 </body>
 </html>
