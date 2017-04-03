@@ -56,15 +56,23 @@ class AccountsController extends Controller
         return redirect('/');
     }
 
-    public function edit($id){
+    public function edit(Account $account){
+
+
+        return view('accounts.edit', compact('account'));
 
     }
 
-    public function update($id){
+    public function update(Account $account){
+
+
+        return view('accounts.show', compact('account'));
 
     }
 
-    public function destroy($id){
+    public function destroy(Account $account){
+
+        return redirect('/');
 
     }
 
