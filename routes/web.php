@@ -28,9 +28,9 @@ Route::get('/', 'AccountsController@index');
 
 Route::get('/accounts', 'AccountsController@index');
 
-Route::get('/accounts/{account}', 'AccountsController@show');
+Route::get('/accounts/create', 'AccountsController@create');  #create route must place before show action route!!! 
 
-Route::get('/accounts/create', 'AccountsController@create');
+Route::get('/accounts/{account}', 'AccountsController@show');
 
 Route::post('/accounts', 'AccountsController@store');
 
