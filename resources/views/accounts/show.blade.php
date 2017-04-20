@@ -35,7 +35,11 @@
 <p>
     <a href="/accounts " class="btn btn-info btn-sm">All</a>
     <a href="/accounts/{{ $account-> id }}/edit" class="btn btn-primary btn-sm">Edit</a>
-    <a href="/accounts/{{ $account-> id }}" method= "delete" class="btn btn-danger btn-sm">Delete</a>
+    <form method="post" action="/accounts/{{ $account-> id }}"> 
+      {{ method_field('DELETE') }}
+      {{ csrf_field() }} 
+      <button type="submit" class="btn btn-danger  btn-sm">Delete</button>
+    </form>
 </p>
  		
 </div>
