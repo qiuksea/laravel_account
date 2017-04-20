@@ -5,7 +5,6 @@
 	<form method="POST" action="/accounts/{{ $account-> id }}">
 	    <div class="form-group">
 	    	{{ method_field('DELETE') }}
-	    	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	    
 	    	<label for="destroy">Delete</label>
 	       	<input name="id" class="form-control">

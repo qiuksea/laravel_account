@@ -4,9 +4,7 @@
 
 <h3>Customer Account Request</h3>
 <hr>
-<form method="POST" action="/accounts">
-
-  {{csrf_field() }}
+<form method="POST" action="/accounts"> 
 
   @include ('accounts.partials/form')
     

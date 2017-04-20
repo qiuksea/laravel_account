@@ -1,4 +1,5 @@
-
+ {{csrf_field() }}
+ 
   <div class="form-group">
     <label for="name">name</label>
     <input type="text" class="form-control" id="name" name="name" aria-describedby="name" value="{{ old('name', isset($account->name) ? $account->name : null) }}">
