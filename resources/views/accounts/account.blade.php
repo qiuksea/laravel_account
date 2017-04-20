@@ -7,11 +7,7 @@
 		      <td>{{ $account ->created_at -> toFormattedDateString()  }}</td>
 		      <td><a href="/accounts/{{ $account-> id }} " class="btn btn-info btn-sm">View</a> |
 		      <a href="/accounts/{{ $account-> id }}/edit" class="btn btn-primary btn-sm">Edit</a> |
-			   <form method="post" action="/accounts/{{ $account-> id }}"> 
-			      {{ method_field('DELETE') }}
-			      {{ csrf_field() }} 
-			      <button type="submit" class="btn btn-danger  btn-sm">Delete</button>
-	    		</form>
+			  @include ('accounts.partials/delete_form')
 		      </td>
 		    </tr>
 	
