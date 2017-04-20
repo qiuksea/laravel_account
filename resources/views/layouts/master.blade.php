@@ -29,6 +29,22 @@
 
     <div class="container">
       <div class="row">
+<!--
+      @if ( Session::has('flash_message') )
+ 
+         <div class="alert {{ Session::get('flash_type') }}">
+           <h3>{{ Session::get('flash_message') }}</h3>
+        </div>
+  
+      @endif -->
+
+      @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+          <button type="button" class="close" data-dismiss="alert">×</button> 
+                <strong>{{ $message }}</strong>
+        </div>
+      @endif
+
         @yield ('content')       
 
       </div>

@@ -21,6 +21,8 @@ GET /posts/{id} -show
 PATCH /posts/{id} - update
 DELETE /posts/{id} - destroy
 
+php artisan route:list
+
 */
 
 
