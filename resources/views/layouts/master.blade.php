@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}"> 
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Blog Template for Bootstrap</title>
+    <title>Account</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -45,14 +46,16 @@
         </div>
       @endif
 
-        @yield ('content')       
+      @yield ('content')       
 
       </div>
 
     </div>
 
 
-    <!--@include ('layouts.footer')-->
+    @include ('layouts.footer')
+
+    @include ('layouts.script')
         
   </body>
 </html>

@@ -41,4 +41,3 @@ Route::get('/accounts/{account}/edit', 'AccountsController@edit');
 Route::patch('/accounts/{account}', 'AccountsController@update');
 
 Route::delete('/accounts/{account}', 'AccountsController@destroy');
-

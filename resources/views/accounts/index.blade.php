@@ -3,8 +3,10 @@
 
 
 @section ('content')
-
 	<div class="col-md-12">		
+	
+		<a href="/accounts/create " class="btn btn-info btn-sm">Create</a>
+		<hr>
 
 	    <table class="table">
 		  <thead>

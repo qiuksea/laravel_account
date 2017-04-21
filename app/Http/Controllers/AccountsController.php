@@ -92,13 +92,16 @@ class AccountsController extends Controller
 
     }
 
-    public function destroy($id, Request $request){
 
-        $account = Account::find($id);
+    public function destroy($id, Request $request){        
+
+        $account = Account::findOrFail($id);
 
         $account->delete();
 
-        return redirect('/');
+        //return redirect('/')->with('success','Item delete successfully!'); 
+        #return Response::json($account);
+        return response()->json($account);
 
     }
 
