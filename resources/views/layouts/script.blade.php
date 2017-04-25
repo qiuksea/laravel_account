@@ -14,7 +14,7 @@
   <!--<script src="/js/uni/script.min.js"></script>-->
   <!--: end: JS scripts -->
 
-
+ <script src="/js/config.js"></script>
   
  <script src="/js/common.js"></script>
 
