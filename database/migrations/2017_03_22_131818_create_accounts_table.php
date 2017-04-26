@@ -19,6 +19,8 @@ class CreateAccountsTable extends Migration
             $table->string('name');
             $table->string('tel');
             $table->string('email');
+            $table->boolean('company_project_10k');
+            $table->string('who_credit_check');
             $table->boolean('is_stu');
             $table->text('notes');
             $table->timestamps();
