@@ -24,7 +24,7 @@
 
     <div class="blog-header">
       <div class="container">
-        <h1 class="blog-title">Accounts</h1>       
+        <h1 class="blog-title">Customer Account Request</h1>       
       </div>
     </div>    
 
