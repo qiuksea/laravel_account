@@ -18,8 +18,7 @@ class AccountsTableSeeder extends Seeder
 	            'tel' => str_random(8),
 	            'email' => str_random(5).'@mail.com',
 	            'notes' => 'test',
-	            'company_project_10k' => 0
-
+                'created_at' => date("Y-m-d H:i:s")
 	        ]);
     	}
     }
