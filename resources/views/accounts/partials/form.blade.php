@@ -27,15 +27,24 @@
 
       <div class="form-check form-check-inline">      
         <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_yes" value="1">Yes         
+          <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_yes" value="1"
+            @if(old('is_over_10k'))
+              checked
+            @endif        
+            @if (isset($account->is_over_10k) && $account->is_over_10k) )
+              checked
+            @endif
+            >Yes         
         </label>
       </div>
 
       <div class="form-check form-check-inline">
         <label class="form-check-label">
             <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_no" value="0"
-        
-            @if (isset($account->is_over_10k) && $account->is_over_10k) )
+            @if(!old('is_over_10k'))
+              checked
+            @endif        
+            @if (isset($account->is_over_10k) && !$account->is_over_10k) )
               checked
             @endif
             >No
