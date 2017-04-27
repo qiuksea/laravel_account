@@ -46,6 +46,8 @@
         </div>
       @endif
 
+      @include ('layouts.errors')
+
       @yield ('content')       
 
       </div>

@@ -7,9 +7,8 @@
 	<hr>
 	<form method="POST" action="/accounts"> 
 
-	  @include ('accounts.partials/form')
-	    
-	  @include ('layouts.errors')
+	  @include ('accounts.partials/form')    
+	  
 
 	</form>
 </div>
