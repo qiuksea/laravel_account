@@ -4,17 +4,17 @@
     <legend>Your Details</legend>
 
       <div class="form-group">
-        <label for="name" >name</label>
+        <label for="name" >name *</label>
         <input type="text" class="form-control" id="name" name="name" aria-describedby="name" value="{{ old('name', isset($account->name) ? $account->name : null) }}">
       </div>
 
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">Email *</label>
         <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" value="{{ old('email', isset($account->email) ? $account->email : null) }}">
       </div>
 
       <div class="form-group">
-        <label for="tel">Tel</label>
+        <label for="tel">Tel *</label>
         <input type="text" class="form-control" id="tel" name="tel" value="{{ old('tel', isset($account->tel) ? $account->tel : null) }}">
       </div>
 
@@ -56,12 +56,12 @@
 
         <div class="form-check">
           <label class="form-check-label">
-            <input class="form-check-input" name="company_project_check_agree" type="checkbox"> Yes, I have obtained a credit check 
+            <input class="form-check-input" name="company_project_check_agree" type="checkbox" checked> Yes, I have obtained a credit check 
           </label>
         </div>
         
         <div class="form-group">
-          <label for="credit_check">Who did the credit check for you?</label>
+          <label for="credit_check">Who did the credit check for you? *</label>
           <input type="text" class="form-control" id="who_credit_check" name="who_credit_check" value="{{ old('who_credit_check', isset($account->who_credit_check) ? $account->who_credit_check : null) }}">
         </div>
       
