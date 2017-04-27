@@ -78,7 +78,6 @@
     <legend>Company Details</legend>
     <div class="form-check">
       <label class="form-check-label">
-        <input type="hidden" class="form-check-input" name="iis_student" id="is_student_0" value="0">
         <input type="checkbox" class="form-check-input" name="is_student" id="is_student_1" value="1"    
             @if(old('is_student'))
               checked
