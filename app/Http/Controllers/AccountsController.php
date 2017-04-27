@@ -51,12 +51,12 @@ class AccountsController extends Controller
                 'name' => 'required',
                 'tel' => 'required',
                 'email' => 'required', 
-                'company_project_10k' => 'required'#,
+                'is_over_10k' => 'required'#,
                 #'who_credit_check' => 'required'
 
             ]);
 
-        Account::create(request(['name', 'tel', 'email', 'company_project_10k', 'who_credit_check', 'is_stu', 'notes'])); 
+        Account::create(request(['name', 'tel', 'email', 'is_over_10k', 'who_credit_check', 'is_student', 'notes'])); 
 
         #Session::flash('flash_message', 'Account successfully added!');
 
@@ -78,13 +78,14 @@ class AccountsController extends Controller
         $this->validate(request(),[
             'name' => 'required',
             'tel' => 'required',
-            'email' => 'required'
+            'email' => 'required',
+            'is_over_10k' => 'required'
             ]);
         
         $account->name = request('name');
         $account->tel = request('tel');
         $account->email = request('email');
-        $account->is_stu = request('is_stu');
+        $account->is_student = request('is_student');
         $account->notes = request('notes');
 
         $account -> save();

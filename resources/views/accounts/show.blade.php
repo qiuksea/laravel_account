@@ -27,7 +27,7 @@
     </tr>
      <tr>
       <td>Is Student: </td>
-      <td>{{  $account ->is_stu }}</td>
+      <td>{{  $account ->is_student }}</td>
     </tr>
   </tbody>
 </table>

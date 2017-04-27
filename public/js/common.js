@@ -31,11 +31,11 @@
 
 
         //project over £10,000.00? credit check show/hide
-        $("#company_project_10k_yes").click(function(){
+        $("#is_over_10k_yes").click(function(){
             $("#project_credit_check").show("slow");
         });
 
-        $("#company_project_10k_no").click(function(){
+        $("#is_over_10k_no").click(function(){
             $("#project_credit_check").hide("slow");
         });
 

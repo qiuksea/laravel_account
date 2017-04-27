@@ -27,15 +27,15 @@
 
       <div class="form-check form-check-inline">      
         <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="company_project_10k" id="company_project_10k_yes" value="1">Yes         
+          <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_yes" value="1">Yes         
         </label>
       </div>
 
       <div class="form-check form-check-inline">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="company_project_10k" id="company_project_10k_no" value="0"
+            <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_no" value="0"
         
-            @if (isset($account->company_project_10k) && $account->company_project_10k) )
+            @if (isset($account->is_over_10k) && $account->is_over_10k) )
               checked
             @endif
             >No
@@ -69,12 +69,12 @@
     <legend>Company Details</legend>
     <div class="form-check">
       <label class="form-check-label">
-        <input type="hidden" class="form-check-input" name="is_stu" id="is_stu_0" value="0">
-        <input type="checkbox" class="form-check-input" name="is_stu" id="is_stu_1" value="1"    
-            @if(old('is_stu'))
+        <input type="hidden" class="form-check-input" name="iis_student" id="is_student_0" value="0">
+        <input type="checkbox" class="form-check-input" name="is_student" id="is_student_1" value="1"    
+            @if(old('is_student'))
               checked
             @endif     
-            @if(isset($account->is_stu) && $account->is_stu) )
+            @if(isset($account->is_student) && $account->is_student) )
               checked
             @endif
         > Is this a Student?
