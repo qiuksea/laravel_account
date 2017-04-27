@@ -49,7 +49,7 @@ return [
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
-            'strict' => true,
+            'strict' => false,#origin: true https://laracasts.com/discuss/channels/laravel/laravel-530-throwing-error-field-test-1-doesnt-have-a-default-value
             'engine' => null,
         ],
 
