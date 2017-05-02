@@ -39,6 +39,14 @@
             $("#project_credit_check").hide("slow");
         });
 
+        if($('#is_over_10k_yes').is(':checked'))
+        {
+            if($('#project_credit_check').is(":hidden")){
+                 $("#project_credit_check").show();
+            }
+
+        }
+
 
    })//$(document).ready(function()
    
