@@ -1,17 +1,19 @@
 @if (count($errors))
 
-<div class="form-group">
-  <div class="alert alert-danger">
-    <ul>
+<div class="col-md-8">
+	<div class="form-group">
+	  <div class="alert alert-danger">
+	    <ul>
 
-      @foreach ($errors->all() as $error)
+	      @foreach ($errors->all() as $error)
 
-      	<li>{{ $error}}</li>     
+	      	<li>{{ $error}}</li>     
 
-      @endforeach
+	      @endforeach
 
-    </ul>
-  </div>
+	    </ul>
+	  </div>
+	</div>
 </div>
 
 @endif
