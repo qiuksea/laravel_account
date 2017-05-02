@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Account;
 
+use App\Http\Requests\StoreAccountRequest; //https://laracasts.com/discuss/channels/laravel/form-request-validation-class-apphttpcontrollersstoreblogpost-does-not-exist
+
 use Session;
 
 class AccountsController extends Controller
@@ -26,7 +28,7 @@ class AccountsController extends Controller
     	return view('accounts.create');
     }
 
-    public function store(){
+    public function store(StoreAccountRequest $request){
 
         #dd(request()->all());
 /*
@@ -47,6 +49,7 @@ class AccountsController extends Controller
             'is_stu' => request('is_stu'),
             'notes' => request('notes')
             ]);*/
+            /*
         $this->validate(request(),[
                 'name' => 'required',
                 'tel' => 'required',
@@ -54,7 +57,7 @@ class AccountsController extends Controller
                 'is_over_10k' => 'required'#,
                 #'who_credit_check' => 'required'
 
-            ]);
+            ]);*/
 
         Account::create(request(['name', 'tel', 'email', 'is_over_10k', 'who_credit_check', 'is_student', 'notes'])); 
 
@@ -75,12 +78,13 @@ class AccountsController extends Controller
 
         $account = Account::findOrFail($id);
 
+        /*
         $this->validate(request(),[
             'name' => 'required',
             'tel' => 'required',
             'email' => 'required',
             'is_over_10k' => 'required'
-            ]);
+            ]);*/
         
         $account->name = request('name');
         $account->tel = request('tel');
