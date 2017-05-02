@@ -27,6 +27,7 @@ class StoreAccountRequest extends FormRequest
             'name' => 'required|max:255',
             'tel' => 'required',
             'email' => 'required|email',
+            'who_credit_check' => 'required_if:is_over_10k,1'
 
         ];
     }
@@ -35,7 +36,10 @@ class StoreAccountRequest extends FormRequest
     public function messages()
     {
         return [
-            'tel.required'  => 'Telephone is required',
+            'name.required'  => 'Please enter your name.',            
+            'email.required'  => 'Please enter an email address.',
+            'tel.required'  => 'Please enter a telephone number.',
+            'who_credit_check.required_if' => 'Please enter who did the credit check for you'
         ];
     }
 
