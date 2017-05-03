@@ -74,7 +74,7 @@ class AccountsController extends Controller
 
     }
 
-    public function update($id, Request $request){
+    public function update($id, StoreAccountRequest $request){
 
         $account = Account::findOrFail($id);
 

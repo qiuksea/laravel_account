@@ -11,23 +11,23 @@
     </tr>
     <tr>
       <td>Name</td>
-      <td>{{  $account ->name  }}</td>
+      <td>{{  $account ->staff_name  }}</td>
     </tr>
     <tr>
       <td>Tel: </td>
-      <td>{{  $account ->tel  }}</td>
+      <td>{{  $account ->staff_tel  }}</td>
     </tr>
     <tr>
       <td>Email: </td>
-      <td>{{  $account ->email  }}</td>
+      <td>{{  $account ->staff_email  }}</td>
     </tr>
      <tr>
       <td>Notes: </td>
-      <td>{{  $account ->notes  }}</td>
+      <td>{{  $account ->company_notes  }}</td>
     </tr>
      <tr>
       <td>Is Student: </td>
-      <td>{{  $account ->is_student }}</td>
+      <td>{!! Helper::display_boolean($account -> is_student)!!}</td>
     </tr>
   </tbody>
 </table>
