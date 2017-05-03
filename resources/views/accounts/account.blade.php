@@ -1,9 +1,9 @@
 		    <tr id="account_{{$account->id}}">
-		      <td><a href="/accounts/{{ $account-> id }}">{{ $account ->name}} </a>	</td>
-		      <td>{{ $account ->tel }}</td>
-		      <td>{{ $account ->email }}</td>
-		      <td>{{ $account ->notes }}</td>
-		      <td>{{ $account ->is_stu }}</td>
+		      <td><a href="/accounts/{{ $account-> id }}">{{ $account ->staff_name}} </a></td>
+		      <td>{{ $account ->staff_tel }}</td>
+		      <td>{{ $account ->staff_email }}</td>
+		      <td>{{ $account ->company_notes }}</td>
+		      <td>{{ $account ->is_student }}</td>
 		      <td>{{ $account ->created_at -> toFormattedDateString()  }}</td>
 		      <td><a href="/accounts/{{ $account-> id }} " class="btn btn-info btn-sm">View</a> |
 		      <a href="/accounts/{{ $account-> id }}/edit" class="btn btn-primary btn-sm">Edit</a> |

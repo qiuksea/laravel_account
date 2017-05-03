@@ -59,7 +59,7 @@ class AccountsController extends Controller
 
             ]);*/
 
-        Account::create(request(['name', 'tel', 'email', 'is_over_10k', 'who_credit_check', 'is_student', 'notes'])); 
+        Account::create(request(['staff_name', 'staff_tel', 'staff_email', 'is_over_10k', 'who_credit_check', 'is_student', 'company_notes'])); 
 
         #Session::flash('flash_message', 'Account successfully added!');
 
@@ -86,11 +86,13 @@ class AccountsController extends Controller
             'is_over_10k' => 'required'
             ]);*/
         
-        $account->name = request('name');
-        $account->tel = request('tel');
-        $account->email = request('email');
+        $account->staff_name = request('staff_name');
+        $account->staff_tel = request('staff_tel');
+        $account->staff_email = request('staff_email');
+        $account->is_over_10k = request('is_over_10k');
+        $account->who_credit_check = request('who_credit_check');
         $account->is_student = request('is_student');
-        $account->notes = request('notes');
+        $account->company_notes = request('company_notes');
 
         $account -> save();
 

@@ -24,11 +24,10 @@ class StoreAccountRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'tel' => 'required',
-            'email' => 'required|email',
+            'staff_name' => 'required|max:255',
+            'staff_email' => 'required|email',
+            'staff_tel' => 'required',
             'who_credit_check' => 'required_if:is_over_10k,1'
-
         ];
     }
 
@@ -36,9 +35,9 @@ class StoreAccountRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required'  => 'Please enter your name.',            
-            'email.required'  => 'Please enter an email address.',
-            'tel.required'  => 'Please enter a telephone number.',
+            'staff_name.required'  => 'Please enter your name.',            
+            'staff_email.required'  => 'Please enter an email address.',
+            'staff_tel.required'  => 'Please enter a telephone number.',
             'who_credit_check.required_if' => 'Please enter who did the credit check for you'
         ];
     }

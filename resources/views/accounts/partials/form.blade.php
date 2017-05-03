@@ -4,18 +4,18 @@
     <legend>Your Details</legend>
 
       <div class="form-group">
-        <label for="name" >name *</label>
-        <input type="text" class="form-control" id="name" name="name" aria-describedby="name" value="{{ old('name', isset($account->name) ? $account->name : null) }}">
+        <label for="staff_name" >name *</label>
+        <input type="text" class="form-control" id="staff_name" name="staff_name" aria-describedby="staff name" value="{{ old('staff_name', isset($account->staff_name) ? $account->staff_name : null) }}">
       </div>
 
       <div class="form-group">
-        <label for="email">Email *</label>
-        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" value="{{ old('email', isset($account->email) ? $account->email : null) }}">
+        <label for="staff_email">Email *</label>
+        <input type="email" class="form-control" id="staff_email" name="staff_email" aria-describedby="emailHelp" placeholder="Enter email" value="{{ old('staff_email', isset($account->staff_email) ? $account->staff_email : null) }}">
       </div>
 
       <div class="form-group">
-        <label for="tel">Tel *</label>
-        <input type="text" class="form-control" id="tel" name="tel" value="{{ old('tel', isset($account->tel) ? $account->tel : null) }}">
+        <label for="staff_tel">Tel *</label>
+        <input type="text" class="form-control" id="staff_tel" name="staff_tel" value="{{ old('staff_tel', isset($account->staff_tel) ? $account->staff_tel : null) }}">
       </div>
 
       <div class="form-group">
@@ -66,11 +66,6 @@
         </div>
       
       </div>
-
-
-
-
-
   </fieldset>
  
 
@@ -90,8 +85,8 @@
     </div>     
 
     <div class="form-group">
-      <label for="notes">Any other relevant information:</label>
-      <textarea class="form-control" id="notes" name="notes" rows="3">{{ old('notes', isset($account->notes) ? $account->notes : null) }}</textarea>
+      <label for="company_notes">Any other relevant information:</label>
+      <textarea class="form-control" id="company_notes" name="company_notes" rows="3">{{ old('company_notes', isset($account->company_notes) ? $account->company_notes : null) }}</textarea>
     </div>
 
   </fieldset>
