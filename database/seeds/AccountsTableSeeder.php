@@ -12,12 +12,11 @@ class AccountsTableSeeder extends Seeder
     public function run()
     {
         //
-        for ($i=0; $i < 8; $i++) { 
+        for ($i=0; $i < 3; $i++) { 
 	    	DB::table('accounts')->insert([
-	            'name' => str_random(8),
-	            'tel' => str_random(8),
-	            'email' => str_random(5).'@mail.com',
-	            'notes' => 'test',
+	            'staff_name' => str_random(8),
+	            'staff_tel' => str_random(8),
+	            'staff_email' => str_random(5).'@mail.com',
                 'created_at' => date("Y-m-d H:i:s")
 	        ]);
     	}
