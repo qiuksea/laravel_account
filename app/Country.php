@@ -11,4 +11,11 @@ class Country extends Model
     protected $fillable = [];
 
     public $timestamps = false;
+
+   public function accounts()
+   {
+
+   	return $this -> hasMany(Account::class);
+
+   }
 }
