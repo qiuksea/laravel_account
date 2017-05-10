@@ -17,8 +17,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
-        \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-    ];
+       // \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+    ]; //http://stackoverflow.com/questions/43860634/laravel-5-4-upgrade-integrity-constraint-violation-column-cannot-be-null
 
     /**
      * The application's route middleware groups.

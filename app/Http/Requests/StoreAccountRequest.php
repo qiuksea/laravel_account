@@ -27,7 +27,8 @@ class StoreAccountRequest extends FormRequest
             'staff_name' => 'required|max:255',
             'staff_email' => 'required|email',
             'staff_tel' => 'required',
-            'who_credit_check' => 'required_if:is_over_10k,1'
+            'who_credit_check' => 'required_if:is_over_10k,1',
+            'subsidiary_info' => 'required_if:is_subsidiary,1'
         ];
     }
 
@@ -38,7 +39,8 @@ class StoreAccountRequest extends FormRequest
             'staff_name.required'  => 'Please enter your name.',            
             'staff_email.required'  => 'Please enter an email address.',
             'staff_tel.required'  => 'Please enter a telephone number.',
-            'who_credit_check.required_if' => 'Please enter who did the credit check for you'
+            'who_credit_check.required_if' => 'Please enter who did the credit check for you',
+            'subsidiary_info.required_if' => 'Please provide further information for subsidiary'
         ];
     }
 
