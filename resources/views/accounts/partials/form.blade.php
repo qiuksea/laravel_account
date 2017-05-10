@@ -168,12 +168,12 @@
 
     <div class="form-check">
       <label class="form-check-label">
-        <input type="hidden" class="form-check-input" name="compnay_is_eu" id="compnay_is_eu_0" value="0">
-        <input type="checkbox" class="form-check-input" name="compnay_is_eu" id="compnay_is_eu_1" value="1"    
-            @if(old('compnay_is_eu'))
+        <input type="hidden" class="form-check-input" name="compnay_is_eu" id="company_is_eu_0" value="0">
+        <input type="checkbox" class="form-check-input" name="company_is_eu" id="company_is_eu_1" value="1"    
+            @if(old('company_is_eu'))
               checked
             @endif     
-            @if(isset($account->compnay_is_eu) && $account->compnay_is_eu) )
+            @if(isset($account->company_is_eu) && $account->company_is_eu) )
               checked
             @endif
         > Is the customer part of the EU?
@@ -181,11 +181,12 @@
     </div>     
 
 
-     <div  class="form-group" style="display:visible" id="display_country_or_vat">
     <!-- country -->
-        <div class="form-group" style="display:visible" id="eu_country_selection">
-          <label for="eu_company_country_id">Please select your eu country:</label>
+        <div class="form-group" style="display:none" id="eu_country_selection">
+
+          <label for="eu_company_country_id">Please select your EU country:</label>
           <select class="form-control" id="eu_company_country_id" name="eu_company_country_id">
+              <option value="0">Please make a selection</option>
             
               @foreach($eu_countries as $eu_country)
                 <option value="{{ $eu_country->id }}"  
@@ -199,14 +200,20 @@
                  > 
                 {{ $eu_country->name}} 
                 </option>
-              @endforeach
-            
+              @endforeach            
           </select>
+
+          <div class="form-group">
+                <label for="company_vat_reg_no">Please provide VAT number (Exc. UK):</label>
+                <input type="text" class="form-control" id="company_vat_reg_no" name="company_vat_reg_no" value="{{ old('company_vat_reg_no', isset($account->company_vat_reg_no) ? $account->company_vat_reg_no : null) }}">
+          </div>
+
         </div>
 
         <div class="form-group" style="display:visible" id="non_eu_country_selection">
-          <label for="non_eu_company_country_id">Please select your country:</label>
+          <label for="non_eu_company_country_id">Please select your country (Non EU):</label>
           <select class="form-control" id="non_eu_company_country_id" name="non_eu_company_country_id">
+              <option value="0">Please make a selection</option>
           
               @foreach($non_eu_countries as $non_eu_country)
                 <option value="{{ $non_eu_country->id }}"
@@ -225,7 +232,6 @@
         </div>
 
     <!-- vat number -->
-    </div>
 
     <div class="form-check">
       <label class="form-check-label">
@@ -242,6 +248,62 @@
     </div>    
 
 <!-- eligible body select list-->
+
+  <div class="form-group" style="display:none" id="charity_eligible_body_selection">
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_1" value="UK University" checked>
+        UK University
+      </label>
+    </div>
+
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_2" value="UK School/College">
+        UK School/College
+      </label>
+    </div>
+
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_3" value="UK Government Dept">
+        UK Government Dept
+      </label>
+    </div>
+
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_4" value="UK Charity">
+        UK Charity
+      </label>
+    </div>
+
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_5" value="UK Research Council">
+        UK Research Council
+      </label>
+    </div>
+
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_6" value="UK Hospital">
+        UK Hospital
+      </label>
+    </div>
+
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_7" value="Other">
+        Other:
+      </label>
+    </div>
+
+    <div class="form-group">
+          <label for="company_eligibility_other">Explain others</label>
+          <input type="text" class="form-control" id="company_eligibility_other" name="company_eligibility_other" value="{{ old('company_eligibility_other', isset($account->company_eligibility_other) ? $account->company_eligibility_other : null) }}">
+    </div>
+  </div>
 
 
     <div class="form-group">

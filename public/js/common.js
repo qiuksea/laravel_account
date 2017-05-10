@@ -71,6 +71,28 @@
 
       };
 
+     $('#company_is_eu_1').click(function(){
+
+
+        $('#eu_country_selection').toggle();
+        $('#non_eu_country_selection').toggle();
+
+      });
+
+
+      if($('#company_is_eu_1').is(':checked')){
+
+            $('#eu_country_selection').show();
+      };
+
+      $('#is_charity_or_eligible_body_1').click(function(){
+        
+        $('#charity_eligible_body_selection').toggle();
+
+      });
+
+ 
+
 
    })//$(document).ready(function()
    
