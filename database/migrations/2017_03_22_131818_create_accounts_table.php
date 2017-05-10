@@ -39,7 +39,7 @@ class CreateAccountsTable extends Migration
             $table->string('company_fax');//company_fax
             $table->string('company_email');//company_email
             $table->string('company_contact_name');//company_contact_name
-            $table->boolean('compnay_is_eu');//company_part_eu
+            $table->boolean('company_is_eu');//company_part_eu
             $table->integer('company_country_id'); // 'company_vat_eu' - for eu contry; company_country -> for non-eu
             $table->string('company_vat_reg_no');//company_vat_reg_no
             $table->boolean('is_charity_or_eligible_body'); // -> 'company_pay_vat'-> 'body'
