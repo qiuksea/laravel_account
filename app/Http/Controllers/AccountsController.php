@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Account;
+use App\Country;
 
 use App\Http\Requests\StoreAccountRequest; //https://laracasts.com/discuss/channels/laravel/form-request-validation-class-apphttpcontrollersstoreblogpost-does-not-exist
 
@@ -24,8 +25,14 @@ class AccountsController extends Controller
     	return view('accounts.show', compact('account'));
     }
 
-    public function create(){
-    	return view('accounts.create');
+    public function create(Request $request){
+
+        $eu_countries = Country::where('is_eu', '1')->get();
+        
+        $non_eu_countries = Country::where('is_eu', '0')->get();
+        //dd($eu_countries); #- dump & die - testing purpose
+
+    	return view('accounts.create', compact('eu_countries', 'non_eu_countries'));
     }
 
     public function store(StoreAccountRequest $request){
@@ -59,7 +66,7 @@ class AccountsController extends Controller
 
             ]);*/
 
-        Account::create(request(['staff_name', 'staff_tel', 'staff_email', 'is_over_10k', 'who_credit_check', 'is_student', 'company_notes'])); 
+        Account::create(request(['staff_name', 'staff_tel', 'staff_email', 'is_over_10k', 'who_credit_check', 'is_student', 'student_reg_no', 'is_subsidiary', 'subsidiary_info', 'company_address_1', 'company_address_2', 'company_address_3', 'company_notes'])); 
 
         #Session::flash('flash_message', 'Account successfully added!');
 
@@ -85,18 +92,21 @@ class AccountsController extends Controller
             'email' => 'required',
             'is_over_10k' => 'required'
             ]);*/
-        
+        /*
         $account->staff_name = request('staff_name');
         $account->staff_tel = request('staff_tel');
         $account->staff_email = request('staff_email');
         $account->is_over_10k = request('is_over_10k');
         $account->who_credit_check = request('who_credit_check');
         $account->is_student = request('is_student');
+        $account->student_reg_no = request('student_reg_no');
+        $account->is_subsidiary = request('is_subsidiary');
+        $account->subsidiary_info = request('subsidiary_info');
         $account->company_notes = request('company_notes');
 
-        $account -> save();
+        $account -> save();*/
 
-        #Account::update(request(['name', 'tel', 'email','is_stu', 'notes'])); 
+        Account::update(request(['staff_name', 'staff_tel', 'staff_email', 'is_over_10k', 'who_credit_check', 'is_student', 'student_reg_no', 'is_subsidiary', 'subsidiary_info', 'company_address_1', 'company_address_2', 'company_address_3', 'company_notes'])); 
         return view('accounts.show', compact('account'));
 
     }
