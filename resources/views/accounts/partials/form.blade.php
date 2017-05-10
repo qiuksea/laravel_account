@@ -28,7 +28,7 @@
       <div class="form-check form-check-inline">      
         <label class="form-check-label">
           <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_yes" value="1"
-            @if(old('is_over_10k'))
+            @if(old('is_over_10k') == 1)
               checked
             @endif        
             @if (isset($account->is_over_10k) && $account->is_over_10k) )
@@ -41,10 +41,11 @@
       <div class="form-check form-check-inline">
         <label class="form-check-label">
             <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_no" value="0"
-            @if(!old('is_over_10k'))
+            @if(old('is_over_10k') == 0)
               checked
-            @endif        
-            @if (isset($account->is_over_10k) && !$account->is_over_10k) )
+            @endif   
+                
+            @if (isset($account->is_over_10k) && $account->is_over_10k == 0) )
               checked
             @endif
             >No
@@ -71,6 +72,7 @@
 
   <fieldset class="form-group">
     <legend>Company Details</legend>
+
     <div class="form-check">
       <label class="form-check-label">
         <input type="hidden" class="form-check-input" name="is_student" id="is_student_0" value="0">
@@ -85,9 +87,166 @@
       </label>
     </div>     
 
+    <div class="form-group" style="display:none" id="student_reg_no_input">
+        <label for="student_reg_no">Students Registration Number:*</label>
+          <input type="text" class="form-control" id="student_reg_no" name="student_reg_no" value="{{ old('student_reg_no', isset($account->student_reg_no) ? $account->student_reg_no : null) }}">
+    </div>
+
+     <div class="form-check">
+      <label class="form-check-label">
+        <input type="hidden" class="form-check-input" name="is_subsidiary" id="is_subsidiary_0" value="0">
+        <input type="checkbox" class="form-check-input" name="is_subsidiary" id="is_subsidiary_1" value="1"    
+            @if(old('is_subsidiary'))
+              checked
+            @endif     
+            @if(isset($account->is_subsidiary) && $account->is_subsidiary) )
+              checked
+            @endif
+        > Is this customer a University Company or subsidiary?
+      </label>
+    </div>
+
+    <div class="form-group" style="display:none" id="subsidiary_info_input">
+        <label for="subsidiary_info">Please provide further information or call Ext. 24473*</label>
+          <input type="text" class="form-control" id="subsidiary_info" name="subsidiary_info" value="{{ old('subsidiary_info', isset($account->subsidiary_info) ? $account->subsidiary_info : null) }}">
+    </div>     
+
+    <div class="form-group">
+      <label for="company_name">Name of the Company/Person who will pay the invoice: *</label>
+      <input type="text" class="form-control" id="company_name" name="company_name" value="{{ old('company_name', isset($account->company_name) ? $account->company_name : null) }}">
+    </div>
+
+    <div class="form-group">
+        <label for="company_address_1">Address 1: *</label>
+        <input type="text" class="form-control" id="company_address_1" name="company_address_1" value="{{ old('company_address_1', isset($account->company_address_1) ? $account->company_address_1 : null) }}">
+    </div>
+
+    <div class="form-group">
+        <label for="company_address_2">Address 2: *</label>
+        <input type="text" class="form-control" id="company_address_2" name="company_address_2" value="{{ old('company_address_2', isset($account->company_address_2) ? $account->company_address_2 : null) }}">
+    </div>
+
+    <div class="form-group">
+        <label for="company_address_3">Address 3: *</label>
+        <input type="text" class="form-control" id="company_address_3" name="company_address_3" value="{{ old('company_address_3', isset($account->company_address_3) ? $account->company_address_3 : null) }}">
+    </div>
+
+    <div class="form-group">
+        <label for="company_town">Town/City: *</label>
+        <input type="text" class="form-control" id="company_town" name="company_town" value="{{ old('company_town', isset($account->company_town) ? $account->company_town : null) }}">
+    </div>
+
+    <div class="form-group">
+        <label for="company_postcode">Post Code: *</label>
+        <input type="text" class="form-control" id="company_postcode" name="company_postcode" value="{{ old('company_postcode', isset($account->company_postcode) ? $account->company_postcode : null) }}">
+    </div>
+
+    <div class="form-group">
+        <label for="company_reg_number">Registration Number: *</label>
+        <input type="text" class="form-control" id="company_reg_number" name="company_reg_number" value="{{ old('company_reg_number', isset($account->company_reg_number) ? $account->company_reg_number : null) }}">
+    </div>
+
+    <div class="form-group">
+        <label for="company_telephone">Telephone Number: *</label>
+        <input type="text" class="form-control" id="company_telephone" name="company_telephone" value="{{ old('company_telephone', isset($account->company_telephone) ? $account->company_telephone : null) }}">
+    </div>
+
+    <div class="form-group">
+        <label for="company_fax">Fax Number: </label>
+        <input type="text" class="form-control" id="company_fax" name="company_fax" value="{{ old('company_fax', isset($account->company_fax) ? $account->company_fax : null) }}">
+    </div>
+
+    <div class="form-group">
+        <label for="company_email">Email Address (Accounts Payable/Finance email address for companies/organisations): *</label>
+        <input type="email" class="form-control" id="company_email" name="company_email" value="{{ old('company_email', isset($account->company_email) ? $account->company_email : null) }}">
+    </div>
+
+    <div class="form-group">
+        <label for="company_contact_name">Contact Name: </label>
+        <input type="text" class="form-control" id="company_contact_name" name="company_contact_name" value="{{ old('company_contact_name', isset($account->company_contact_name) ? $account->company_contact_name : null) }}">
+    </div>
+
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="hidden" class="form-check-input" name="compnay_is_eu" id="compnay_is_eu_0" value="0">
+        <input type="checkbox" class="form-check-input" name="compnay_is_eu" id="compnay_is_eu_1" value="1"    
+            @if(old('compnay_is_eu'))
+              checked
+            @endif     
+            @if(isset($account->compnay_is_eu) && $account->compnay_is_eu) )
+              checked
+            @endif
+        > Is the customer part of the EU?
+      </label>
+    </div>     
+
+
+     <div  class="form-group" style="display:visible" id="display_country_or_vat">
+    <!-- country -->
+        <div class="form-group" style="display:visible" id="eu_country_selection">
+          <label for="eu_company_country_id">Please select your eu country:</label>
+          <select class="form-control" id="eu_company_country_id" name="eu_company_country_id">
+            
+              @foreach($eu_countries as $eu_country)
+                <option value="{{ $eu_country->id }}"  
+                  @if ( $eu_country->id == old('eu_company_country_id'))
+                      selected="selected"                    
+                  @endif
+
+                  @if ( isset($account->company_country_id) && ($eu_country->id == $account->company_country_id) )
+                      selected="selected"  
+                  @endif
+                 > 
+                {{ $eu_country->name}} 
+                </option>
+              @endforeach
+            
+          </select>
+        </div>
+
+        <div class="form-group" style="display:visible" id="non_eu_country_selection">
+          <label for="non_eu_company_country_id">Please select your country:</label>
+          <select class="form-control" id="non_eu_company_country_id" name="non_eu_company_country_id">
+          
+              @foreach($non_eu_countries as $non_eu_country)
+                <option value="{{ $non_eu_country->id }}"
+                  @if ($non_eu_country->id == old('non_eu_company_country_id'))
+                    selected="selected" 
+                  @endif
+                  @if ( isset($account->company_country_id) && ($non_eu_country->id == $account->company_country_id) )
+                      selected="selected"  
+                  @endif
+                >
+                {{ $non_eu_country->name}}
+                </option>
+              @endforeach
+            
+          </select>
+        </div>
+
+    <!-- vat number -->
+    </div>
+
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="hidden" class="form-check-input" name="is_charity_or_eligible_body" id="is_charity_or_eligible_body_0" value="0">
+        <input type="checkbox" class="form-check-input" name="is_charity_or_eligible_body" id="is_charity_or_eligible_body_1" value="1"    
+            @if(old('is_charity_or_eligible_body'))
+              checked
+            @endif     
+            @if(isset($account->is_charity_or_eligible_body) && $account->is_charity_or_eligible_body) )
+              checked
+            @endif
+        > Is the customer a charity or eligible body?
+      </label>
+    </div>    
+
+<!-- eligible body select list-->
+
+
     <div class="form-group">
       <label for="company_notes">Any other relevant information:</label>
-      <textarea class="form-control" id="company_notes" name="company_notes" rows="3">{{ old('company_notes', isset($account->company_notes) ? $account->company_notes : null) }}</textarea>
+      <textarea class="form-control" id="company_notes" name="company_notes" rows="5">{{ old('company_notes', isset($account->company_notes) ? $account->company_notes : null) }}</textarea>
     </div>
 
   </fieldset>

@@ -40,12 +40,36 @@
         });
 
         if($('#is_over_10k_yes').is(':checked'))
-        {
-            if($('#project_credit_check').is(":hidden")){
-                 $("#project_credit_check").show();
-            }
+        {           
+            $("#project_credit_check").show();           
 
-        }
+        };       
+   
+
+      $("#is_student_1").click(function(){
+
+            $("#student_reg_no_input").toggle();
+
+      });
+
+      if($("#is_student_1").is(':checked')){
+
+            $("#student_reg_no_input").show();
+
+      };
+
+
+      $("#is_subsidiary_1").click(function(){
+
+        $("#subsidiary_info_input").toggle();
+
+      });
+
+      if($("#is_subsidiary_1").is(':checked')){
+
+        $("#subsidiary_info_input").show();
+
+      };
 
 
    })//$(document).ready(function()
