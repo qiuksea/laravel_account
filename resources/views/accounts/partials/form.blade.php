@@ -28,12 +28,8 @@
       <div class="form-check form-check-inline">      
         <label class="form-check-label">
           <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_yes" value="1"
-            @if(old('is_over_10k') == 1)
-              checked
-            @endif        
-            @if (isset($account->is_over_10k) && $account->is_over_10k) )
-              checked
-            @endif
+           {{ Helper::display_radio_checked(old('is_over_10k'), 
+           '$account->is_over_10k', '1') }}
             >Yes         
         </label>
       </div>
@@ -41,14 +37,7 @@
       <div class="form-check form-check-inline">
         <label class="form-check-label">
             <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_no" value="0"
-            @if(old('is_over_10k') == 0)
-              checked
-            @endif   
-                
-            @if (isset($account->is_over_10k) && $account->is_over_10k == 0) )
-              checked
-            @endif
-            >No
+            {{ Helper::display_radio_checked(old('is_over_10k'), '$account->is_over_10k', '0') }} >No
         </label>
       </div>
 
@@ -75,14 +64,11 @@
 
     <div class="form-check">
       <label class="form-check-label">
-        <input type="hidden" class="form-check-input" name="is_student" id="is_student_0" value="0">
-        <input type="checkbox" class="form-check-input" name="is_student" id="is_student_1" value="1"    
-            @if(old('is_student'))
-              checked
-            @endif     
-            @if(isset($account->is_student) && $account->is_student) )
-              checked
-            @endif
+        <input type="hidden" class="form-check-input" name="is_student" id="is_student_0" value="0
+          {!! Helper::display_checkbox_checked(old('is_over_10k'), '$account->is_student', '0') !!}   ">
+        <input type="checkbox" class="form-check-input" name="is_student" id="is_student_1" value="1" 
+          {{ Helper::display_checkbox_checked(old('is_over_10k'), 
+          '$account->is_student', '1') }}        
         > Is this a Student?
       </label>
     </div>     
@@ -95,13 +81,9 @@
      <div class="form-check">
       <label class="form-check-label">
         <input type="hidden" class="form-check-input" name="is_subsidiary" id="is_subsidiary_0" value="0">
-        <input type="checkbox" class="form-check-input" name="is_subsidiary" id="is_subsidiary_1" value="1"    
-            @if(old('is_subsidiary'))
-              checked
-            @endif     
-            @if(isset($account->is_subsidiary) && $account->is_subsidiary) )
-              checked
-            @endif
+        <input type="checkbox" class="form-check-input" name="is_subsidiary" id="is_subsidiary_1" value="1" 
+            {{ Helper::display_checkbox_checked(old('is_subsidiary'), 
+          '$account->is_subsidiary', '1') }}     
         > Is this customer a University Company or subsidiary?
       </label>
     </div>
@@ -169,13 +151,9 @@
     <div class="form-check">
       <label class="form-check-label">
         <input type="hidden" class="form-check-input" name="compnay_is_eu" id="company_is_eu_0" value="0">
-        <input type="checkbox" class="form-check-input" name="company_is_eu" id="company_is_eu_1" value="1"    
-            @if(old('company_is_eu'))
-              checked
-            @endif     
-            @if(isset($account->company_is_eu) && $account->company_is_eu) )
-              checked
-            @endif
+        <input type="checkbox" class="form-check-input" name="company_is_eu" id="company_is_eu_1" value="1"  
+          {{ Helper::display_checkbox_checked(old('company_is_eu'), 
+          '$account->company_is_eu', '1') }}     
         > Is the customer part of the EU?
       </label>
     </div>     
@@ -237,12 +215,8 @@
       <label class="form-check-label">
         <input type="hidden" class="form-check-input" name="is_charity_or_eligible_body" id="is_charity_or_eligible_body_0" value="0">
         <input type="checkbox" class="form-check-input" name="is_charity_or_eligible_body" id="is_charity_or_eligible_body_1" value="1"    
-            @if(old('is_charity_or_eligible_body'))
-              checked
-            @endif     
-            @if(isset($account->is_charity_or_eligible_body) && $account->is_charity_or_eligible_body) )
-              checked
-            @endif
+            {{ Helper::display_checkbox_checked(old('is_charity_or_eligible_body'), 
+          '$account->is_charity_or_eligible_body', '1') }}     
         > Is the customer a charity or eligible body?
       </label>
     </div>    

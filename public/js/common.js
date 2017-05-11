@@ -91,6 +91,10 @@
 
       });
 
+      if($('#is_charity_or_eligible_body_1').is(':checked')){
+        $('#charity_eligible_body_selection').show();
+      }
+
  
 
 
