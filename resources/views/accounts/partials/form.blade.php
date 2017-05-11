@@ -252,49 +252,63 @@
   <div class="form-group" style="display:none" id="charity_eligible_body_selection">
     <div class="form-check">
       <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_1" value="UK University" checked>
+        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_1" value="UK University"   
+         {!! Helper::display_radio_checked(old('company_eligibility'), '$account->company_eligibility', 'UK University') !!} 
+       >
         UK University
       </label>
     </div>
 
     <div class="form-check">
     <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_2" value="UK School/College">
+        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_2" value="UK School/College"
+        {!! Helper::display_radio_checked(old('company_eligibility'), '$account->company_eligibility', 'UK School/College') !!}
+        >
         UK School/College
       </label>
     </div>
 
     <div class="form-check">
     <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_3" value="UK Government Dept">
+        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_3" value="UK Government Dept"
+            {!! Helper::display_radio_checked(old('company_eligibility'), '$account->company_eligibility', 'UK Government Dept') !!}
+      >
         UK Government Dept
       </label>
     </div>
 
     <div class="form-check">
       <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_4" value="UK Charity">
+        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_4" value="UK Charity"
+         {!! Helper::display_radio_checked(old('company_eligibility'), '$account->company_eligibility', 'UK Charity') !!}
+        >
         UK Charity
       </label>
     </div>
 
     <div class="form-check">
       <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_5" value="UK Research Council">
+        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_5" value="UK Research Council"
+           {!! Helper::display_radio_checked(old('company_eligibility'), '$account->company_eligibility', 'UK Research Council') !!}
+           >
         UK Research Council
       </label>
     </div>
 
     <div class="form-check">
       <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_6" value="UK Hospital">
+        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_6" value="UK Hospital"
+        {!! Helper::display_radio_checked(old('company_eligibility'), '$account->company_eligibility', 'UK Hospital') !!}
+        >
         UK Hospital
       </label>
     </div>
 
     <div class="form-check">
       <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_7" value="Other">
+        <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_7" value="Other"
+         {!! Helper::display_radio_checked(old('company_eligibility'), '$account->company_eligibility', 'Other') !!}
+        >
         Other:
       </label>
     </div>
