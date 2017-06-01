@@ -46,6 +46,9 @@ class CreateAccountsTable extends Migration
             $table->string('company_eligibility'); //company_eligibility
             $table->string('company_eligibility_other'); //company_eligibility_other
             $table->text('company_notes'); //company_comments
+
+            $table->string('status'); //setup
+
             $table->timestamps();
         });
     }
