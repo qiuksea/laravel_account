@@ -5,6 +5,8 @@
 #http://itsolutionstuff.com/post/laravel-5-custom-helper-facade-class-example-from-scratchexample.html
 namespace App\Helpers;
 
+use App\Country;
+
 class Helper
 {
     // account.blade.php
@@ -42,6 +44,71 @@ class Helper
             }
             
     }
-    // form.blade.php
 
-}
+    // form,blade.php
+    public static function display_dropdown_selected($val1, $val2, $val3)
+    {
+           if ($val1 == $val2){
+
+                return 'selected="selected"';
+           }
+                    
+         
+            if ( isset($val3) && ($val1 == $val3) ){
+
+                return 'selected="selected"';
+
+            }
+        
+    }
+    
+    //controller create/edit
+    public static function eu_countries(){
+        $eu_countries = Country::where('is_eu', '1')->get();
+        
+        //dd($eu_countries); #- dump & die - testing purpose
+
+        return $eu_countries;
+    }
+
+    public static function non_eu_countries(){
+       
+        $non_eu_countries = Country::where('is_eu', '0')->get();
+        //dd($eu_countries); #- dump & die - testing purpose
+
+        return $non_eu_countries;
+    }
+
+
+    // account.blade.php
+    public static function display_status(string $input_val)
+    {   
+        if (isset($input_val)){
+
+            switch($input_val){
+                case 'N':
+                    echo "New";
+                    break;
+                case 'P': 
+                    echo "Pending";
+                    break;
+                case 'A':
+                    echo "Await credit check";
+                    break;
+                case 'Y':
+                    echo "Complete";
+                    break;
+                default:
+                    echo "No status";
+
+            } //switch
+
+        }//if
+
+    } //display_status
+
+
+
+
+
+} //class Helpers
