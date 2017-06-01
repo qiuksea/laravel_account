@@ -83,6 +83,7 @@
       if($('#company_is_eu_1').is(':checked')){
 
             $('#eu_country_selection').show();
+            $('#non_eu_country_selection').hide();
       };
 
       $('#is_charity_or_eligible_body_1').click(function(){
