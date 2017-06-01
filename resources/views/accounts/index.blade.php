@@ -22,7 +22,7 @@
 		  <tbody>
 		    @foreach ($accounts as $account)
 
-				@include ('accounts.account')
+				@include ('accounts.partials.account')
 
 	    	@endforeach
 		   
