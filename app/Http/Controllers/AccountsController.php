@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Account;
-use App\Country;
+#use App\Country;
+use Helper;
 
 use App\Http\Requests\StoreAccountRequest; //https://laracasts.com/discuss/channels/laravel/form-request-validation-class-apphttpcontrollersstoreblogpost-does-not-exist
 
@@ -27,10 +28,14 @@ class AccountsController extends Controller
 
     public function create(Request $request){
 
-        $eu_countries = Country::where('is_eu', '1')->get();
+        #$eu_countries = Country::where('is_eu', '1')->get();
         
-        $non_eu_countries = Country::where('is_eu', '0')->get();
+        #$non_eu_countries = Country::where('is_eu', '0')->get();
         //dd($eu_countries); #- dump & die - testing purpose
+
+        $eu_countries = Helper::eu_countries();
+
+        $non_eu_countries =  Helper::non_eu_countries();
 
     	return view('accounts.create', compact('eu_countries', 'non_eu_countries'));
     }
@@ -66,7 +71,12 @@ class AccountsController extends Controller
 
             ]);*/
 
-        Account::create(request(['staff_name', 'staff_tel', 'staff_email', 'is_over_10k', 'who_credit_check', 'is_student', 'student_reg_no', 'is_subsidiary', 'subsidiary_info', 'company_address_1', 'company_address_2', 'company_address_3', 'company_notes'])); 
+        Account::create(request(['staff_name', 'staff_tel', 'staff_email', 'is_over_10k', 'who_credit_check', 'company_type', 'is_student', 'student_reg_no', 'is_subsidiary', 'subsidiary_info', 'company_name', 
+            'company_address_1', 'company_address_2', 'company_address_3', 'company_town', 
+            'company_postcode', 'company_reg_number', 'company_telephone', 
+            'company_fax', 'company_email', 'company_contact_name', 'company_is_eu', 
+            'company_country_id', 'company_vat_reg_no', 'is_charity_or_eligible_body', 
+            'company_eligibility', 'company_eligibility_other', 'company_notes', 'status' => 'N'])); 
 
         #Session::flash('flash_message', 'Account successfully added!');
 
@@ -76,8 +86,12 @@ class AccountsController extends Controller
 
     public function edit(Account $account){
 
+        $eu_countries = Helper::eu_countries();
 
-        return view('accounts.edit', compact('account'));
+        $non_eu_countries =  Helper::non_eu_countries();
+        //dd($eu_countries); #- dump & die - testing purpose
+
+        return view('accounts.edit', compact('account', 'eu_countries', 'non_eu_countries'));
 
     }
 
@@ -106,7 +120,14 @@ class AccountsController extends Controller
 
         $account -> save();*/
 
-        Account::update(request(['staff_name', 'staff_tel', 'staff_email', 'is_over_10k', 'who_credit_check', 'is_student', 'student_reg_no', 'is_subsidiary', 'subsidiary_info', 'company_address_1', 'company_address_2', 'company_address_3', 'company_notes'])); 
+        $account->update(request(['staff_name', 'staff_tel', 'staff_email', 'is_over_10k', 'who_credit_check', 'company_type', 'is_student', 'student_reg_no', 'is_subsidiary', 'subsidiary_info', 'company_name', 
+            'company_address_1', 'company_address_2', 'company_address_3', 'company_town', 
+            'company_postcode', 'company_reg_number', 'company_telephone', 
+            'company_fax', 'company_email', 'company_contact_name', 'company_is_eu', 
+            'company_country_id', 'company_vat_reg_no', 'is_charity_or_eligible_body', 
+            'company_eligibility', 'company_eligibility_other', 'company_notes']));
+
+  
         return view('accounts.show', compact('account'));
 
     }
