@@ -11,13 +11,12 @@
 	    <table class="table">
 		  <thead>
 		    <tr>
-		      <th>Name</th>
-		      <th>Tel</th>
-		      <th>Email</th>
-		      <th>Notes</th>
-		      <th>Student?</th>
-		      <th>Create at</th>
-		      <th>Action</th>
+		    	  <th>Reference</th>
+			      <th>Name</th>
+			      <th>Company</th>
+			      <th>Requested</th>
+			      <th>Status</th>
+			      <th>Action</th>
 		    </tr>
 		  </thead>
 		  <tbody>
