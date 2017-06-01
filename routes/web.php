@@ -24,6 +24,8 @@ DELETE /posts/{id} - destroy
 php artisan route:list
 
 */
+View::share('id_ref', Config::get('constants.AppConstants.ID_REF'));
+
 
 
 Route::get('/', 'AccountsController@index');
