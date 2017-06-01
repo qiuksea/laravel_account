@@ -70,14 +70,14 @@
     <div class="form-group">
       <label for="company_type">Type of Customer: *</label>
       <select class="form-control" id="company_type" name="company_type">
-        <option value="">Please make a selection</option>
+        <option value=" ">Please make a selection</option>
         <option value="Company"
         {{ 
-           Helper::display_dropdown_selected('Company', old('company_type'), '$account->company_type') 
+           Helper::display_dropdown_selected('Company', old('company_type'), $account->company_type) 
                 }} >Company</option>
         <option value="Person"
         {{ 
-           Helper::display_dropdown_selected('Person', old('company_type'), '$account->company_type') 
+           Helper::display_dropdown_selected('Person', old('company_type'), $account->company_type) 
                 }} >Person</option>
       </select>
     </div>
@@ -182,14 +182,14 @@
     <!-- country -->
         <div class="form-group" style="display:none" id="eu_country_selection">
 
-          <label for="eu_company_country_id">Please select your EU country:</label>
+          <label for="company_country_id">Please select your EU country:</label>
           <select class="form-control" id="eu_company_country_id" name="company_country_id">
               <option value="0">Please make a selection</option>
             
               @foreach($eu_countries as $eu_country)
                 <option value="{{ $eu_country->id }}"  
                  {{ 
-                  Helper::display_dropdown_selected($eu_country->id, old('company_country_id'), '$account->company_country_id') 
+                  Helper::display_dropdown_selected($eu_country->id, old('company_country_id'), $account->company_country_id) 
                 }}
                  > 
                 {{ $eu_country->name}} 
@@ -205,14 +205,14 @@
         </div>
 
         <div class="form-group" style="display:visible" id="non_eu_country_selection">
-          <label for="non_eu_company_country_id">Please select your country (Non EU):</label>
+          <label for="company_country_id">Please select your country (Non EU):</label>
           <select class="form-control" id="non_eu_company_country_id" name="company_country_id">
               <option value="0">Please make a selection</option>
           
               @foreach($non_eu_countries as $non_eu_country)
                 <option value="{{ $non_eu_country->id }}"
                 {{ 
-                  Helper::display_dropdown_selected($non_eu_country->id, old('company_country_id'), '$account->company_country_id') 
+                  Helper::display_dropdown_selected($non_eu_country->id, old('company_country_id'), $account->company_country_id) 
                 }}           
                 >
                 {{ $non_eu_country->name}}
