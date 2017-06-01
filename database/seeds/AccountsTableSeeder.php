@@ -17,7 +17,8 @@ class AccountsTableSeeder extends Seeder
 	            'staff_name' => str_random(8),
 	            'staff_tel' => str_random(8),
 	            'staff_email' => str_random(5).'@mail.com',
-                'created_at' => date("Y-m-d H:i:s")
+                'created_at' => date("Y-m-d H:i:s"),
+                'status' => 'N'
 	        ]);
     	}
     }
