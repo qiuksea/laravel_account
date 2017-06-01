@@ -27,7 +27,7 @@
 
       <div class="form-check form-check-inline">      
         <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_yes" value="1"
+          <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_yes" value="1"      
            {{ Helper::display_radio_checked(old('is_over_10k'), 
            '$account->is_over_10k', '1') }}
             >Yes         
@@ -37,7 +37,12 @@
       <div class="form-check form-check-inline">
         <label class="form-check-label">
             <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_no" value="0"
-            {{ Helper::display_radio_checked(old('is_over_10k'), '$account->is_over_10k', '0') }} >No
+          @if (!old('is_over_10k') || (isset($account->is_over_10k) && !$account->is_over_10k) )
+             checked
+          @else
+           {{ Helper::display_radio_checked(old('is_over_10k'), '$account->is_over_10k', '0') }} 
+          @endif
+           >No
         </label>
       </div>
 
@@ -61,6 +66,21 @@
 
   <fieldset class="form-group">
     <legend>Company Details</legend>
+
+    <div class="form-group">
+      <label for="company_type">Type of Customer: *</label>
+      <select class="form-control" id="company_type" name="company_type">
+        <option value="">Please make a selection</option>
+        <option value="Company"
+        {{ 
+           Helper::display_dropdown_selected('Company', old('company_type'), '$account->company_type') 
+                }} >Company</option>
+        <option value="Person"
+        {{ 
+           Helper::display_dropdown_selected('Person', old('company_type'), '$account->company_type') 
+                }} >Person</option>
+      </select>
+    </div>
 
     <div class="form-check">
       <label class="form-check-label">
@@ -104,12 +124,12 @@
     </div>
 
     <div class="form-group">
-        <label for="company_address_2">Address 2: *</label>
+        <label for="company_address_2">Address 2: </label>
         <input type="text" class="form-control" id="company_address_2" name="company_address_2" value="{{ old('company_address_2', isset($account->company_address_2) ? $account->company_address_2 : null) }}">
     </div>
 
     <div class="form-group">
-        <label for="company_address_3">Address 3: *</label>
+        <label for="company_address_3">Address 3: </label>
         <input type="text" class="form-control" id="company_address_3" name="company_address_3" value="{{ old('company_address_3', isset($account->company_address_3) ? $account->company_address_3 : null) }}">
     </div>
 
@@ -124,7 +144,7 @@
     </div>
 
     <div class="form-group">
-        <label for="company_reg_number">Registration Number: *</label>
+        <label for="company_reg_number">Registration Number: </label>
         <input type="text" class="form-control" id="company_reg_number" name="company_reg_number" value="{{ old('company_reg_number', isset($account->company_reg_number) ? $account->company_reg_number : null) }}">
     </div>
 
@@ -150,7 +170,7 @@
 
     <div class="form-check">
       <label class="form-check-label">
-        <input type="hidden" class="form-check-input" name="compnay_is_eu" id="company_is_eu_0" value="0">
+        <input type="hidden" class="form-check-input" name="compnay_is_eu" id="company_is_eu_0" value="0" selected="selected">
         <input type="checkbox" class="form-check-input" name="company_is_eu" id="company_is_eu_1" value="1"  
           {{ Helper::display_checkbox_checked(old('company_is_eu'), 
           '$account->company_is_eu', '1') }}     
@@ -168,13 +188,9 @@
             
               @foreach($eu_countries as $eu_country)
                 <option value="{{ $eu_country->id }}"  
-                  @if ( $eu_country->id == old('eu_company_country_id'))
-                      selected="selected"                    
-                  @endif
-
-                  @if ( isset($account->company_country_id) && ($eu_country->id == $account->company_country_id) )
-                      selected="selected"  
-                  @endif
+                 {{ 
+                  Helper::display_dropdown_selected($eu_country->id, old('eu_company_country_id'), '$account->company_country_id') 
+                }}
                  > 
                 {{ $eu_country->name}} 
                 </option>
@@ -195,12 +211,9 @@
           
               @foreach($non_eu_countries as $non_eu_country)
                 <option value="{{ $non_eu_country->id }}"
-                  @if ($non_eu_country->id == old('non_eu_company_country_id'))
-                    selected="selected" 
-                  @endif
-                  @if ( isset($account->company_country_id) && ($non_eu_country->id == $account->company_country_id) )
-                      selected="selected"  
-                  @endif
+                {{ 
+                  Helper::display_dropdown_selected($non_eu_country->id, old('non_eu_company_country_id'), '$account->company_country_id') 
+                }}           
                 >
                 {{ $non_eu_country->name}}
                 </option>
