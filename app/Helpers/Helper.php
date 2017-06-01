@@ -10,7 +10,7 @@ use App\Country;
 class Helper
 {
     // account.blade.php
-    public static function display_boolean(int $input_val)
+    public static function display_boolean($input_val)
     {	
     	if (isset($input_val)){
     		return ($input_val)==1? 'Yes':'No';    
