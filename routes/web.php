@@ -24,6 +24,9 @@ DELETE /posts/{id} - destroy
 php artisan route:list
 
 */
+
+#https://stackoverflow.com/questions/26062715/defining-constants-in-laravel
+
 View::share('id_ref', Config::get('constants.AppConstants.ID_REF'));
 
 
