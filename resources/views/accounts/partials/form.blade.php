@@ -73,11 +73,11 @@
         <option value=" ">Please make a selection</option>
         <option value="Company"
         {{ 
-           Helper::display_dropdown_selected('Company', old('company_type'), $account->company_type) 
+           Helper::display_dropdown_selected('Company', old('company_type'), isset($account->company_type) ?  $account->company_type : null)
                 }} >Company</option>
         <option value="Person"
         {{ 
-           Helper::display_dropdown_selected('Person', old('company_type'), $account->company_type) 
+           Helper::display_dropdown_selected('Person', old('company_type'), isset($account->company_type) ?  $account->company_type : null )
                 }} >Person</option>
       </select>
     </div>
@@ -189,7 +189,7 @@
               @foreach($eu_countries as $eu_country)
                 <option value="{{ $eu_country->id }}"  
                  {{ 
-                  Helper::display_dropdown_selected($eu_country->id, old('company_country_id'), $account->company_country_id) 
+                  Helper::display_dropdown_selected($eu_country->id, old('company_country_id'), isset($account->company_country_id) ? $account->company_country_id :null ) 
                 }}
                  > 
                 {{ $eu_country->name}} 
@@ -212,7 +212,7 @@
               @foreach($non_eu_countries as $non_eu_country)
                 <option value="{{ $non_eu_country->id }}"
                 {{ 
-                  Helper::display_dropdown_selected($non_eu_country->id, old('company_country_id'), $account->company_country_id) 
+                  Helper::display_dropdown_selected($non_eu_country->id, old('company_country_id'), isset($account->company_country_id) ? $account->company_country_id :null) 
                 }}           
                 >
                 {{ $non_eu_country->name}}
