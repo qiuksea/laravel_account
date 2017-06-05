@@ -74,9 +74,10 @@ class AccountsController extends Controller
         Account::create(request(['staff_name', 'staff_tel', 'staff_email', 'is_over_10k', 'who_credit_check', 'company_type', 'is_student', 'student_reg_no', 'is_subsidiary', 'subsidiary_info', 'company_name', 
             'company_address_1', 'company_address_2', 'company_address_3', 'company_town', 
             'company_postcode', 'company_reg_number', 'company_telephone', 
-            'company_fax', 'company_email', 'company_contact_name', 'company_is_eu', 
+            'company_fax', 'company_email', 'company_contact_name', 'company_is_eu',        
             'company_country_id', 'company_vat_reg_no', 'is_charity_or_eligible_body', 
-            'company_eligibility', 'company_eligibility_other', 'company_notes', 'status' => 'N'])); 
+            'company_eligibility', 'company_eligibility_other', 'company_notes', 
+            'status' => 'N'])); 
 
         #Session::flash('flash_message', 'Account successfully added!');
 
