@@ -71,17 +71,65 @@ class AccountsController extends Controller
 
             ]);*/
 
+
+          $account = new Account;
+          $account->staff_name = request('staff_name');
+          $account->staff_email = request('staff_email');
+          $account->staff_tel = request('staff_tel');
+          $account->is_over_10k = request('is_over_10k');
+          $account->who_credit_check = request('who_credit_check');
+          $account->company_type = request('company_type');
+          $account->is_student = request('is_student');
+          $account->student_reg_no = request('student_reg_no');
+          $account->is_subsidiary = request('is_subsidiary');
+          $account->subsidiary_info = request('subsidiary_info');
+          $account->company_name = request('company_name');
+          $account->company_address_1 = request('company_address_1');
+          $account->company_address_2 = request('company_address_2');
+          $account->company_address_3 = request('company_address_3');
+          $account->company_town = request('company_town');
+          $account->company_postcode = request('company_postcode');
+          $account->company_reg_number = request('company_reg_number');  
+          $account->company_telephone = request('company_telephone'); 
+          $account->company_fax = request('company_fax'); 
+          $account->company_email = request('company_email'); 
+          $account->company_contact_name = request('company_contact_name'); 
+          $account->company_is_eu = request('company_is_eu'); 
+
+          if ( request('company_is_eu') == 1){
+
+             $account->company_country_id = request('company_eu_country_id'); 
+
+          } elseif(  request('company_is_eu') == 0){
+
+            $account->company_country_id = request('company_non_eu_country_id');
+
+          }
+
+          $account->company_vat_reg_no = request('company_vat_reg_no'); 
+          $account->is_charity_or_eligible_body = request('is_charity_or_eligible_body'); 
+          $account->company_eligibility = request('company_eligibility'); 
+          $account->company_eligibility_other = request('company_eligibility_other'); 
+          $account->company_notes = request('company_notes'); 
+
+          $account->save();
+    
+     /*
+
         Account::create(request(['staff_name', 'staff_tel', 'staff_email', 'is_over_10k', 'who_credit_check', 'company_type', 'is_student', 'student_reg_no', 'is_subsidiary', 'subsidiary_info', 'company_name', 
             'company_address_1', 'company_address_2', 'company_address_3', 'company_town', 
             'company_postcode', 'company_reg_number', 'company_telephone', 
             'company_fax', 'company_email', 'company_contact_name', 'company_is_eu',        
             'company_country_id', 'company_vat_reg_no', 'is_charity_or_eligible_body', 
-            'company_eligibility', 'company_eligibility_other', 'company_notes', 
-            'status' => 'N'])); 
+            'company_eligibility', 'company_eligibility_other', 'company_notes'])); 
+            */
+
+
+
 
         #Session::flash('flash_message', 'Account successfully added!');
 
-        return redirect('/')->with('success','Item created successfully!'); 
+        return redirect('/')->with('success','Account created successfully!'); 
         #return redirect()->back();
     }
 
@@ -120,16 +168,20 @@ class AccountsController extends Controller
         $account->company_notes = request('company_notes');
 
         $account -> save();*/
+        /*
 
         $account->update(request(['staff_name', 'staff_tel', 'staff_email', 'is_over_10k', 'who_credit_check', 'company_type', 'is_student', 'student_reg_no', 'is_subsidiary', 'subsidiary_info', 'company_name', 
             'company_address_1', 'company_address_2', 'company_address_3', 'company_town', 
             'company_postcode', 'company_reg_number', 'company_telephone', 
             'company_fax', 'company_email', 'company_contact_name', 'company_is_eu', 
             'company_country_id', 'company_vat_reg_no', 'is_charity_or_eligible_body', 
-            'company_eligibility', 'company_eligibility_other', 'company_notes']));
+            'company_eligibility', 'company_eligibility_other', 'company_notes'])); */
+
+
+        $account->update($request->all());
 
   
-        return view('accounts.show', compact('account'));
+        return view('accounts.show', compact('account')) ->with('success','Account updated successfully');
 
     }
 
