@@ -113,10 +113,7 @@
         <td>{{ $account -> company_postcode }}</td>
     </tr>
 
-    <tr>
-        <td>Country:</td>
-        <td>{{ $account -> country -> name }}</td>
-    </tr>
+  
 
     <tr>
         <td>Company Registration Number:</td>
@@ -150,7 +147,10 @@
 
     <tr>
         <td>Is your customer in the EU?</td>
-        <td>{{ Helper::display_boolean($account -> company_is_eu) }}</td>
+        <td>
+          {{ Helper::display_boolean($account -> company_is_eu) }} <br>
+          {{ $account -> country -> name }}          
+        </td>
     </tr>
 
     <tr>
@@ -160,7 +160,11 @@
 
     <tr>
         <td>Is the customer a charity or eligible body?</td>
-        <td>{{ Helper::display_boolean($account -> is_charity_or_eligible_body) }}</td>
+        <td>
+          {{ Helper::display_boolean($account -> is_charity_or_eligible_body) }} <br>
+          {{ $account -> company_eligibility}} <br>
+          {{ $account -> company_eligibility_other}}          
+        </td>
     </tr>
 
   </table>
