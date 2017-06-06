@@ -36,11 +36,10 @@ class StoreAccountRequest extends FormRequest
             'company_town' => 'required',
             'company_postcode' => 'required',
             'company_telephone' => 'required',
-            'company_email' => 'required|email',
-           // 'company_is_eu' => 'required',
-            'eu_company_country_id' => 'required_if:company_is_eu, 1',
+            'company_email' => 'required|email',           
             'company_vat_reg_no' => 'required_if:company_is_eu, 1',
-            'non_eu_company_country_id' => 'required_if:company_is_eu, 0',
+            'company_eu_country_id' => 'required_if:company_is_eu, 1',
+            'company_non_eu_country_id' => 'required_if:company_is_eu, 0',
             'company_eligibility' => 'required_if:is_charity_or_eligible_body, 1'
            
 
@@ -64,10 +63,9 @@ class StoreAccountRequest extends FormRequest
             'company_postcode.required' => 'Please enter details for: Post Code.',
             'company_telephone.required' => 'Please enter company telephone number.',
             'company_email.required' => 'Please enter a company email address.',  
-          //  'company_is_eu.required' => 'Please select an eu id',          
-            'eu_company_country_id.required_if' =>'Please select an EU country.',
+            'company_eu_country_id.required_if' => 'Please select a country.',   
+            'company_non_eu_country_id.required_if' => 'Please select a country.', 
             'company_vat_reg_no.required_if' => 'Please enter details for: VAT Reg Number.',
-            'non_eu_company_country_id.required_if' => 'Please select a Non EU country.',
             'company_eligibility.required_if' => 'Please make a selection for a charity or eligible body.'    
 
 
