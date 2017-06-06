@@ -5,17 +5,17 @@
 
       <div class="form-group">
         <label for="staff_name" >name *</label>
-        <input type="text" class="form-control" id="staff_name" name="staff_name" aria-describedby="staff name" value="{{ old('staff_name', isset($account->staff_name) ? $account->staff_name : null) }}">
+        <input type="text" class="form-control" id="staff_name" name="staff_name" aria-describedby="staff name" value="{{ old('staff_name', isset($account->staff_name) ? $account->staff_name : null) }}"  required>
       </div>
 
       <div class="form-group">
         <label for="staff_email">Email *</label>
-        <input type="email" class="form-control" id="staff_email" name="staff_email" aria-describedby="emailHelp" placeholder="Enter email" value="{{ old('staff_email', isset($account->staff_email) ? $account->staff_email : null) }}">
+        <input type="email" class="form-control" id="staff_email" name="staff_email" aria-describedby="emailHelp" placeholder="Enter email" value="{{ old('staff_email', isset($account->staff_email) ? $account->staff_email : null) }}" required>
       </div>
 
       <div class="form-group">
         <label for="staff_tel">Tel *</label>
-        <input type="text" class="form-control" id="staff_tel" name="staff_tel" value="{{ old('staff_tel', isset($account->staff_tel) ? $account->staff_tel : null) }}">
+        <input type="text" class="form-control" id="staff_tel" name="staff_tel" value="{{ old('staff_tel', isset($account->staff_tel) ? $account->staff_tel : null) }}"  required>
       </div>
 
       <div class="form-group">
@@ -120,7 +120,7 @@
 
     <div class="form-group">
         <label for="company_address_1">Address 1: *</label>
-        <input type="text" class="form-control" id="company_address_1" name="company_address_1" value="{{ old('company_address_1', isset($account->company_address_1) ? $account->company_address_1 : null) }}">
+        <input type="text" class="form-control" id="company_address_1" name="company_address_1" value="{{ old('company_address_1', isset($account->company_address_1) ? $account->company_address_1 : null) }}" required>
     </div>
 
     <div class="form-group">
@@ -135,12 +135,12 @@
 
     <div class="form-group">
         <label for="company_town">Town/City: *</label>
-        <input type="text" class="form-control" id="company_town" name="company_town" value="{{ old('company_town', isset($account->company_town) ? $account->company_town : null) }}">
+        <input type="text" class="form-control" id="company_town" name="company_town" value="{{ old('company_town', isset($account->company_town) ? $account->company_town : null) }}" required>
     </div>
 
     <div class="form-group">
         <label for="company_postcode">Post Code: *</label>
-        <input type="text" class="form-control" id="company_postcode" name="company_postcode" value="{{ old('company_postcode', isset($account->company_postcode) ? $account->company_postcode : null) }}">
+        <input type="text" class="form-control" id="company_postcode" name="company_postcode" value="{{ old('company_postcode', isset($account->company_postcode) ? $account->company_postcode : null) }}" required>
     </div>
 
     <div class="form-group">
@@ -150,7 +150,7 @@
 
     <div class="form-group">
         <label for="company_telephone">Telephone Number: *</label>
-        <input type="text" class="form-control" id="company_telephone" name="company_telephone" value="{{ old('company_telephone', isset($account->company_telephone) ? $account->company_telephone : null) }}">
+        <input type="text" class="form-control" id="company_telephone" name="company_telephone" value="{{ old('company_telephone', isset($account->company_telephone) ? $account->company_telephone : null) }}" required>
     </div>
 
     <div class="form-group">
@@ -160,7 +160,7 @@
 
     <div class="form-group">
         <label for="company_email">Email Address (Accounts Payable/Finance email address for companies/organisations): *</label>
-        <input type="email" class="form-control" id="company_email" name="company_email" value="{{ old('company_email', isset($account->company_email) ? $account->company_email : null) }}">
+        <input type="email" class="form-control" id="company_email" name="company_email" value="{{ old('company_email', isset($account->company_email) ? $account->company_email : null) }}" required>
     </div>
 
     <div class="form-group">
@@ -170,26 +170,33 @@
 
     <div class="form-check">
       <label class="form-check-label">
-        <input type="hidden" class="form-check-input" name="compnay_is_eu" id="company_is_eu_0" value="0" selected="selected">
+        <input type="hidden" class="form-check-input" name="company_is_eu" id="company_is_eu_0" value="0" 
+        {{ Helper::display_checkbox_checked(old('company_is_eu'), 
+          isset($account->company_is_eu) ? $account->company_is_eu : null, '0') }} 
+        
+        >
         <input type="checkbox" class="form-check-input" name="company_is_eu" id="company_is_eu_1" value="1"  
-          {{ Helper::display_checkbox_checked(old('company_is_eu'), 
-          '$account->company_is_eu', '1') }}     
+
+         {{ Helper::display_checkbox_checked(old('company_is_eu'), 
+          isset($account->company_is_eu)? $account->company_is_eu : null, '1') }}  
+         
         > Is the customer part of the EU?
       </label>
     </div>     
 
 
     <!-- country -->
+    
         <div class="form-group" style="display:none" id="eu_country_selection">
 
-          <label for="company_country_id">Please select your EU country:</label>
-          <select class="form-control" id="eu_company_country_id" name="company_country_id">
-              <option value="0">Please make a selection</option>
+          <label for="company_eu_country_id">Please select your EU country:</label>
+          <select class="form-control" id="eu_company_country_id" name="company_eu_country_id">
+              <option value="">Please make a selection</option>
             
               @foreach($eu_countries as $eu_country)
                 <option value="{{ $eu_country->id }}"  
                  {{ 
-                  Helper::display_dropdown_selected($eu_country->id, old('company_country_id'), isset($account->company_country_id) ? $account->company_country_id :null ) 
+                  Helper::display_dropdown_selected($eu_country->id, old('company_eu_country_id'), isset($account->company_country_id) ? $account->company_country_id :null ) 
                 }}
                  > 
                 {{ $eu_country->name}} 
@@ -205,14 +212,14 @@
         </div>
 
         <div class="form-group" style="display:visible" id="non_eu_country_selection">
-          <label for="company_country_id">Please select your country (Non EU):</label>
-          <select class="form-control" id="non_eu_company_country_id" name="company_country_id">
-              <option value="0">Please make a selection</option>
+          <label for="company_non_eu_country_id">Please select your country (Non EU):</label>
+          <select class="form-control" id="non_eu_company_country_id" name="company_non_eu_country_id">
+              <option value="">Please make a selection</option>
           
               @foreach($non_eu_countries as $non_eu_country)
                 <option value="{{ $non_eu_country->id }}"
                 {{ 
-                  Helper::display_dropdown_selected($non_eu_country->id, old('company_country_id'), isset($account->company_country_id) ? $account->company_country_id :null) 
+                  Helper::display_dropdown_selected($non_eu_country->id, old('company_non_eu_country_id'), isset($account->company_country_id) ? $account->company_country_id :null) 
                 }}           
                 >
                 {{ $non_eu_country->name}}
