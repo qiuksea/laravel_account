@@ -1,6 +1,5 @@
 		    <tr id="account_{{$account->id}}">
 		    	 <td>
-		    	 {{ Config::get('constants.AppConstants.PAG_SHOW') }}
 		    		<a href="/accounts/{{ $account-> id }}"> 
 		    		{{ $id_ref }}
 		    		{{ $account ->id}} </a>
