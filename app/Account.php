@@ -13,5 +13,14 @@ class Account extends Model
     {
     	return $this -> belongsTo(Country::class, 'company_country_id');
     }
+
+    public function scopeAllStatus($query, $val) {
+
+    	#$val = 'N', 'P', 'A', 'Y', 'R'
+    	#Call App\Account::allStatus('P')->get();
+
+    	return $query->where('status', $val);
+
+    }
     
 }
