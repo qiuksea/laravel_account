@@ -39,7 +39,7 @@ class Helper
                 return 'checked';
             }
                  
-            if($val2 && $val2 == $val3){
+            if(isset($val2) && $val2 == $val3){
                 return 'checked';
             }
             
