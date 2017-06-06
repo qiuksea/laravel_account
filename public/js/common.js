@@ -73,6 +73,8 @@
 
       $("#is_subsidiary_1").click(function(){
 
+
+
           $("#subsidiary_info_input").toggle();
 
           if($("#is_subsidiary_1").is(':checked')){
@@ -97,6 +99,7 @@
      $('#company_is_eu_1').click(function(){
 
         $('#eu_country_selection').toggle();
+
         $('#non_eu_country_selection').toggle();
 
         if($('#company_is_eu_1').is(':checked')){
@@ -106,6 +109,7 @@
             //https://stackoverflow.com/questions/39245967/how-to-unselect-options-in-select-using-jquery
 
          } else {
+
 
             $("#company_vat_reg_no").val("");
 
@@ -120,13 +124,13 @@
 
             $('#eu_country_selection').show();
             $('#non_eu_country_selection').hide();
-            //$("#non_eu_company_country_id > option:selected").prop('selected', false);
+            $("#non_eu_company_country_id > option:selected").prop('selected', false);
 
       } else {
 
             $('#eu_country_selection').hide();
             $('#non_eu_country_selection').show();
-           // $("#eu_company_country_id > option:selected").prop('selected', false);
+            $("#eu_company_country_id > option:selected").prop('selected', false);
 
 
       };
