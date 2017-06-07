@@ -104,7 +104,7 @@
 
         if($('#company_is_eu_1').is(':checked')){
 
-            $("#non_eu_company_country_id > option:selected").prop('selected', false);
+            //$("#non_eu_company_country_id > option:selected").prop('selected', false);
             //https://stackoverflow.com/questions/1857781/best-way-to-unselect-a-select-in-jquery
             //https://stackoverflow.com/questions/39245967/how-to-unselect-options-in-select-using-jquery
 
@@ -113,7 +113,7 @@
 
             $("#company_vat_reg_no").val("");
 
-            $("#eu_company_country_id > option:selected").prop('selected', false);
+            //$("#eu_company_country_id > option:selected").prop('selected', false);
 
           };
 
@@ -124,13 +124,13 @@
 
             $('#eu_country_selection').show();
             $('#non_eu_country_selection').hide();
-            $("#non_eu_company_country_id > option:selected").prop('selected', false);
+            //$("#non_eu_company_country_id > option:selected").prop('selected', false);
 
       } else {
 
             $('#eu_country_selection').hide();
             $('#non_eu_country_selection').show();
-            $("#eu_company_country_id > option:selected").prop('selected', false);
+            //$("#eu_company_country_id > option:selected").prop('selected', false);
 
 
       };
