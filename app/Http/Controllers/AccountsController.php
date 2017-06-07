@@ -146,10 +146,7 @@ class AccountsController extends Controller
 
     }
 
-    public function update($id, StoreAccountRequest $request){
-
-        $account = Account::findOrFail($id);
-
+    public function update($id, StoreAccountRequest $request){       
         /*
         $this->validate(request(),[
             'name' => 'required',
@@ -180,7 +177,48 @@ class AccountsController extends Controller
             'company_eligibility', 'company_eligibility_other', 'company_notes'])); */
 
 
-        $account->update($request->all());
+       # $account->update($request->all());
+          $account = Account::findOrFail($id);
+          $account->staff_name = request('staff_name');
+          $account->staff_email = request('staff_email');
+          $account->staff_tel = request('staff_tel');
+          $account->is_over_10k = request('is_over_10k');
+          $account->who_credit_check = request('who_credit_check');
+          $account->company_type = request('company_type');
+          $account->is_student = request('is_student');
+          $account->student_reg_no = request('student_reg_no');
+          $account->is_subsidiary = request('is_subsidiary');
+          $account->subsidiary_info = request('subsidiary_info');
+          $account->company_name = request('company_name');
+          $account->company_address_1 = request('company_address_1');
+          $account->company_address_2 = request('company_address_2');
+          $account->company_address_3 = request('company_address_3');
+          $account->company_town = request('company_town');
+          $account->company_postcode = request('company_postcode');
+          $account->company_reg_number = request('company_reg_number');  
+          $account->company_telephone = request('company_telephone'); 
+          $account->company_fax = request('company_fax'); 
+          $account->company_email = request('company_email'); 
+          $account->company_contact_name = request('company_contact_name'); 
+          $account->company_is_eu = request('company_is_eu'); 
+
+          if ( request('company_is_eu') == 1){
+
+             $account->company_country_id = request('company_eu_country_id'); 
+
+          } elseif(  request('company_is_eu') == 0){
+
+            $account->company_country_id = request('company_non_eu_country_id');
+
+          }
+
+          $account->company_vat_reg_no = request('company_vat_reg_no'); 
+          $account->is_charity_or_eligible_body = request('is_charity_or_eligible_body'); 
+          $account->company_eligibility = request('company_eligibility'); 
+          $account->company_eligibility_other = request('company_eligibility_other'); 
+          $account->company_notes = request('company_notes'); 
+
+          $account->save();
 
   
         return view('accounts.show', compact('account')) ->with('success','Account updated successfully');
