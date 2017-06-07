@@ -112,6 +112,8 @@ class AccountsController extends Controller
           $account->company_eligibility_other = request('company_eligibility_other'); 
           $account->company_notes = request('company_notes'); 
 
+          $account->status = 'N';
+
           $account->save();
     
      /*
