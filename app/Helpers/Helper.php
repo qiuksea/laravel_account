@@ -50,13 +50,13 @@ class Helper
     {
            if ($val1 == $val2){
 
-                return 'selected="selected"';
+                return 'selected=selected';
            }
                     
          
             if ( isset($val3) && ($val1 == $val3) ){
 
-                return 'selected="selected"';
+                return 'selected=selected';
 
             }
         
