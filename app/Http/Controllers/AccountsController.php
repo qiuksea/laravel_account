@@ -221,7 +221,17 @@ class AccountsController extends Controller
           $account->save();
 
   
-        return view('accounts.show', compact('account')) ->with('success','Account updated successfully');
+        return view('accounts.show', compact('account'))->with('success','Account updated successfully');
+
+    }
+
+    public function update_status($id){
+      
+      $account = Account::findOrFail($id);
+
+      $account->update(request(['status']));
+
+      return view('accounts.show', compact('account'))->with('success', 'Status updated successfully.');
 
     }
 
