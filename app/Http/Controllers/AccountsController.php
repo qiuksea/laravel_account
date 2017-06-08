@@ -22,7 +22,6 @@ class AccountsController extends Controller
 
     public function show(Account $account){
 
-   
     	return view('accounts.show', compact('account'));
     }
 
@@ -226,7 +225,7 @@ class AccountsController extends Controller
     }
 
     public function update_status($id){
-      
+
       $account = Account::findOrFail($id);
 
       $account->update(request(['status']));
