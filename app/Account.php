@@ -22,5 +22,12 @@ class Account extends Model
     	return $query->where('status', $val);
 
     }
+
+    public function notes(){
+
+        return $this -> hasMany(Note::class);
+    }
+
+        
     
 }
