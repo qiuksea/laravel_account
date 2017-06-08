@@ -4,20 +4,26 @@
 
 <div class="col-md-10">
 
+    <ul class="nav nav-pills justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" href="/accounts/{{ $account-> id }}">All</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/accounts/{{ $account-> id }}/edit">Edit</a>
+      </li>
+    </ul>
+
+
     <ul class="nav nav-tabs" id="recordTab" role="tablist">
       <li class="nav-item">
         <a class="nav-link active" data-toggle="tab" href="#view" role="tab" aria-controls="view">View</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#status" role="tab" aria-controls="status">Update Status</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#notes" role="tab" ria-controls="notes">Add Notes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#edit" role="tab" ria-controls="edit">Edit</a>
+        <a class="nav-link" data-toggle="tab" href="#status" role="tab" aria-controls="status">Update Status</a>
       </li>
-
       <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#log" role="tab" ria-controls="log">Log</a>
       </li>
@@ -31,9 +37,7 @@
         @include ('accounts.partials/account_status')
       </div>
       <div class="tab-pane" id="notes" role="tabpanel">hello 3</div>
-      <div class="tab-pane" id="edit" role="tabpanel">
-        
-      </div>
+
       <div class="tab-pane" id="log" role="tabpanel">hello 4</div>
     </div>
 
