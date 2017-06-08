@@ -1,7 +1,12 @@
 
+<div class="col-md-10">
+	<p>Current Status: <strong>{{ Helper::display_status($account->status) }} </strong> </p>
+	<hr>
+</div>
+
 <div class="col-md-5">
 
-	<form method="POST" action="/accounts/{{ $account-> id }}">
+	<form method="POST" action="/accounts/status/{{ $account-> id }}">
 
 	 	{{csrf_field() }} 
 
@@ -42,7 +47,3 @@
 	</form>
 </div>
 
-<div class="col-md-10">
-	<hr>
-	<p><strong>Current Status</strong>: {{ Helper::display_status($account->status) }}</p>
-</div>
