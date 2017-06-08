@@ -30,8 +30,9 @@ php artisan route:list
 View::share('id_ref', Config::get('constants.AppConstants.ID_REF'));
 
 
-Route::patch('/accounts/{id}', 'AccountsController@update_status');
+Route::patch('/accounts/status/{id}', 'AccountsController@update_status');
 #https://stackoverflow.com/questions/16661292/add-new-methods-to-a-resource-controller-in-laravel
+#https://stackoverflow.com/questions/35250390/laravel-5-2-passing-route-parameter-to-controller
 
 Route::get('/', 'AccountsController@index');
 
