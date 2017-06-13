@@ -6,7 +6,10 @@
 
     <ul class="nav nav-pills justify-content-end">
       <li class="nav-item">
-        <a class="nav-link active" href="/accounts/{{ $account-> id }}">All</a>
+        <a class="nav-link active" href="/accounts/{{ $account-> id }}">View</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/accounts/">All</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/accounts/{{ $account-> id }}/edit">Edit</a>
@@ -19,10 +22,10 @@
         <a class="nav-link active" data-toggle="tab" href="#view" role="tab" aria-controls="view">View</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#notes" role="tab" ria-controls="notes">Add Notes</a>
+        <a class="nav-link" data-toggle="tab" href="#notes" role="tab" ria-controls="notes">Notes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#status" role="tab" aria-controls="status">Update Status</a>
+        <a class="nav-link" data-toggle="tab" href="#status" role="tab" aria-controls="status">Status</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#log" role="tab" ria-controls="log">Log</a>
