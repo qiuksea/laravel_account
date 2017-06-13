@@ -28,6 +28,26 @@ class Account extends Model
         return $this -> hasMany(Note::class);
     }
 
+
+    public function addNote($content){
+
+            /*
+            Note::create([
+
+                'content' => $content,
+                'account_id' => $this->id
+
+            ]);*/
+
+            $this->notes()->create(compact('content'));
+
+    }
+
+    public function scopeAllNotes(){
+
+        return $this->notes()->orderBy('created_at', 'desc');
+    }
+
         
     
 }
