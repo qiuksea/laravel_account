@@ -30,7 +30,7 @@ php artisan route:list
 View::share('id_ref', Config::get('constants.AppConstants.ID_REF'));
 
 
-Route::patch('/accounts/status/{id}', 'AccountsController@update_status');
+Route::patch('/accounts/{id}/status', 'AccountsController@update_status');
 #https://stackoverflow.com/questions/16661292/add-new-methods-to-a-resource-controller-in-laravel
 #https://stackoverflow.com/questions/35250390/laravel-5-2-passing-route-parameter-to-controller
 
@@ -49,4 +49,7 @@ Route::get('/accounts/{account}/edit', 'AccountsController@edit');
 Route::patch('/accounts/{account}', 'AccountsController@update');
 
 Route::delete('/accounts/{account}', 'AccountsController@destroy');
+
+
+Route::post('/accounts/{account}/notes', 'NotesController@store');
 
