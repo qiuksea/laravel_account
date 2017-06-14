@@ -228,22 +228,26 @@ class AccountsController extends Controller
 
       $account = Account::findOrFail($id);
 
-      $newStatus = request(['status']); #return an array
+      $newStatus = request('status'); #return an array
 
       #dd($newStatus['status']); 
       $ifNotes = $account->notes()->get()->isEmpty();
 
+      #dd($ifNotes); 
+
       #https://stackoverflow.com/questions/20563166/eloquent-collection-counting-and-detect-empty
     
-      if ( $ifNotes && ($newStatus['status'] == 'P') || ($newStatus['status'] == 'A') || ($newStatus['status'] == 'R')) 
+      if ( $ifNotes && (($newStatus == 'P') || ($newStatus == 'A') || ($newStatus == 'R')) )
       {    
         #return view('accounts.show', compact('account'))->with('success', 'The note is required before update.');
         return redirect("/accounts/$account->id")->with('success','The note is required before update.'); 
       }
       else        
       {
+      
+        $account->update(['status' => $newStatus]); 
+        #https://stackoverflow.com/questions/36407603/argument-2-passed-to-illuminate-database-eloquent-modelupdate-must-be-of-the
         
-        $account->update($newStatus); 
          #return view('accounts.show', compact('account'))->with('success', 'Status updated successfully.');
         return redirect("/accounts/$account->id")->with('success','Status updated successfully.'); 
 
