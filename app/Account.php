@@ -14,6 +14,16 @@ class Account extends Model
     	return $this -> belongsTo(Country::class, 'company_country_id');
     }
 
+    public function notes(){
+
+        return $this -> hasMany(Note::class);
+    }
+
+    public function logs(){
+
+        return $this -> hasMany(Log::class);
+    }
+
     public function scopeAllStatus($query, $val) {
 
     	#$val = 'N', 'P', 'A', 'Y', 'R'
@@ -21,13 +31,7 @@ class Account extends Model
 
     	return $query->where('status', $val);
 
-    }
-
-    public function notes(){
-
-        return $this -> hasMany(Note::class);
-    }
-
+    }   
 
     public function addNote($content){
 
@@ -46,6 +50,20 @@ class Account extends Model
     public function scopeAllNotes(){
 
         return $this->notes()->orderBy('created_at', 'desc');
+    }
+
+    public function addLog($content){
+
+            /*
+            Log::create([
+
+                'content' => $content,
+                'account_id' => $this->id
+
+            ]);*/
+
+            $this->logs()->create(compact('content'));
+
     }
 
         
