@@ -228,7 +228,7 @@ class AccountsController extends Controller
 
       $account = Account::findOrFail($id);
 
-      $newStatus = request('status'); #return an array
+      $newStatus = request('status'); #request(['status']) - return an array
 
       #dd($newStatus['status']); 
       $ifNotes = $account->notes()->get()->isEmpty();
@@ -246,8 +246,9 @@ class AccountsController extends Controller
       {
       
         $account->update(['status' => $newStatus]); 
-        #https://stackoverflow.com/questions/36407603/argument-2-passed-to-illuminate-database-eloquent-modelupdate-must-be-of-the
-        
+        #The update method expects an array of column and value pairs representing the columns that should be updated. https://laravel.com/docs/5.4/eloquent#updates
+
+
          #return view('accounts.show', compact('account'))->with('success', 'Status updated successfully.');
         return redirect("/accounts/$account->id")->with('success','Status updated successfully.'); 
 
