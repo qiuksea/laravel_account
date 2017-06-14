@@ -87,19 +87,22 @@ class Helper
 
             switch($input_val){
                 case 'N':
-                    echo "New";
+                    return "New"; #use 'echo' won't work with controller
                     break;
                 case 'P': 
-                    echo "Pending";
+                    return "Pending";
                     break;
                 case 'A':
-                    echo "Await credit check";
+                    return "Await credit check";
                     break;
                 case 'Y':
-                    echo "Complete";
+                    return "Complete";
+                    break;
+                case 'R':
+                    return "Rejected ";
                     break;
                 default:
-                    echo "No status";
+                    return "No status";
 
             } //switch
 
