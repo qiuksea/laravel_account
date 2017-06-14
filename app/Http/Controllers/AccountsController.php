@@ -244,12 +244,28 @@ class AccountsController extends Controller
       }
       else        
       {
+
+        $oldStatus = $account->status;
+
+        #dd($oldStatus);
       
-        $account->update(['status' => $newStatus]); 
+        $account->update(['status' => $newStatus]);        
+
+        $logContent = "Status Changed -> ";
+
+        $old = Helper::display_status($oldStatus);
+
+        $new = Helper::display_status($account->status);   
+
+        $logContent.= $old . " to " .$new;
+
+        #dd($logContent);
+
+        $account->addLog($logContent);
         #The update method expects an array of column and value pairs representing the columns that should be updated. https://laravel.com/docs/5.4/eloquent#updates
 
 
-         #return view('accounts.show', compact('account'))->with('success', 'Status updated successfully.');
+        #return view('accounts.show', compact('account'))->with('success', 'Status updated successfully.');
         return redirect("/accounts/$account->id")->with('success','Status updated successfully.'); 
 
       }
