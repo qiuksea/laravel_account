@@ -66,6 +66,11 @@ class Account extends Model
 
     }
 
+    public function scopeAllLogs(){
+
+        return $this->logs()->orderBy('created_at', 'desc');
+    }
+
         
     
 }

@@ -33,17 +33,23 @@
     </ul>
 
     <div class="tab-content">
+    
       <div class="tab-pane active" id="view" role="tabpanel">
           @include ('accounts.partials/account_view')       
       </div>
+
       <div class="tab-pane" id="notes" role="tabpanel">
-        @include ('accounts.partials/account_notes')
-      </div>
-      <div class="tab-pane" id="status" role="tabpanel">
-        @include ('accounts.partials/account_status')        
+          @include ('accounts.partials/account_notes')
       </div>
 
-      <div class="tab-pane" id="log" role="tabpanel">hello 4</div>
+      <div class="tab-pane" id="status" role="tabpanel">
+          @include ('accounts.partials/account_status')        
+      </div>
+
+      <div class="tab-pane" id="log" role="tabpanel">
+          @include ('accounts.partials/account_logs') 
+      </div>
+
     </div>
 
 

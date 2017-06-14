@@ -12,5 +12,6 @@ use Session;
 
 class LogsController extends Controller
 {
-   
+
+
 }

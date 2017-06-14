@@ -99,7 +99,7 @@ class Helper
                     return "Complete";
                     break;
                 case 'R':
-                    return "Rejected ";
+                    return "Rejected";
                     break;
                 default:
                     return "No status";
