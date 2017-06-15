@@ -8,6 +8,27 @@
 		<a href="/accounts/create " class="btn btn-info btn-sm">Create</a>
 		<hr>
 
+		<ul class="nav">
+		  <li class="nav-item">		    
+		  <a class="nav-link" href="{{ route('accounts') }}">All Requests</a>			
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="{{ route('accounts', ['status' => 'N']) }}">New Requests</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="{{ route('accounts', ['status' => 'P']) }}">Pending Requests</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="{{ route('accounts', ['status' => 'A']) }}">Await credit check</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="{{ route('accounts', ['status' => 'Y']) }}">Complete Requests</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="{{ route('accounts', ['status' => 'R']) }}">Rejected Requests</a>
+		  </li>
+		</ul>
+
 	    <table class="table">
 		  <thead>
 		    <tr>

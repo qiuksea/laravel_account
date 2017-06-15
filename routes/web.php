@@ -36,11 +36,14 @@ Route::patch('/accounts/{id}/status', 'AccountsController@update_status');
 
 Route::get('/', 'AccountsController@index');
 
-Route::get('/accounts', 'AccountsController@index');
+#Route::get('/accounts', 'AccountsController@index');
+
+Route::get('/accounts', [
+	 'as' => 'accounts',
+    'uses' => 'AccountsController@index'
+	]);
 
 Route::get('/accounts/create', 'AccountsController@create');  #create route must place before show action route!!! 
-
-Route::get('/accounts/{account}', 'AccountsController@show');
 
 Route::post('/accounts', 'AccountsController@store');
 
@@ -50,6 +53,11 @@ Route::patch('/accounts/{account}', 'AccountsController@update');
 
 Route::delete('/accounts/{account}', 'AccountsController@destroy');
 
-
 Route::post('/accounts/{account}/notes', 'NotesController@store');
+
+#https://stackoverflow.com/questions/38252038/laravel-5-2-notfoundhttpexception-in-handler-php-line-103
+Route::get('/accounts/{account}', 'AccountsController@show');
+
+
+
 

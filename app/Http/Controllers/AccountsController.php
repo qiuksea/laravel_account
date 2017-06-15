@@ -15,9 +15,23 @@ use Session;
 class AccountsController extends Controller
 {
     //
-    public function index(){
-    	$accounts = Account::all();
+    public function index(Request $request){    	
+
+      if ($request->has('status')):
+        #https://stackoverflow.com/questions/38737019/laravel-5-2-get-query-string
+        #https://laravel.io/forum/05-07-2015-how-to-deal-with-query-string-get-variables
+        $status = $_GET['status'];        
+
+        $accounts = Account::allStatus($status)->get();       
+
+      else:
+
+          $accounts = Account::all();       
+
+      endif;
+
     	return view('accounts.index', compact('accounts'));
+
     }
 
     public function show(Account $account){
