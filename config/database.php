@@ -53,6 +53,8 @@ return [
             'engine' => null,
         ],
 
+        #http://fideloper.com/laravel-multiple-database-connections
+
         'oldAccount' =>[
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
