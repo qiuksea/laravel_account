@@ -10,19 +10,19 @@
 
 		<ul class="nav">
 		  <li class="nav-item">		    
-		  <a class="nav-link" href="{{ route('accounts') }}">All Requests</a>			
+		  <a class="nav-link" href="/accounts">All</a>			
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" href="{{ route('accounts', ['status' => 'N']) }}">New Requests</a>
+		    <a class="nav-link" href="/accounts?status=N">New Requests</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" href="{{ route('accounts', ['status' => 'P']) }}">Pending Requests</a>
+		    <a class="nav-link" href="/accounts?status=P">Pending Requests</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" href="{{ route('accounts', ['status' => 'A']) }}">Await credit check</a>
+		    <a class="nav-link" href="/accounts?status=A">Await credit check</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" href="{{ route('accounts', ['status' => 'Y']) }}">Complete Requests</a>
+		    <a class="nav-link" href="/accounts?status=Y">Complete Requests</a>
 		  </li>
 		  <li class="nav-item">
 		    <a class="nav-link" href="{{ route('accounts', ['status' => 'R']) }}">Rejected Requests</a>
