@@ -3,17 +3,17 @@
   <fieldset class="form-group">
     <legend>Your Details</legend>
 
-      <div class="form-group">
+      <div class="form-group {{ $errors->has('staff_name') ? 'has-error' : '' }}">
         <label for="staff_name" >name *</label>
-        <input type="text" class="form-control" id="staff_name" name="staff_name" aria-describedby="staff name" value="{{ old('staff_name', isset($account->staff_name) ? $account->staff_name : null) }}"  required>
+        <input type="text" class="form-control" id="staff_name" name="staff_name" aria-describedby="staff name" value="{{ old('staff_name', isset($account->staff_name) ? $account->staff_name : null) }}" required >
       </div>
 
-      <div class="form-group">
+      <div class="form-group{{ $errors->has('staff_email') ? 'has-error' : '' }}">
         <label for="staff_email">Email *</label>
         <input type="email" class="form-control" id="staff_email" name="staff_email" aria-describedby="emailHelp" placeholder="Enter email" value="{{ old('staff_email', isset($account->staff_email) ? $account->staff_email : null) }}" required>
       </div>
 
-      <div class="form-group">
+      <div class="form-group {{ $errors->has('staff_tel') ? 'has-error' : '' }}">
         <label for="staff_tel">Tel *</label>
         <input type="text" class="form-control" id="staff_tel" name="staff_tel" value="{{ old('staff_tel', isset($account->staff_tel) ? $account->staff_tel : null) }}"  required>
       </div>
