@@ -14,6 +14,7 @@ use Session;
 
 class AccountsController extends Controller
 {
+    
     //
     public function index(Request $request){    	
 
