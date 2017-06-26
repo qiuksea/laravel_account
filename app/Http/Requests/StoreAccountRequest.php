@@ -26,7 +26,7 @@ class StoreAccountRequest extends FormRequest
         return [
             'staff_name' => 'required|max:255',
             'staff_email' => 'required|email',
-            'staff_tel' => 'required',
+            'staff_tel' => 'required|numeric',
             'who_credit_check' => 'required_if:is_over_10k, 1',
             'company_type' => 'required',
             'subsidiary_info' => 'required_if:is_subsidiary, 1',
@@ -50,7 +50,8 @@ class StoreAccountRequest extends FormRequest
     public function messages()
     {
         return [
-            'staff_name.required'  => 'Please enter your name.',            
+            'staff_name.required'  => 'Please enter your name.',  
+            'staff_name.max' => ' The name may not be greater than 255 characters.',          
             'staff_email.required'  => 'Please enter an email address.',
             'staff_tel.required'  => 'Please enter a telephone number.',
             'who_credit_check.required_if' => 'Please enter who did the credit check for you.',
