@@ -20,14 +20,16 @@ class Helper
     // form.blade.php
     public static function display_radio_checked($val1, $val2, $val3)
     {
-    	    if ($val1 == $val3){
-              return 'checked';
-            }
-                   
-            if (isset($val2) && ($val2 == $val3) ) {
-              return 'checked';
-            }
+    	    if (isset($val1) && ($val1 == $val3)){
 
+              return 'checked';
+
+            } 
+
+            elseif ( ($val2 == $val3)) {
+
+                return 'checked';
+            }           
             
     }
 
@@ -35,11 +37,11 @@ class Helper
     public static function display_checkbox_checked($val1, $val2, $val3)
     {
 
-            if($val1 == $val3){
+            if ($val1 === $val3){
                 return 'checked';
-            }
-                 
-            if(isset($val2) && $val2 == $val3){
+            } 
+
+            if (isset($val2) && $val2 === $val3){
                 return 'checked';
             }
             
@@ -48,13 +50,13 @@ class Helper
     // form,blade.php
     public static function display_dropdown_selected($val1, $val2, $val3)
     {
-           if ($val1 == $val2){
+           if ($val1 === $val2){
 
                 return 'selected=selected';
            }
                     
          
-            if ( isset($val3) && ($val1 == $val3) ){
+            if ( isset($val3) && ($val1 === $val3) ){
 
                 return 'selected=selected';
 

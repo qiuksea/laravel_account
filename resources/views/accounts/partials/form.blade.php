@@ -27,20 +27,28 @@
 
       <div class="form-check form-check-inline">      
         <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_yes" value="1"      
-           {{ Helper::display_radio_checked(old('is_over_10k'), 
-           $account->is_over_10k, '1') }}
-            >Yes         
+          <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_yes" value="1"  
+
+           {{ 
+           Helper::display_radio_checked(old('is_over_10k'), isset($account->is_over_10k) ?  $account->is_over_10k : null, 1)
+                }} 
+         
+            >Yes      
         </label>
       </div>
 
       <div class="form-check form-check-inline">
         <label class="form-check-label">
             <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_no" value="0"
-            {{ Helper::display_radio_checked(old('is_over_10k'), 
-           $account->is_over_10k, '0') }}
+
+
+          {{ 
+           Helper::display_radio_checked(old('is_over_10k'), isset($account->is_over_10k) ?  $account->is_over_10k : null, 0)
+                }} 
+
+
       
-           >No
+           >No 
         </label>
       </div>
 
@@ -82,12 +90,13 @@
 
     <div class="form-check">
       <label class="form-check-label">
-        <input type="hidden" class="form-check-input" name="is_student" id="is_student_0" value="0
-          {!! Helper::display_checkbox_checked(old('is_over_10k'), '$account->is_student', '0') !!}   ">
+        <input type="hidden" class="form-check-input" name="is_student" id="is_student_0" value="0"
+          {{ Helper::display_checkbox_checked(old('is_over_10k'), isset($account->is_student) ? $account->is_student :null, 0) }}   ">
         <input type="checkbox" class="form-check-input" name="is_student" id="is_student_1" value="1" 
           {{ Helper::display_checkbox_checked(old('is_student'), 
-          $account->is_student, '1') }}        
-        > Is this a Student?
+          isset($account->is_student)? $account->is_student: null, 1) }}    
+
+        > Is this a Student ?
       </label>
     </div>     
 
@@ -98,10 +107,17 @@
 
      <div class="form-check">
       <label class="form-check-label">
-        <input type="hidden" class="form-check-input" name="is_subsidiary" id="is_subsidiary_0" value="0">
+        <input type="hidden" class="form-check-input" name="is_subsidiary" id="is_subsidiary_0" value="0"
+
+           {{ Helper::display_checkbox_checked(old('is_subsidiary'), 
+           isset($account->is_subsidiary)? $account->is_subsidiary: null, 0) }}
+
+        >
         <input type="checkbox" class="form-check-input" name="is_subsidiary" id="is_subsidiary_1" value="1" 
+
             {{ Helper::display_checkbox_checked(old('is_subsidiary'), 
-          $account->is_subsidiary, '1') }}     
+           isset($account->is_subsidiary)? $account->is_subsidiary: null, 1) }}     
+
         > Is this customer a University Company or subsidiary?
       </label>
     </div>
@@ -170,13 +186,13 @@
       <label class="form-check-label">
         <input type="hidden" class="form-check-input" name="company_is_eu" id="company_is_eu_0" value="0" 
         {{ Helper::display_checkbox_checked(old('company_is_eu'), 
-          isset($account->company_is_eu) ? $account->company_is_eu : null, '0') }} 
+          isset($account->company_is_eu) ? $account->company_is_eu : null, 0) }} 
         
         >
         <input type="checkbox" class="form-check-input" name="company_is_eu" id="company_is_eu_1" value="1"  
 
          {{ Helper::display_checkbox_checked(old('company_is_eu'), 
-          isset($account->company_is_eu)? $account->company_is_eu : null, '1') }}  
+          isset($account->company_is_eu)? $account->company_is_eu : null, 1) }}  
          
         > Is the customer part of the EU?
       </label>
@@ -233,11 +249,11 @@
       <label class="form-check-label">
         <input type="hidden" class="form-check-input" name="is_charity_or_eligible_body" id="is_charity_or_eligible_body_0" value="0"
         {{ Helper::display_checkbox_checked(old('is_charity_or_eligible_body'), 
-          $account->is_charity_or_eligible_body, '0') }}   
+          isset($account->is_charity_or_eligible_body)?$account->is_charity_or_eligible_body:null, 0) }}   
         >
         <input type="checkbox" class="form-check-input" name="is_charity_or_eligible_body" id="is_charity_or_eligible_body_1" value="1"    
             {{ Helper::display_checkbox_checked(old('is_charity_or_eligible_body'), 
-          $account->is_charity_or_eligible_body, '1') }}     
+          isset($account->is_charity_or_eligible_body)?$account->is_charity_or_eligible_body:null, 1) }}     
         > Is the customer a charity or eligible body?
       </label>
     </div>    
@@ -248,7 +264,7 @@
     <div class="form-check">
       <label class="form-check-label">
         <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_1" value="UK University"   
-         {{ Helper::display_radio_checked(old('company_eligibility'), $account->company_eligibility, 'UK University') }} 
+         {{ Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility)? $account->company_eligibility:null, 'UK University') }} 
        >
         UK University
       </label>
@@ -257,7 +273,7 @@
     <div class="form-check">
     <label class="form-check-label">
         <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_2" value="UK School/College"
-        {!! Helper::display_radio_checked(old('company_eligibility'), $account->company_eligibility, 'UK School/College') !!}
+        {{ Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility)? $account->company_eligibility :null , 'UK School/College') }}
         >
         UK School/College
       </label>
@@ -266,7 +282,7 @@
     <div class="form-check">
     <label class="form-check-label">
         <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_3" value="UK Government Dept"
-            {!! Helper::display_radio_checked(old('company_eligibility'), $account->company_eligibility, 'UK Government Dept') !!}
+            {!! Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility)? $account->company_eligibility: null, 'UK Government Dept') !!}
       >
         UK Government Dept
       </label>
@@ -275,7 +291,7 @@
     <div class="form-check">
       <label class="form-check-label">
         <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_4" value="UK Charity"
-         {!! Helper::display_radio_checked(old('company_eligibility'), $account->company_eligibility, 'UK Charity') !!}
+         {!! Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility) ? $account->company_eligibility: null, 'UK Charity') !!}
         >
         UK Charity
       </label>
@@ -284,7 +300,7 @@
     <div class="form-check">
       <label class="form-check-label">
         <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_5" value="UK Research Council"
-           {!! Helper::display_radio_checked(old('company_eligibility'), $account->company_eligibility, 'UK Research Council') !!}
+           {!! Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility) ? $account->company_eligibility :null, 'UK Research Council') !!}
            >
         UK Research Council
       </label>
@@ -293,16 +309,16 @@
     <div class="form-check">
       <label class="form-check-label">
         <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_6" value="UK Hospital"
-        {!! Helper::display_radio_checked(old('company_eligibility'), $account->company_eligibility, 'UK Hospital') !!}
+        {{ Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility) ? $account->company_eligibility :null, 'UK Hospital') }}
         >
-        UK Hospital
+        UK Hospital  ---- {{ old('company_eligibility') }}
       </label>
     </div>
 
     <div class="form-check">
       <label class="form-check-label">
         <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_7" value="Other"
-         {!! Helper::display_radio_checked(old('company_eligibility'), $account->company_eligibility, 'Other') !!}
+         {!! Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility)? $account->company_eligibility :null, 'Other') !!}
         >
         Other:
       </label>
