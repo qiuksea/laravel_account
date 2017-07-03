@@ -17,6 +17,7 @@ class CreateNotesTable extends Migration
             $table->increments('id');
             $table->integer('account_id');
             $table->text('content');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
