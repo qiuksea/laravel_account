@@ -1,4 +1,10 @@
-@extends ('layouts.master')
+@extends ('layouts.uni')
+@section ('title')
+
+  Customer Account Request
+
+@endsection
+
 
 @section ('content')
 

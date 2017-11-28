@@ -1,36 +1,13 @@
 
-@extends ('layouts.master')
+@extends ('layouts.uni')
 
-
-@section ('content')
-	<div class="col-md-12">		
+@section ('content')		
 	
-		<a href="/accounts/create " class="btn btn-info btn-sm">Create</a>
+		<a href="/accounts/create" class="btn btn-primary">New Account Form</a>
 		<hr>
 
-		<ul class="nav">
-		  <li class="nav-item">		    
-		  <a class="nav-link" href="/accounts">All</a>			
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" href="/accounts?status=N">New Requests</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" href="/accounts?status=P">Pending Requests</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" href="/accounts?status=A">Await credit check</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" href="/accounts?status=Y">Complete Requests</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" href="{{ route('accounts', ['status' => 'R']) }}">Rejected Requests</a>
-		  </li>
-		</ul>
-
-	    <table class="table">
-		  <thead>
+	    <table class="table table-bordered">
+		  <thead class="table-primary">
 		    <tr>
 		    	  <th>Reference</th>
 			      <th>Name</th>
@@ -49,7 +26,5 @@
 		   
 		  </tbody>
 		</table>
-
-	</div>
 
 @endsection

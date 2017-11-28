@@ -58,6 +58,19 @@ Route::post('/accounts/{account}/notes', 'NotesController@store');
 #https://stackoverflow.com/questions/38252038/laravel-5-2-notfoundhttpexception-in-handler-php-line-103
 Route::get('/accounts/{account}', 'AccountsController@show');
 
+//---------------------  testing dbs connection ------------------------------
+
+Route::get('check-connection', function () {
+    $accounts = DB::table("accounts")->get();
+    dd($accounts);
+});
+
+Route::get('check-connection-2', function () {
+    $country_cou = DB::connection("oldAccount")->table("country_cou")->get();
+    dd($country_cou);
+});
+
+
 
 
 

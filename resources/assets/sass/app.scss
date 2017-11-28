@@ -7,3 +7,7 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.pt-6 {
+    padding-top: ($spacer-x * .5) !important;  
+}

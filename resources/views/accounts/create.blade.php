@@ -1,4 +1,4 @@
-@extends ('layouts.master')
+@extends ('layouts.uni')
 
 @section ('content')
 
@@ -12,7 +12,6 @@
 
 	</form>
 </div>
-
 
 
 @endsection
