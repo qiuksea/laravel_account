@@ -34,10 +34,10 @@
           </div>
 
           <section class="row text-center placeholders">
-            <div class="col-6 col-sm-3 placeholder">
+            <div class="col-8 col-sm-6 placeholder">
               @if ( Session::has('flash_message') )   
               <div class="alert {{ Session::get('flash_type') }}">
-                 <h3>{{ Session::get('flash_message') }}</h3>
+                 <h4>{{ Session::get('flash_message') }}</h4>
               </div>    
               @endif
             </div>            
@@ -45,6 +45,13 @@
 
           <h2>Section</h2>
           <div class="table-responsive">
+
+            @if ($message = Session::get('success'))
+              <div class="alert alert-success alert-block" class="col-md-8">
+                <button type="button" class="close" data-dismiss="alert">×</button> 
+                      <strong>{{ $message }}</strong>
+              </div>
+            @endif
             
             @include ('layouts.errors')
 

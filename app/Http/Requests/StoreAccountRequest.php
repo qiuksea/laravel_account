@@ -40,7 +40,7 @@ class StoreAccountRequest extends FormRequest
             'company_vat_reg_no' => 'required_if:company_is_eu, 1',
             'company_eu_country_id' => 'required_if:company_is_eu, 1',
             'company_non_eu_country_id' => 'required_if:company_is_eu, 0',
-            'company_eligibility' => 'required_if:is_charity_or_eligible_body, 1'
+            'company_eligibility' => 'required_if:is_charity_or_eligible_body, 1|nullable'
            
 
         ];

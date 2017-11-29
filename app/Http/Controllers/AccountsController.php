@@ -15,6 +15,12 @@ use Session;
 class AccountsController extends Controller
 {
     
+    public function __construct(){
+
+        //$this->middleware('auth')->except(['create', 'store']);
+
+    }
+
     //
     public function index(Request $request){    	
 
@@ -254,8 +260,8 @@ class AccountsController extends Controller
     
       if ( $ifNotes && (($newStatus == 'P') || ($newStatus == 'A') || ($newStatus == 'R')) )
       {    
-        #return view('accounts.show', compact('account'))->with('success', 'The note is required before update.');
-        return redirect("/accounts/$account->id")->with('success','The note is required before update.'); 
+
+        return redirect("/accounts/$account->id")->with('success','The note is required first.'); 
       }
       else        
       {
@@ -273,6 +279,10 @@ class AccountsController extends Controller
         $new = Helper::display_status($account->status);   
 
         $logContent.= $old . " to " .$new;
+
+        // session user email here!
+        $logContent.= ' by ' . 'j.qi@shef.ac.uk';
+        //$logContent.= ' by ' . auth()->user()->email; 
 
         #dd($logContent);
 
