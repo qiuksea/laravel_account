@@ -68,6 +68,7 @@ return [
             'engine' => null,
         ],
 
+/*
         'connectUser' =>[
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -81,7 +82,7 @@ return [
             'strict' => false,#origin: true https://laracasts.com/discuss/channels/laravel/laravel-530-throwing-error-field-test-1-doesnt-have-a-default-value
             'engine' => null,
         ],
-
+*/
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
