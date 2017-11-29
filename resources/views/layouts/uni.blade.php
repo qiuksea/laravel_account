@@ -48,7 +48,7 @@
 
             @if ($message = Session::get('success'))
               <div class="alert alert-success alert-block" class="col-md-8">
-                <button type="button" class="close" data-dismiss="alert">×</button> 
+                <button type="button" class="close" data-dismiss="alert">x</button> 
                       <strong>{{ $message }}</strong>
               </div>
             @endif
