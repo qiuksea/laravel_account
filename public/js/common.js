@@ -3,7 +3,7 @@
 
         var url = "/accounts";
 
-         //https://stackoverflow.com/questions/32738763/laravel-csrf-token-mismatch-for-ajax-post-request
+        //https://stackoverflow.com/questions/32738763/laravel-csrf-token-mismatch-for-ajax-post-request
 
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
        
