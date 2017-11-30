@@ -167,6 +167,8 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        //XavRsl/Cas
+        Xavrsl\Cas\CasServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -226,6 +228,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Helper' => App\Helpers\Helper::class,
+        'Cas' => Xavrsl\Cas\Facades\Cas::class,
 
 
     ],
