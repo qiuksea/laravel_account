@@ -2,7 +2,7 @@
 @extends ('layouts.uni')
 
 @section ('content')	
-<div class="col-10">		
+<div class="col-md-10">		
 	
 		<a href="/accounts/create" class="btn btn-primary">New Account Form</a>
 		<hr>
