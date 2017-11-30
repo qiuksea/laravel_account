@@ -2,11 +2,17 @@
    $(document).ready(function(){
 
         var url = "/accounts";
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
+         //https://stackoverflow.com/questions/32738763/laravel-csrf-token-mismatch-for-ajax-post-request
+
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+       
         //delete account and remove it from list
         $('.delete-account').click(function(){
+          
             var account_id = $(this).val();
+       
+            //alert("hi  " + CSRF_TOKEN);
 
             //delete task and remove it from list  
                 $.ajax({
@@ -55,9 +61,11 @@
 
                $("#student_reg_no_input").show();
              
-              $("#is_subsidiary_1").prop("checked", false);
+               $("#is_subsidiary_1").prop("checked", false);
 
-              $("#subsidiary_info").val("");
+               $("#subsidiary_info").val("");
+
+               $("#subsidiary_info_input").hide();
 
             };     
 
@@ -74,7 +82,6 @@
       $("#is_subsidiary_1").click(function(){
 
 
-
           $("#subsidiary_info_input").toggle();
 
           if($("#is_subsidiary_1").is(':checked')){
@@ -85,13 +92,15 @@
 
             $("#student_reg_no").val("");
 
+            $("#student_reg_no_input").hide();
+
           };
 
       });
 
       if($("#is_subsidiary_1").is(':checked')){
 
-        $("#subsidiary_info_input").show();        
+          $("#subsidiary_info_input").show();        
  
       };
 
@@ -102,47 +111,47 @@
 
         $('#non_eu_country_selection').toggle();
 
-        if($('#company_is_eu_1').is(':checked')){
-
-            //$("#non_eu_company_country_id > option:selected").prop('selected', false);
-            //https://stackoverflow.com/questions/1857781/best-way-to-unselect-a-select-in-jquery
-            //https://stackoverflow.com/questions/39245967/how-to-unselect-options-in-select-using-jquery
-
-         } else {
-
-
-            $("#company_vat_reg_no").val("");
-
-            //$("#eu_company_country_id > option:selected").prop('selected', false);
-
-          };
-
       });
 
+        //https://stackoverflow.com/questions/1857781/best-way-to-unselect-a-select-in-jquery
+        //https://stackoverflow.com/questions/39245967/how-to-unselect-options-in-select-using-jquery
 
       if($('#company_is_eu_1').is(':checked')){
 
             $('#eu_country_selection').show();
             $('#non_eu_country_selection').hide();
-            //$("#non_eu_company_country_id > option:selected").prop('selected', false);
+            //$("#company_non_eu_country_id option:selected").prop('selected', false);
 
       } else {
 
             $('#eu_country_selection').hide();
             $('#non_eu_country_selection').show();
-            //$("#eu_company_country_id > option:selected").prop('selected', false);
-
+            $("#company_vat_reg_no").val("");
+            //$("#company_eu_country_id option:selected").prop('selected', false);
 
       };
 
       $('#is_charity_or_eligible_body_1').click(function(){
         
-        $('#charity_eligible_body_selection').toggle();
+        $('#charity_eligible_body_selection').toggle();          
+
+        if ( $('#is_charity_or_eligible_body_1').is(':checked') === false ) {
+
+          $( "input[type=radio][name=company_eligibility]:checked" ).prop('checked', false);
+        }        
 
       });
 
+
+
       if($('#is_charity_or_eligible_body_1').is(':checked')){
-        $('#charity_eligible_body_selection').show();
+
+          $('#charity_eligible_body_selection').show();
+
+        } else {
+
+          //$( "input[type=radio][name=company_eligibility]:checked" ).prop('checked', false);
+
       }
 
  

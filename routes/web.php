@@ -38,7 +38,8 @@ Route::get('/', 'AccountsController@index');
 
 #Route::get('/accounts', 'AccountsController@index');
 
-Route::get('/accounts', [
+Route::get('/accounts', 
+	[
 	 'as' => 'accounts',
     'uses' => 'AccountsController@index'
 	]);

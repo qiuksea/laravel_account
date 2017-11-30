@@ -182,7 +182,7 @@
                     <td>Is your customer in the EU?</td>
                     <td>
                       {{ Helper::display_boolean($account -> company_is_eu) }} <br>
-                      {{ $account -> country -> name }}          
+                       {{ $account->country ? $account -> country -> name : '' }}            
                     </td>
                 </tr>
 

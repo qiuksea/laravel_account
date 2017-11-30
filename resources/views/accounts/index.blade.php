@@ -6,8 +6,8 @@
 		<a href="/accounts/create" class="btn btn-primary">New Account Form</a>
 		<hr>
 
-	    <table class="table table-bordered">
-		  <thead class="table-primary">
+	    <table class="table table-hover table-bordered">
+		  <thead class="table-info">
 		    <tr>
 		    	  <th>Reference</th>
 			      <th>Name</th>

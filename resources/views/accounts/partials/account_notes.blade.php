@@ -25,7 +25,7 @@
 
 		  <li class="list-group-item">
 
-		  	{{ $note -> created_at  }} <br>
+		  	{{ $note -> created_at  }}  by  note use name here <br>
 
 		  	{{  $note->content }}
 

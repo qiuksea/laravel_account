@@ -42,6 +42,9 @@ class Account extends Model
                 'account_id' => $this->id
 
             ]);*/
+            #$user_id = auth()->id();
+
+            #$this->notes()->create(compact('content','user_id'));
 
             $this->notes()->create(compact('content'));
 
