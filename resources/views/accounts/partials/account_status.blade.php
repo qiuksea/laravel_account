@@ -1,5 +1,5 @@
 
-<div class="col-md-5">
+<div class="col-md-8">
 
 	<form method="POST" action="/accounts/{{ $account-> id }}/status">
 
