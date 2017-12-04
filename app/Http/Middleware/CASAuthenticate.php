@@ -49,12 +49,13 @@ class CASAuthenticate
                             {
                           
                                 $vars = [
-                                    "email" => $email,
+                                    "email" => $email,                                 
                                     "uid" =>  $uid,
                                     "firstname" => $firstname,
                                     "lastname"  => $lastname,
                                     "user_type"  => $user_type,
-                                    "department" => $department                          
+                                    "department" => $department,
+                                    "role_id" => $user->role_id                        
                                 ]; // store in user array
 
                                 session()->put('user_info', $vars);
@@ -80,7 +81,7 @@ class CASAuthenticate
     private function connect_ldap($uid){
 
         //LDAP get user information
-                $ldapconn = ldap_connect("143.167.1.6", 389) or die("Could not connect to LDAP server."); #auth.shef.ac.uk
+                $ldapconn = ldap_connect("auth.shef.ac.uk", 389) or die("Could not connect to LDAP server."); #143.167.1.6
 
                 if ($ldapconn) {
 
