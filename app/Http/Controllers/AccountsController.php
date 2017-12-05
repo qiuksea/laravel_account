@@ -146,9 +146,6 @@ class AccountsController extends Controller
             'company_eligibility', 'company_eligibility_other', 'company_notes'])); 
             */
 
-
-
-
         #Session::flash('flash_message', 'Account successfully added!');
 
         return redirect('/')->with('success','Account created successfully!'); 
