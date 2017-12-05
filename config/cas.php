@@ -23,7 +23,9 @@ return [
         |
         */
 
-        'cas_hostname' => env('CAS_HOSTNAME'),
+        #'cas_hostname' => env('CAS_HOSTNAME'),
+        'cas_hostname' => env('CAS_HOSTNAME', 'cas-dev.shef.ac.uk'),
+      
 
 
         /*
@@ -47,7 +49,8 @@ return [
         |
         */
 
-        'cas_uri' => env('CAS_URI', ''),
+        #'cas_uri' => env('CAS_URI', ''),
+        'cas_uri' => env('CAS_URI', '/cas'),
 
 
         /*
@@ -60,7 +63,8 @@ return [
         |
         */
 
-        'cas_validation' => env('CAS_VALIDATION', ''),
+        #'cas_validation' => env('CAS_VALIDATION', ''),
+        'cas_validation' => env('CAS_VALIDATION', ''),#ca - on cpanel testing without ca
 
 
         /*
@@ -72,7 +76,7 @@ return [
         |
         */
 
-        'cas_cert' => env('CAS_CERT', ''),
+        'cas_cert' => env('CAS_CERT', ''),#/webusers/ad1jqi/public_html - on cpanel testing, set as ''
 
 
         /*
@@ -125,4 +129,8 @@ return [
         */
 
         'cas_saml' => env('CAS_SAML', false)
+
+
+        #'cas_login_url' => '',
+        #'cas_logout_url' => '',
 ];
