@@ -59,6 +59,11 @@ Route::post('/accounts/{account}/notes', 'NotesController@store');
 #https://stackoverflow.com/questions/38252038/laravel-5-2-notfoundhttpexception-in-handler-php-line-103
 Route::get('/accounts/{account}', 'AccountsController@show');
 
+//CAS Authentication
+Route::get('auth/login', 'Auth\AuthController@CASLogin');
+Route::get('auth/logout', 'Auth\AuthController@Logout');
+Route::get('auth/caslogout', 'Auth\AuthController@CASLogout');
+
 //---------------------  testing dbs connection ------------------------------
 
 Route::get('check-connection', function () {
