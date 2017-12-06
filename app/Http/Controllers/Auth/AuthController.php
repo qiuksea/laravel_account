@@ -41,20 +41,14 @@ class AuthController extends Controller
 
         if (session()->has('user_info')){
 			 
-			session()->forget('login_error');			
+			session()->forget('login_error');		       	     
 
-        	return redirect('/'); #->with('user_info', session('user_info'));      
-
-        } else {
-
-        	return redirect('/')->with('login_error','You have no permission for this page!');
-
-        }       
+        } 
+        return redirect('/'); #->with('user_info', session('user_info')); 
 
         #https://stackoverflow.com/questions/34488194/set-session-variables-in-laravel
         #$email = session('user_info.email'); 
         #dd(session()->all());
-
     }
 
     //logout CAS, Session destroyed
