@@ -60,20 +60,21 @@ class CASAuthenticate
 
                                 session()->put('user_info', $vars);
 
-                                Auth::login($user);                            
+                                Auth::login($user); 
 
                             } else {
 
-                                return redirect('/')->with('login_error','You have no permission for this site.');;
-                            }//if ($user)
+                                session()->put('login_error','You have no permission for this site.');
+
+                            } //if ($user)                              
 
                         } //!empty($email)   
 
-            }// if ($uid)            
+            }// if ($uid)  
            
         } //if(!Auth::check())
 
-        return $next($request);
+            return $next($request);        
 
     } //function handle
 
