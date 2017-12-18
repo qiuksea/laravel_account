@@ -35,13 +35,61 @@ class CASAuthenticate
                 
                         if ($email){
 
-                            $firstname = $entries[0]["givenname"][0];
+                            if (array_key_exists('givenname', $entries[0]))
+                            {
+                                $firstname = $entries[0]["givenname"][0];
 
-                            $lastname = $entries[0]["sn"][0];
+                            } else {
 
-                            $user_type = $entries[0]["shefucardtype"][0];
+                                $firstname = '';
 
-                            $department = $entries[0]["shefreportingfaculty"][0];
+                            }
+
+                            if (array_key_exists('sn', $entries[0]))
+                            {
+                                 $lastname = $entries[0]["sn"][0];
+
+
+                            } else {
+
+                                $lastname = '';
+
+                            }                      
+
+
+                            if ( array_key_exists('shefucardtype', $entries[0]) )
+                            {
+                                 $user_type = $entries[0]["shefucardtype"][0];
+
+                            } else {
+
+                                 $user_type = '';
+                            }
+
+
+                            if (array_key_exists('shefreportingfaculty', $entries[0]))
+                            {
+                                 $department = $entries[0]["shefreportingfaculty"][0];
+
+
+                            } else {
+
+                                $department = '';
+
+                            }                      
+                            
+
+                            $vars = [
+                                    "email" => $email,                                 
+                                    "uid" =>  $uid,
+                                    "firstname" => $firstname,
+                                    "lastname"  => $lastname,
+                                    "user_type"  => $user_type,
+                                    "department" => $department,
+                                               
+                            ]; // store in user array
+
+                            session()->put('user_info', $vars);/*
 
                             $user = User::where('email', $email)->first();
                            
@@ -58,7 +106,7 @@ class CASAuthenticate
                                     "role_id" => $user->role_id                        
                                 ]; // store in user array
 
-                                session()->put('user_info', $vars);
+                               
 
                                 Auth::login($user); 
 
@@ -66,9 +114,9 @@ class CASAuthenticate
 
                                 session()->put('login_error','You have no permission for this site.');
 
-                            } //if ($user)                              
+                            } //if ($user)        */                      
 
-                        } //!empty($email)   
+                        } //if ($email)  
 
             }// if ($uid)  
            
