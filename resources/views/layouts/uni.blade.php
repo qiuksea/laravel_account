@@ -40,6 +40,7 @@
             <div class="col-8 col-sm-6 placeholder">
               @if ( Session::has('flash_message') )   
               <div class="alert {{ Session::get('flash_type') }}">
+                <button type="button" class="close" data-dismiss="alert">x</button>
                  <h4>{{ Session::get('flash_message') }}</h4>
               </div>    
               @endif
@@ -50,7 +51,7 @@
           <div class="table-responsive">
 
             @if ($message = Session::get('success'))
-              <div class="alert alert-success alert-block" class="col-md-8">
+              <div class="alert alert-success alert-block col-md-8">
                 <button type="button" class="close" data-dismiss="alert">x</button> 
                       <strong>{{ $message }}</strong>
               </div>
