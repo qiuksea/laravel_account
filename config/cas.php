@@ -89,7 +89,7 @@ return [
         |
         */
 
-        'cas_pretend_user' => env('CAS_PRETEND_USER', ''),
+        'cas_pretend_user' => env('CAS_PRETEND_USER', 'ad1ehlp'), #give user id to pretend already login
 
         /*
         |--------------------------------------------------------------------------
