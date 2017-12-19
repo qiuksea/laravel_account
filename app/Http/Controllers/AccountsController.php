@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Account;
+use Auth;
 #use App\Country;
 use Helper;
 
@@ -17,28 +18,34 @@ class AccountsController extends Controller
     
     public function __construct(){
 
-        //$this->middleware('auth')->except(['create', 'store']);
+       $this->middleware('check_role', ['except' => ['create', 'store']]);
+       /*
+         $this->middleware('log', ['only' => [
+            'fooAction',
+            'barAction',
+        ]]);
+      */
 
     }
 
     //
-    public function index(Request $request){    	
+    public function index(Request $request){   
 
-      if ($request->has('status')):
-        #https://stackoverflow.com/questions/38737019/laravel-5-2-get-query-string
-        #https://laravel.io/forum/05-07-2015-how-to-deal-with-query-string-get-variables
-        $status = $_GET['status'];        
+           if ($request->has('status')):
+            #https://stackoverflow.com/questions/38737019/laravel-5-2-get-query-string
+            #https://laravel.io/forum/05-07-2015-how-to-deal-with-query-string-get-variables
+            $status = $_GET['status'];        
 
-        $accounts = Account::allStatus($status)->get();       
+            $accounts = Account::allStatus($status)->get();       
 
-      else:
+           else:
 
-          $accounts = Account::all();       
+              $accounts = Account::all();       
 
-      endif;
+           endif;     
 
-    	return view('accounts.index', compact('accounts'));
-
+         return view('accounts.index', compact('accounts'));
+      
     }
 
     public function show(Account $account){

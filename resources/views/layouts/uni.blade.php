@@ -25,9 +25,9 @@
     </header>
 
     <div class="container-fluid">
-      <div class="row">
+      <div class="row">       
        
-       @include ('layouts.sidebar')
+        @include ('layouts.sidebar')      
 
         <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-5">
           <div class="jumbotron">
@@ -47,7 +47,7 @@
             </div>            
           </section>
 
-          <h2>Section</h2>
+        
           <div class="table-responsive">
 
             @if ($message = Session::get('success'))

@@ -41,7 +41,7 @@ class AuthController extends Controller
 
         if (session()->has('user_info')){
 			 
-			session()->forget('login_error');		       	     
+			#session()->forget('login_error');		       	     
 
         } 
         return redirect('/'); #->with('user_info', session('user_info')); 

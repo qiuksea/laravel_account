@@ -24,11 +24,11 @@
        
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Welcome, Jingyu Qi</a>
+                <a class="nav-link" href="#">Welcome, {{ session('user_info.email') }}</a>
             </li>  
  
             <li class="nav-item active">
-                <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/auth/logout">Logout<span class="sr-only">(current)</span></a>
             </li>
           </ul>
         </div>
