@@ -31,92 +31,72 @@ class CASAuthenticate
 //Functions inside of a class are not global functions, You need to use  $this->functioName() instead.
                         $entries = $this->connect_ldap($uid); //LDAP connection to get user info
 
-                        $email = $entries[0]["mail"][0]; 
-                
-                        if ($email){
+                        if ($entries)
+                         {
+                            $email = $entries[0]["mail"][0]; 
 
-                            if (array_key_exists('givenname', $entries[0]))
-                            {
-                                $firstname = $entries[0]["givenname"][0];
+                            if ($email){
 
-                            } else {
+                                if (array_key_exists('givenname', $entries[0]))
+                                {
+                                    $firstname = $entries[0]["givenname"][0];
 
-                                $firstname = '';
+                                } else {
 
-                            }
+                                    $firstname = '';
 
-                            if (array_key_exists('sn', $entries[0]))
-                            {
-                                 $lastname = $entries[0]["sn"][0];
+                                }
 
-
-                            } else {
-
-                                $lastname = '';
-
-                            }                      
+                                if (array_key_exists('sn', $entries[0]))
+                                {
+                                     $lastname = $entries[0]["sn"][0];
 
 
-                            if ( array_key_exists('shefucardtype', $entries[0]) )
-                            {
-                                 $user_type = $entries[0]["shefucardtype"][0];
+                                } else {
 
-                            } else {
+                                    $lastname = '';
 
-                                 $user_type = '';
-                            }
+                                }                      
 
 
-                            if (array_key_exists('shefreportingfaculty', $entries[0]))
-                            {
-                                 $department = $entries[0]["shefreportingfaculty"][0];
+                                if ( array_key_exists('shefucardtype', $entries[0]) )
+                                {
+                                     $user_type = $entries[0]["shefucardtype"][0];
+
+                                } else {
+
+                                     $user_type = '';
+                                }
 
 
-                            } else {
+                                if (array_key_exists('shefreportingfaculty', $entries[0]))
+                                {
+                                     $department = $entries[0]["shefreportingfaculty"][0];
 
-                                $department = '';
 
-                            }                      
-                            
+                                } else {
 
-                            $vars = [
-                                    "email" => $email,                                 
-                                    "uid" =>  $uid,
-                                    "firstname" => $firstname,
-                                    "lastname"  => $lastname,
-                                    "user_type"  => $user_type,
-                                    "department" => $department,
-                                               
-                            ]; // store in user array
+                                    $department = '';
 
-                            session()->put('user_info', $vars);/*
+                                }                      
+                                
 
-                            $user = User::where('email', $email)->first();
-                           
-                            if ($user) #if the user in the 'users' table, he/she is allowed to access the project
-                            {
-                          
                                 $vars = [
-                                    "email" => $email,                                 
-                                    "uid" =>  $uid,
-                                    "firstname" => $firstname,
-                                    "lastname"  => $lastname,
-                                    "user_type"  => $user_type,
-                                    "department" => $department,
-                                    "role_id" => $user->role_id                        
+                                        "email" => $email,                                 
+                                        "uid" =>  $uid,
+                                        "firstname" => $firstname,
+                                        "lastname"  => $lastname,
+                                        "user_type"  => $user_type,
+                                        "department" => $department,
+                                                   
                                 ]; // store in user array
 
-                               
+                                session()->put('user_info', $vars);                    
 
-                                Auth::login($user); 
 
-                            } else {
+                            } //if ($email)                       
 
-                                session()->put('login_error','You have no permission for this site.');
-
-                            } //if ($user)        */                      
-
-                        } //if ($email)  
+                        } //if ($entries)
 
             }// if ($uid)  
            
