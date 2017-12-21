@@ -14,9 +14,23 @@ class UsersTableSeeder extends Seeder
     {
         //
          DB::table('users')->insert([
-            'email' => 'mda05fm@sheffield.ac.uk',
-            'role_id' => 1,
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+
+            [
+                'email' => 'mda05fm@sheffield.ac.uk',
+                'role_id' => 1,
+                'disabled' => 0,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ],
+
+            [
+                'email' => 'j.qi@sheffield.ac.uk',
+                'role_id' => 2,
+                'disabled' => 0,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]
+
         ]);
     }
 }
