@@ -9,7 +9,8 @@ use Auth;
 #use App\Country;
 use Helper;
 
-use App\Http\Requests\StoreAccountRequest; //https://laracasts.com/discuss/channels/laravel/form-request-validation-class-apphttpcontrollersstoreblogpost-does-not-exist
+use App\Http\Requests\StoreAccountRequest; 
+#https://laracasts.com/discuss/channels/laravel/form-request-validation-class-apphttpcontrollersstoreblogpost-does-not-exist
 
 use Session;
 

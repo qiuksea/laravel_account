@@ -57,6 +57,23 @@ Route::get('auth/login', 'Auth\AuthController@CASLogin');
 Route::get('auth/logout', 'Auth\AuthController@Logout');
 Route::get('auth/caslogout', 'Auth\AuthController@CASLogout');
 
+#------------------------USER Managment
+
+Route::get('/users', 'UsersController@index');
+
+Route::get('/users/create', 'UsersController@create');
+
+Route::post('/users', 'UsersController@store');
+
+Route::get('/users/{user}/edit', 'UsersController@edit');
+
+Route::patch('/users/{user}', 'UsersController@update');
+
+Route::delete('/users/{user}', 'UsersController@destroy');
+
+Route::get('/users/{user}', 'UsersController@show');
+
+
 //---------------------  testing dbs connection ------------------------------
 
 Route::get('check-connection', function () {
