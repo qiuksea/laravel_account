@@ -27,12 +27,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
-    {
-        //
-        return view('users.create');
-    }
-  
+    
 
     /**
      * Store a newly created resource in storage.
@@ -43,11 +38,18 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //
-         User::create([
+        $this->validate(request(),[
+            'email' => 'required|email', 
+            'role_id' => 'required',
+
+        ]);
+
+         $user = User::create([
             'email' => request('email'),
             'role_id' => request('role_id'),
-
             ]);
+
+        return redirect('/users')->with('success','Account created successfully!'); 
            
     }
 
@@ -82,7 +84,10 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $role_id = request('role_id');
+        $user->update(['role_id' => $role_id]);
+        return redirect()->back()->with('success','Role update successfully!');       
     }
 
     /**
@@ -94,5 +99,13 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return redirect('/users')->with('success','User delete successfully!'); 
+        #return Response::json($account);
+    
     }
+
 }
