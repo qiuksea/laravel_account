@@ -51,7 +51,7 @@
           <div class="table-responsive">
 
             @if ($message = Session::get('success'))
-              <div class="alert alert-success alert-block col-md-8">
+              <div class="alert alert-success alert-block col-md-10">
                 <button type="button" class="close" data-dismiss="alert">x</button> 
                       <strong>{{ $message }}</strong>
               </div>
