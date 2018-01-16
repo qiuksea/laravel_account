@@ -24,6 +24,10 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];*/
 
+    protected $fillable = [
+        'email', 'role_id',
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -45,6 +49,13 @@ class User extends Authenticatable
     public function role(){
         return $this -> belongsTo('App\Role');
 
+    }
+
+    public function hasRole($role){
+        if($this->role()->where('name', $role)->first()){
+            return true;
+        }
+        return false;
     }
 
 }
