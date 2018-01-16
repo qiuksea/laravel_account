@@ -20,12 +20,6 @@ class AccountsController extends Controller
     public function __construct(){
 
        $this->middleware('check_role', ['except' => ['create', 'store']]);
-       /*
-         $this->middleware('log', ['only' => [
-            'fooAction',
-            'barAction',
-        ]]);
-      */
 
     }
 
