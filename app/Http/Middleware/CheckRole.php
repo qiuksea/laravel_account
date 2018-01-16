@@ -35,7 +35,8 @@ class CheckRole
 
             } else {
 
-                return response()->view('/dashboard'); #https://laracasts.com/discuss/channels/general-discussion/disable-global-verifycsrftoken-and-use-as-middleware-doesnt-work-setcookie-on-null?page=1   
+                return response()->view('/dashboard'); 
+                #https://laracasts.com/discuss/channels/general-discussion/disable-global-verifycsrftoken-and-use-as-middleware-doesnt-work-setcookie-on-null?page=1   
 
             } //if ($user)
 
