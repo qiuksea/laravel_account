@@ -58,4 +58,13 @@ class User extends Authenticatable
         return false;
     }
 
+    public function checkSuperAdmin()
+    {
+        if ($this && $this->role->id == 2)
+        {
+            return true;
+        }
+            return false;
+    }
+
 }

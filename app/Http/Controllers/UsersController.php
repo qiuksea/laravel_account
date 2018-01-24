@@ -8,6 +8,13 @@ use App\User;
 
 class UsersController extends Controller
 {
+    
+    public function __construct(){
+
+        $this->middleware('super_admin');
+ 
+     }    
+    
     /**
      * Display a listing of the resource.
      *

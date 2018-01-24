@@ -26,13 +26,13 @@
 			 @endif 
           </ul> 
 
-          <hr>
-
+					<hr>
+					
+			@if (Auth::user() && Auth::user()->role->id == 2)
           <ul class="nav nav-pills flex-column">
              <li class="nav-item">
-			    <a class="nav-link" href="/accounts?status=R">User Management</a>
-			    <p>Only Super Admin can view</p>
-			  </li>       
+			    		<a class="nav-link" href="/users">User Management (Admin only)</a> 
+			  	</li>       
           </ul> 
-    
+			@endif    
 </nav>
