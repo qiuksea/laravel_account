@@ -6,7 +6,12 @@
       <div class="form-group row {{ $errors->has('staff_name') ? 'has-danger' : '' }}">
         <label class="col-5 form-control-label" for="staff_name" > <strong>Name * </strong></label>
         <div class="col-7">
-          <input type="text" class="form-control" id="staff_name" name="staff_name" aria-describedby="staff name" value="{{ old('staff_name', isset($account->staff_name) ? $account->staff_name : null) }}">
+          <input type="text" class="form-control" id="staff_name" name="staff_name" aria-describedby="staff name" 
+          @if (session()->has('user_info.firstname'))
+            value = "{{session('user_info.firstname')}} {{session('user_info.lastname')}}"        
+          @else
+            value="{{ old('staff_name', isset($account->staff_name) ? $account->staff_name : null) }}"
+          @endif>
 
           <div class="form-control-feedback">
             {{  $errors->first('staff_name')   }}
@@ -18,7 +23,12 @@
       <div class="form-group row {{ $errors->has('staff_email') ? 'has-danger' : '' }}">
         <label class="col-5 form-control-label" for="staff_email"><strong> Email * </strong></label>
         <div class="col-7">
-          <input type="email" class="form-control" id="staff_email" name="staff_email" aria-describedby="emailHelp" placeholder="Enter email" value="{{ old('staff_email', isset($account->staff_email) ? $account->staff_email : null) }}" >
+          <input type="email" class="form-control" id="staff_email" name="staff_email" aria-describedby="emailHelp" placeholder="Enter email"
+          @if (session()->has('user_info.email'))
+            value = "{{session('user_info.email')}}"         
+          @else
+            value="{{ old('staff_email', isset($account->staff_email) ? $account->staff_email : null) }}"
+          @endif >
 
           <div class="form-control-feedback">
             {{  $errors->first('staff_email')   }}
@@ -30,7 +40,7 @@
       <div class="form-group row {{ $errors->has('staff_tel') ? 'has-danger' : '' }}">
         <label class="col-5 form-control-label" for="staff_tel"><strong> Telephone * </strong></label>
         <div class="col-7">
-          <input type="text" class="form-control" id="staff_tel" name="staff_tel" value="{{ old('staff_tel', isset($account->staff_tel) ? $account->staff_tel : null) }}" required>
+          <input type="text" class="form-control" id="staff_tel" name="staff_tel" value="{{ old('staff_tel', isset($account->staff_tel) ? $account->staff_tel : null) }}">
           
           <div class="form-control-feedback">
             {{  $errors->first('staff_tel')   }}
