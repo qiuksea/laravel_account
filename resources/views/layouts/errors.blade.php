@@ -1,8 +1,8 @@
 @if (count($errors))
 
-<div class="col-md-10">
+<div class="col-8">
 	<div class="form-group">
-	  <div class="alert alert-danger">
+	  <div class="alert alert-danger" role="alert">
 	    <ul>
 
 	      @foreach ($errors->all() as $error)
