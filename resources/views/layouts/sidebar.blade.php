@@ -1,4 +1,4 @@
-<nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar pt-5">
+<nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar pt-3">
 	
           <ul class="nav nav-pills flex-column">
           	 <li class="nav-item">    
@@ -26,13 +26,13 @@
 			 @endif 
           </ul> 
 
-					<hr>
+			<hr>
 					
 			@if (Auth::user() && Auth::user()->role->id == 2)
-          <ul class="nav nav-pills flex-column">
-             <li class="nav-item">
-			    		<a class="nav-link" href="/users">User Management (Admin only)</a> 
-			  	</li>       
-          </ul> 
+	          <ul class="nav nav-pills flex-column">
+	             <li class="nav-item">
+				    		<a class="nav-link" href="/users">Admins Management (Super Admin only)</a> 
+				  	</li>       
+	          </ul> 
 			@endif    
 </nav>
