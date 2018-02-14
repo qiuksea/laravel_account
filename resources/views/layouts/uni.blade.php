@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="dashboard.css" rel="stylesheet">
+    <link href="https://v4-alpha.getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
   </head>
 
   <body>
@@ -30,13 +30,14 @@
        
         @include ('layouts.sidebar')      
 
-        <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-5">
+        <main role="main" class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
           <div class="jumbotron">
             <!--<img src="/img/crest-l.gif" alt="The University of Sheffield" />-->
             <h1>Finance</h1>
             <h2>Customer Account Request</h2>            
           </div>
 
+     <!--     
           <section class="row text-center placeholders">
             <div class="col-8 col-sm-6 placeholder">
               @if ( Session::has('flash_message') )   
@@ -47,6 +48,7 @@
               @endif
             </div>            
           </section>
+        -->
 
         
           <div class="table-responsive">
