@@ -18,6 +18,8 @@
 
     <!-- Custom styles for this template -->
     <link href="https://v4-alpha.getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+
+    <link href="/css/common.css" rel="stylesheet">
   </head>
 
   <body>
@@ -31,14 +33,17 @@
         @include ('layouts.sidebar')      
 
         <main role="main" class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-          <div class="jumbotron">
-            <!--<img src="/img/crest-l.gif" alt="The University of Sheffield" />-->
-            <h1>Finance</h1>
-            <h2>Customer Account Request</h2>            
-          </div>
+      
+          
+          <!--<div style="background:transparent !important" class="jumbotron">
+          
+           <h1>Finance -  Customer Account Request</h1>
+                
+          </div>-->
 
-     <!--     
+        <!--
           <section class="row text-center placeholders">
+
             <div class="col-8 col-sm-6 placeholder">
               @if ( Session::has('flash_message') )   
               <div class="alert {{ Session::get('flash_type') }}">
@@ -46,12 +51,15 @@
                  <h4>{{ Session::get('flash_message') }}</h4>
               </div>    
               @endif
-            </div>            
-          </section>
-        -->
+            </div>        
+          </section>-->
 
-        
-          <div class="table-responsive">
+        <div>
+           <img src="/img/index_banner.jpg" alt="The University of Sheffield" />
+           <hr>
+         </div>
+
+          <div class="table-responsive">            
 
             @if ($message = Session::get('success'))
               <div class="alert alert-success alert-block col-md-10">
