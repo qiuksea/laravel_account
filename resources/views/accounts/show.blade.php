@@ -5,14 +5,9 @@
 <div class="col-md-10">
 
     <ul class="nav nav-pills justify-content-end">
+
       <li class="nav-item">
-        <a class="nav-link active" href="/accounts/{{ $account-> id }}">View</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="/accounts/">All</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/accounts/{{ $account-> id }}/edit">Edit</a>
+        <a class="nav-link btn btn-info" href="/accounts/{{ $account-> id }}/edit">Edit</a>
       </li>
     </ul>
 
