@@ -72,7 +72,7 @@
 			    	  <th>ID</th>
 				      <th>Email</th>
 				      <th>Role</th>
-				      <th>Status</th>
+				      <th>Disabled</th>
 				      <th>Created at</th>
 				      <th>Updated at</th>
 							<th colspan="2">Action</th>
@@ -96,7 +96,7 @@
 									<input type="radio" name="role_id" value="2" {{ $user->hasRole('Super Admin') ? 'checked' : ''}} >Super Admin
 									</td>
 
-								<td>{{ $user ->disabled }}</td>
+								<td>{{ Helper::display_boolean($user ->disabled) }}</td>
 						
 								<td>{{ $user ->created_at -> toFormattedDateString()  }}</td>
 							  <td>{{ $user ->updated_at -> toFormattedDateString()  }}</td>
