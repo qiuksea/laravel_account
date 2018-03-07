@@ -76,7 +76,7 @@ return [
         |
         */
 
-        'cas_cert' => env('CAS_CERT', ''),#/webusers/ad1jqi/public_html - on cpanel testing, set as ''
+        'cas_cert' => env('CAS_CERT', ''),#/webusers/my-user-id/public_html - on cpanel testing, set as ''
 
 
         /*
