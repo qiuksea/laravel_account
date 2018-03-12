@@ -237,11 +237,19 @@ class AccountsController extends Controller
           $account->company_eligibility_other = request('company_eligibility_other'); 
           $account->company_notes = request('company_notes'); 
 
-          $account->save();
+           if ($account->save()) {
 
+                $request->session()->flash('success', 'Account updated successfully.');
+                #return view('accounts.show', compact('account'))->with('success','Account updated successfully.');
+
+           } else 
+
+           {
+                $request->session()->flash('danger', 'Error! Record not updated');
+
+           }
   
-        return view('accounts.show', compact('account'))->with('success','Account updated successfully');
-
+        return redirect('/');
     }
 
     public function update_status($id){
