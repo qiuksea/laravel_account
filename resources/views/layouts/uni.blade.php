@@ -60,17 +60,19 @@
          </div>
 
           <div class="table-responsive"> 
-
+            
               @foreach (['danger', 'warning', 'success', 'info'] as $key)           
 
                   @if (session()->has($key))
-                    <div class="alert alert-{{ $key }} col-8" role="alert">
-                      <button type="button" class="close" data-dismiss="alert">x</button> 
-                            <strong>{{ session()->get($key) }}</strong>
+                   <div class="col-8">
+                      <div class="alert alert-{{ $key }}" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">x</button> 
+                              <strong>{{ session()->get($key) }}</strong>
+                      </div>
                     </div>
                   @endif
 
-                @endforeach
+              @endforeach
             
             @include ('layouts.errors')
 
