@@ -1,13 +1,12 @@
 @extends ('layouts.uni')
 
 @section ('content')
+ 					
  					@if (session('login_error'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-danger">
                             {{ session('login_error') }}
                         </div>
-                    @endif 
-
-                    
+                    @endif                     
 
                  
 	<div class="col-md-10">		
