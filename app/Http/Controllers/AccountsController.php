@@ -268,7 +268,7 @@ class AccountsController extends Controller
       if ( $ifNotes && (($newStatus == 'P') || ($newStatus == 'A') || ($newStatus == 'R')) )
       {    
 
-        return redirect("/accounts/$account->id")->with('success','The note is required first.'); 
+        return redirect("/accounts/$account->id")->with('warning','The note is required first.'); 
       }
       else        
       {
@@ -288,8 +288,8 @@ class AccountsController extends Controller
         $logContent.= $old . " to " .$new;
 
         // session user email here!
-        $logContent.= ' by ' . 'j.qi@shef.ac.uk';
-        //$logContent.= ' by ' . auth()->user()->email; 
+        #$logContent.= ' by ' . 'j.qi@shef.ac.uk';
+        $logContent.= ' by ' . auth()->user()->email; 
 
         #dd($logContent);
 
