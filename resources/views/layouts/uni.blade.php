@@ -59,14 +59,18 @@
            <hr>
          </div>
 
-          <div class="table-responsive">            
+          <div class="table-responsive"> 
 
-            @if ($message = Session::get('success'))
-              <div class="alert alert-success alert-block col-md-10">
-                <button type="button" class="close" data-dismiss="alert">x</button> 
-                      <strong>{{ $message }}</strong>
-              </div>
-            @endif
+              @foreach (['danger', 'warning', 'success', 'info'] as $key)           
+
+                  @if (session()->has($key))
+                    <div class="alert alert-{{ $key }} col-8" role="alert">
+                      <button type="button" class="close" data-dismiss="alert">x</button> 
+                            <strong>{{ session()->get($key) }}</strong>
+                    </div>
+                  @endif
+
+                @endforeach
             
             @include ('layouts.errors')
 
