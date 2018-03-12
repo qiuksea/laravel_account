@@ -46,11 +46,16 @@ class Helper
     public static function display_checkbox_checked($val1, $val2, $val3)
     {
 
-            if ($val1 === $val3){
-                return 'checked';
+            if ( isset($val1)){
+
+                if ($val1 == $val3){
+
+                    return 'checked';
+                }
+                
             } 
 
-            if (isset($val2) && $val2 === $val3){
+            elseif (isset($val2) && $val2 == $val3){
                 return 'checked';
             }
             
@@ -59,15 +64,19 @@ class Helper
     // form,blade.php
     public static function display_dropdown_selected($val1, $val2, $val3)
     {
-           if ($val1 === $val2){
+           if (isset($val1)){
 
-                return 'selected=selected';
-           }
-                    
+                if($val1 == $val3){
+
+                    return 'selected';
+                }
+
+                
+           }                   
          
-            if ( isset($val3) && ($val1 === $val3) ){
+            elseif ( isset($val2) && ($val2 === $val3) ){
 
-                return 'selected=selected';
+                return 'selected';
 
             }
         

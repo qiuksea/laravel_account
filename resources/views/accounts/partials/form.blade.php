@@ -109,11 +109,11 @@
           <option value=" ">Please make a selection</option>
           <option value="Company"
           {{ 
-             Helper::display_dropdown_selected('Company', old('company_type'), isset($account->company_type) ?  $account->company_type : null)
+             Helper::display_dropdown_selected(old('company_type'), isset($account->company_type) ?  $account->company_type : null, 'Company')
                   }} >Company</option>
           <option value="Person"
           {{ 
-             Helper::display_dropdown_selected('Person', old('company_type'), isset($account->company_type) ?  $account->company_type : null )
+             Helper::display_dropdown_selected(old('company_type'), isset($account->company_type) ?  $account->company_type : null, 'Person')
                   }} >Person</option>
         </select>
 
@@ -127,12 +127,12 @@
     <div class="form-check">
       <label class="form-check-label">
         <input type="hidden" class="form-check-input" name="is_student" id="is_student_0" value=0
-          {{ Helper::display_checkbox_checked(old('is_over_10k'), isset($account->is_student) ? $account->is_student :null, 0) }} >
+          {{ Helper::display_checkbox_checked(old('is_student'), isset($account->is_student) ? $account->is_student :null, 0) }} >
         <input type="checkbox" class="form-check-input" name="is_student" id="is_student_1" value=1 
           {{ Helper::display_checkbox_checked(old('is_student'), 
           isset($account->is_student)? $account->is_student: null, 1) }}    
 
-        > Is this a Student ?
+        > Is this a Student ? 
       </label>
     </div>     
 
@@ -143,7 +143,7 @@
           <input type="text" class="form-control  {{ $errors->has('student_reg_no') ? 'is-invalid' : '' }}" id="student_reg_no" name="student_reg_no" value="{{ old('student_reg_no', isset($account->student_reg_no) ? $account->student_reg_no : null) }}">
 
           <div class="invalid-feedback">
-              {{  $errors->first('staff_email')   }}
+              {{  $errors->first('student_reg_no')   }}
           </div>
         </div>
     </div>
@@ -287,15 +287,17 @@
         <input type="checkbox" class="form-check-input" name="company_is_eu" id="company_is_eu_1" value=1  
 
          {{ Helper::display_checkbox_checked(old('company_is_eu'), 
-          isset($account->company_is_eu)? $account->company_is_eu : null, 1) }}  
+          isset($account->company_is_eu)? $account->company_is_eu : 1, 1) }}  
          
-        > <strong>Is the customer part of the EU?</strong>
+        > <strong>Is the customer part of the EU? 
+            <br> (if no, please untick the box)
+          </strong>
       </label>
     </div>     
 
 
     <!-- country -->
-    <div style="display:none" id="eu_country_selection">
+    <div style="display:visible" id="eu_country_selection">
         <div class="form-group row" >
             <label class="col-5 form-control-label" for="company_eu_country_id"><strong>Please select your EU country * </strong></label>
             <div class="col-7">
@@ -305,7 +307,7 @@
                   @foreach($eu_countries as $eu_country)
                     <option value="{{ $eu_country->id }}"  
                      {{ 
-                      Helper::display_dropdown_selected($eu_country->id, old('company_eu_country_id'), isset($account->company_country_id) ? $account->company_country_id :null ) 
+                      Helper::display_dropdown_selected(old('company_eu_country_id'), isset($account->company_country_id) ? $account->company_country_id :null, $eu_country->id) 
                     }}
                      > 
                     {{ $eu_country->name}} 
@@ -334,9 +336,9 @@
 
         
 
-        <div class="form-group row" style="display:visible" id="non_eu_country_selection">
+        <div class="form-group row" style="display:none" id="non_eu_country_selection">
 
-          <label class="col-5 form-control-label" for="company_non_eu_country_id"><strong>If Non EU, Please select a country * </strong></label>
+          <label class="col-5 form-control-label" for="company_non_eu_country_id"><strong>If non EU, please select a non-EU country * </strong></label>
 
           <div class="col-7">
               <select class="form-control  {{ $errors->has('company_non_eu_country_id') ? 'is-invalid' : '' }}" id="company_non_eu_country_id" name="company_non_eu_country_id">
@@ -345,7 +347,7 @@
                 @foreach($non_eu_countries as $non_eu_country)
                   <option value="{{ $non_eu_country->id }}"
                   {{ 
-                    Helper::display_dropdown_selected($non_eu_country->id, old('company_non_eu_country_id'), isset($account->company_country_id) ? $account->company_country_id :null) 
+                    Helper::display_dropdown_selected(old('company_non_eu_country_id'), isset($account->company_country_id) ? $account->company_country_id :null, $non_eu_country->id) 
                   }}           
                   >
                   {{ $non_eu_country->name}}
@@ -382,11 +384,9 @@
     <div class="col-5 form-control-label" ><p>If <strong>yes</strong>, please make a selection from the list *</p></div>
 
     <div class="col-7"> 
-      <input type="hidden" class="form-check-input  {{ $errors->has('company_eligibility') ? 'is-invalid' : '' }}" name="company_eligibility" id="company_eligibility_0" value=''
-           {{ Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility)? $account->company_eligibility:null, '') }}  > 
-
+     
       <div class="form-check">
-        <label class="col-5 form-check-label">
+        <label class="form-check-label">
           <input type="radio" class="form-check-input  {{ $errors->has('company_eligibility') ? 'is-invalid' : '' }}" name="company_eligibility" id="company_eligibility_1" value="UK University"   
            {{ Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility)? $account->company_eligibility:null, 'UK University') }} 
          >
@@ -442,7 +442,7 @@
       <div class="form-check">
         <label class="form-check-label">
           <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_7" value="Other"
-           {!! Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility)? $account->company_eligibility :null, 'Other') !!}
+           {{ Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility)? $account->company_eligibility :null, 'Other') }}
           >
           Other
         </label>
