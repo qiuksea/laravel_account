@@ -1,13 +1,15 @@
-<nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar pt-3">
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+	<div class="sidebar-sticky">
 	
-          <ul class="nav nav-pills flex-column">
-          	 <li class="nav-item">    
-			  				
-			  </li>
+          <ul class="nav flex-column">
+          	
           	@if (Auth::check())
-          	  <li class="nav-item">		    
-			  	<a class="nav-link active" href="/accounts">All</a>			
-			  </li>
+          	  <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="home"></span>
+                  All <span class="sr-only">(current)</span>
+                </a>
+              </li>
 			  <li class="nav-item">
 			    <a class="nav-link" href="/accounts?status=N">New Requests</a>
 			  </li>
@@ -26,13 +28,24 @@
 			 @endif 
           </ul> 
 
-			<hr>
+			
 					
 			@if (Auth::user() && Auth::user()->role->id == 2)
-	          <ul class="nav nav-pills flex-column">
+
+			<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Super Admin Only</span>
+              <a class="d-flex align-items-center text-muted" href="#">
+                <span data-feather="plus-circle"></span>
+              </a>
+            </h6>
+
+	          <ul class="nav flex-column mb-2">
 	             <li class="nav-item">
-				    		<a class="nav-link" href="/users">Admins Management (Super Admin only)</a> 
-				  	</li>       
+				    <a class="nav-link" href="/users">Users Management</a> 
+				 </li>       
 	          </ul> 
-			@endif    
+			@endif 
+
+	</div>   
 </nav>
+
