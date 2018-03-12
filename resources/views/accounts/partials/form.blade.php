@@ -3,53 +3,53 @@
   <fieldset class="form-group">
     <legend class="alert alert-info" role="alert">Your Details</legend>
 
-      <div class="form-group row {{ $errors->has('staff_name') ? 'has-danger' : '' }}">
+      <div class="form-group row">
         <label class="col-5 form-control-label" for="staff_name" > <strong>Name * </strong></label>
         <div class="col-7">
-          <input type="text" class="form-control" id="staff_name" name="staff_name" aria-describedby="staff name" 
+          <input type="text" class="form-control {{ $errors->has('staff_name') ? 'is-invalid' : '' }}" id="staff_name" name="staff_name" aria-describedby="staff name" 
           @if (session()->has('user_info.firstname'))
             value = "{{session('user_info.firstname')}} {{session('user_info.lastname')}}"        
           @else
             value="{{ old('staff_name', isset($account->staff_name) ? $account->staff_name : null) }}"
           @endif>
 
-          <div class="form-control-feedback">
+          <div class="invalid-feedback">
             {{  $errors->first('staff_name')   }}
           </div>
 
         </div>
       </div>
 
-      <div class="form-group row {{ $errors->has('staff_email') ? 'has-danger' : '' }}">
+      <div class="form-group row">
         <label class="col-5 form-control-label" for="staff_email"><strong> Email * </strong></label>
         <div class="col-7">
-          <input type="email" class="form-control" id="staff_email" name="staff_email" aria-describedby="emailHelp" placeholder="Enter email"
+          <input type="email" class="form-control  {{ $errors->has('staff_email') ? 'is-invalid' : '' }}" id="staff_email" name="staff_email" aria-describedby="emailHelp" placeholder="Enter email"
           @if (session()->has('user_info.email'))
             value = "{{session('user_info.email')}}"         
           @else
             value="{{ old('staff_email', isset($account->staff_email) ? $account->staff_email : null) }}"
           @endif >
 
-          <div class="form-control-feedback">
+          <div class="invalid-feedback">
             {{  $errors->first('staff_email')   }}
           </div>
 
         </div>
       </div>
 
-      <div class="form-group row {{ $errors->has('staff_tel') ? 'has-danger' : '' }}">
+      <div class="form-group row">
         <label class="col-5 form-control-label" for="staff_tel"><strong> Telephone * </strong></label>
         <div class="col-7">
-          <input type="text" class="form-control" id="staff_tel" name="staff_tel" value="{{ old('staff_tel', isset($account->staff_tel) ? $account->staff_tel : null) }}">
+          <input type="text" class="form-control  {{ $errors->has('staff_tel') ? 'is-invalid' : '' }}" id="staff_tel" name="staff_tel" value="{{ old('staff_tel', isset($account->staff_tel) ? $account->staff_tel : null) }}">
           
-          <div class="form-control-feedback">
+          <div class="invalid-feedback">
             {{  $errors->first('staff_tel')   }}
           </div>
 
         </div>
       </div>
 
-      <div class="form-group{{ $errors->has('staff_tel') ? 'has-danger' : '' }}">
+      <div class="form-group">
          <p><strong>Is the value of this project/contract over £10,000.00?*</strong></p>
          
          <p>If <strong>yes</strong>, please contact the Income Office at: incomeofficehelp@sheffield.ac.uk to obtain a credit check of the company, as stated in section 9.8 of the University's Financial Regulations, before proceeding any further.
@@ -57,17 +57,20 @@
       
 
         <div class="form-check form-check-inline">      
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_yes" value=1 {{ Helper::display_radio_checked(old('is_over_10k'), isset($account->is_over_10k) ?  $account->is_over_10k : null, 1)  }}        
-              > Yes
-          </label>
+         
+          <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_yes" value=1 
+          {{ Helper::display_radio_checked(old('is_over_10k'), isset($account->is_over_10k) ?  $account->is_over_10k : null, 1)  }}>
+           
+          <label class="form-check-label"> Yes </label>
+          
         </div>
 
         <div class="form-check form-check-inline">
-          <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_no" value=0 {{ Helper::display_radio_checked(old('is_over_10k'), isset($account->is_over_10k) ?  $account->is_over_10k : null, 0)  }}        
-             > No
-          </label>
+          
+          <input type="radio" class="form-check-input" name="is_over_10k" id="is_over_10k_no" value=0 
+          {{ Helper::display_radio_checked(old('is_over_10k'), isset($account->is_over_10k) ?  $account->is_over_10k : 0, 0)  }}>  
+            
+          <label class="form-check-label"> No </label>
         </div>
 
        </div>
@@ -81,12 +84,12 @@
           </label>
         </div>
         
-        <div class="form-group row {{ $errors->has('who_credit_check') ? 'has-danger' : '' }}">
+        <div class="form-group row">
           <label  class="col-5 form-control-label" for="credit_check"><strong>Who did the credit check for you? *</strong></label>
           <div class="col-7">
-            <input type="text" class="form-control" id="who_credit_check" name="who_credit_check" value="{{ old('who_credit_check', isset($account->who_credit_check) ? $account->who_credit_check : null) }}">
+            <input type="text" class="form-control  {{ $errors->has('who_credit_check') ? 'is-invalid' : '' }}" id="who_credit_check" name="who_credit_check" value="{{ old('who_credit_check', isset($account->who_credit_check) ? $account->who_credit_check : null) }}">
 
-             <div class="form-control-feedback">
+             <div class="invalid-feedback">
                  {{  $errors->first('who_credit_check')   }}
              </div>
           </div>
@@ -99,10 +102,10 @@
   <fieldset class="form-group">
     <legend class="alert alert-info" role="alert">Company Details</legend>
 
-    <div class="form-group row {{ $errors->has('company_type') ? 'has-danger' : '' }}">
+    <div class="form-group row">
       <label class=" col-5 form-control-label" for="company_type"><strong> Type of Customer * </strong></label>
       <div class="col-7">
-        <select class="form-control" id="company_type" name="company_type">
+        <select class="form-control  {{ $errors->has('company_type') ? 'is-invalid' : '' }}" id="company_type" name="company_type">
           <option value=" ">Please make a selection</option>
           <option value="Company"
           {{ 
@@ -114,7 +117,7 @@
                   }} >Person</option>
         </select>
 
-        <div class="form-control-feedback">
+        <div class="invalid-feedback">
             {{  $errors->first('company_type')   }}
         </div>
 
@@ -133,13 +136,13 @@
       </label>
     </div>     
 
-    <div class="form-group row {{ $errors->has('student_reg_no') ? 'has-danger' : '' }}" 
+    <div class="form-group row" 
     style="display:none" id="student_reg_no_input">
         <label  class="col-5 form-control-label" for="student_reg_no"><strong>Students Registration Number * </strong></label>
         <div class="col-7">
-          <input type="text" class="form-control" id="student_reg_no" name="student_reg_no" value="{{ old('student_reg_no', isset($account->student_reg_no) ? $account->student_reg_no : null) }}">
+          <input type="text" class="form-control  {{ $errors->has('student_reg_no') ? 'is-invalid' : '' }}" id="student_reg_no" name="student_reg_no" value="{{ old('student_reg_no', isset($account->student_reg_no) ? $account->student_reg_no : null) }}">
 
-          <div class="form-control-feedback">
+          <div class="invalid-feedback">
               {{  $errors->first('staff_email')   }}
           </div>
         </div>
@@ -162,34 +165,34 @@
       </label>
     </div>
 
-    <div class="form-group row {{ $errors->has('subsidiary_info') ? 'has-danger' : '' }}" style="display:none" id="subsidiary_info_input">
+    <div class="form-group row" style="display:none" id="subsidiary_info_input">
         <label  class="col-5 form-control-label" for="subsidiary_info"><strong>Please provide further information or call Ext. 24473 *</strong></label>
         <div class="col-7">
-          <input type="text" class="form-control" id="subsidiary_info" name="subsidiary_info" value="{{ old('subsidiary_info', isset($account->subsidiary_info) ? $account->subsidiary_info : null) }}">
+          <input type="text" class="form-control  {{ $errors->has('subsidiary_info') ? 'is-invalid' : '' }}" id="subsidiary_info" name="subsidiary_info" value="{{ old('subsidiary_info', isset($account->subsidiary_info) ? $account->subsidiary_info : null) }}">
 
-          <div class="form-control-feedback">
+          <div class="invalid-feedback">
               {{  $errors->first('subsidiary_info')  }}
           </div>
         </div>
     </div>     
 
-    <div class="form-group row {{ $errors->has('company_name') ? 'has-danger' : '' }}">
+    <div class="form-group row">
       <label class="col-5 form-control-label" for="company_name"><strong>Name of the Company/Person who will pay the invoice *</strong></label>
       <div class="col-7">
-        <input type="text" class="form-control" id="company_name" name="company_name" value="{{ old('company_name', isset($account->company_name) ? $account->company_name : null) }}">
+        <input type="text" class="form-control  {{ $errors->has('company_name') ? 'is-invalid' : '' }}" id="company_name" name="company_name" value="{{ old('company_name', isset($account->company_name) ? $account->company_name : null) }}">
 
-        <div class="form-control-feedback">
+        <div class="invalid-feedback">
             {{  $errors->first('company_name')   }}
         </div>
       </div>
     </div>
 
-    <div class="form-group row {{ $errors->has('company_address_1') ? 'has-danger' : '' }}">
+    <div class="form-group row">
         <label class="col-5 form-control-label" for="company_address_1"><strong>Address 1 *</strong></label>
         <div class="col-7">
-          <input type="text" class="form-control" id="company_address_1" name="company_address_1" value="{{ old('company_address_1', isset($account->company_address_1) ? $account->company_address_1 : null) }}" required>
+          <input type="text" class="form-control  {{ $errors->has('company_address_1') ? 'is-invalid' : '' }}" id="company_address_1" name="company_address_1" value="{{ old('company_address_1', isset($account->company_address_1) ? $account->company_address_1 : null) }}" required>
 
-          <div class="form-control-feedback">
+          <div class="invalid-feedback">
               {{  $errors->first('company_address_1')   }}
           </div>
         </div>
@@ -209,23 +212,23 @@
         </div>
     </div>
 
-    <div class="form-group row {{ $errors->has('company_town') ? 'has-danger' : '' }}">
+    <div class="form-group row">
         <label class="col-5 form-control-label" for="company_town"><strong>Town/City *</strong></label>
         <div class="col-7">
-          <input type="text" class="form-control" id="company_town" name="company_town" value="{{ old('company_town', isset($account->company_town) ? $account->company_town : null) }}" required>
+          <input type="text" class="form-control {{ $errors->has('company_town') ? 'is-invalid' : '' }}" id="company_town" name="company_town" value="{{ old('company_town', isset($account->company_town) ? $account->company_town : null) }}" required>
 
-          <div class="form-control-feedback">
+          <div class="invalid-feedback">
             {{  $errors->first('company_town')  }}
           </div>
         </div>
     </div>
 
-    <div class="form-group row {{ $errors->has('company_postcode') ? 'has-danger' : '' }}">
+    <div class="form-group row">
         <label class="col-5 form-control-label" for="company_postcode"><strong>Post Code *</strong></label>
         <div class="col-7">
-          <input type="text" class="form-control" id="company_postcode" name="company_postcode" value="{{ old('company_postcode', isset($account->company_postcode) ? $account->company_postcode : null) }}" required>
+          <input type="text" class="form-control {{ $errors->has('company_postcode') ? 'is-invalid' : '' }}" id="company_postcode" name="company_postcode" value="{{ old('company_postcode', isset($account->company_postcode) ? $account->company_postcode : null) }}" required>
 
-          <div class="form-control-feedback">
+          <div class="invalid-feedback">
             {{  $errors->first('company_postcode')  }}
           </div>
         </div>
@@ -238,12 +241,12 @@
         </div>
     </div>
 
-    <div class="form-group row {{ $errors->has('company_telephone') ? 'has-danger' : '' }}">
+    <div class="form-group row">
         <label class="col-5 form-control-label" for="company_telephone"><strong>Telephone Number * </strong></label>
         <div class="col-7">
-          <input type="text" class="form-control" id="company_telephone" name="company_telephone" value="{{ old('company_telephone', isset($account->company_telephone) ? $account->company_telephone : null) }}" required>
+          <input type="text" class="form-control {{ $errors->has('company_telephone') ? 'is-invalid' : '' }}" id="company_telephone" name="company_telephone" value="{{ old('company_telephone', isset($account->company_telephone) ? $account->company_telephone : null) }}" required>
 
-          <div class="form-control-feedback">
+          <div class="invalid-feedback">
             {{  $errors->first('company_telephone')  }}
           </div>
         </div>
@@ -256,12 +259,12 @@
         </div>
     </div>
 
-    <div class="form-group row {{ $errors->has('company_email') ? 'has-danger' : '' }}">
+    <div class="form-group row">
         <label class="col-5 form-control-label" for="company_email"><strong>Email Address * </strong>(Accounts Payable/Finance email address for companies/organisations): </label>
         <div class="col-7">
-          <input type="email" class="form-control" id="company_email" name="company_email" value="{{ old('company_email', isset($account->company_email) ? $account->company_email : null) }}" required>
+          <input type="email" class="form-control {{ $errors->has('company_email') ? 'is-invalid' : '' }}" id="company_email" name="company_email" value="{{ old('company_email', isset($account->company_email) ? $account->company_email : null) }}" required>
 
-          <div class="form-control-feedback">
+          <div class="invalid-feedback">
             {{  $errors->first('company_email')   }}
           </div>
         </div>
@@ -293,10 +296,10 @@
 
     <!-- country -->
     <div style="display:none" id="eu_country_selection">
-        <div class="form-group row {{ $errors->has('company_eu_country_id') ? 'has-danger' : '' }}" >
+        <div class="form-group row" >
             <label class="col-5 form-control-label" for="company_eu_country_id"><strong>Please select your EU country * </strong></label>
             <div class="col-7">
-              <select class="form-control" id="company_eu_country_id" name="company_eu_country_id">
+              <select class="form-control  {{ $errors->has('company_eu_country_id') ? 'is-invalid' : '' }}" id="company_eu_country_id" name="company_eu_country_id">
                   <option value="">Please make a selection</option>
                 
                   @foreach($eu_countries as $eu_country)
@@ -310,19 +313,19 @@
                   @endforeach            
               </select>
 
-              <div class="form-control-feedback">
+              <div class="invalid-feedback">
                   {{  $errors->first('company_eu_country_id')   }}
               </div>
             </div>
           </div>
 
-          <div class="form-group row {{ $errors->has('company_vat_reg_no') ? 'has-danger' : '' }}">
+          <div class="form-group row">
                 <label class="col-5 form-control-label" for="company_vat_reg_no"><strong>Please provide VAT number (Exc. UK) * </strong></label>
 
                 <div class="col-7">
-                  <input type="text" class="form-control" id="company_vat_reg_no" name="company_vat_reg_no" value="{{ old('company_vat_reg_no', isset($account->company_vat_reg_no) ? $account->company_vat_reg_no : null) }}">                
+                  <input type="text" class="form-control  {{ $errors->has('company_vat_reg_no') ? 'is-invalid' : '' }}" id="company_vat_reg_no" name="company_vat_reg_no" value="{{ old('company_vat_reg_no', isset($account->company_vat_reg_no) ? $account->company_vat_reg_no : null) }}">                
 
-                  <div class="form-control-feedback">
+                  <div class="invalid-feedback">
                      {{  $errors->first('company_vat_reg_no')   }}
                   </div>
                 </div>
@@ -331,12 +334,12 @@
 
         
 
-        <div class="form-group row {{ $errors->has('company_non_eu_country_id') ? 'has-danger' : '' }}" style="display:visible" id="non_eu_country_selection">
+        <div class="form-group row" style="display:visible" id="non_eu_country_selection">
 
           <label class="col-5 form-control-label" for="company_non_eu_country_id"><strong>If Non EU, Please select a country * </strong></label>
 
           <div class="col-7">
-              <select class="form-control" id="company_non_eu_country_id" name="company_non_eu_country_id">
+              <select class="form-control  {{ $errors->has('company_non_eu_country_id') ? 'is-invalid' : '' }}" id="company_non_eu_country_id" name="company_non_eu_country_id">
                 <option value="">Please make a selection</option>
             
                 @foreach($non_eu_countries as $non_eu_country)
@@ -352,7 +355,7 @@
               </select>
             </div>
 
-          <div class="form-control-feedback">
+          <div class="invalid-feedback">
               {{  $errors->first('non_eu_company_country_id')   }}
           </div>
         </div>
@@ -374,17 +377,17 @@
 
 <!-- eligible body select list-->
 
-  <div class="form-group row {{ $errors->has('company_eligibility') ? 'has-danger' : '' }}" style="display:none" id="charity_eligible_body_selection">
+  <div class="form-group row" style="display:none" id="charity_eligible_body_selection">
 
     <div class="col-5 form-control-label" ><p>If <strong>yes</strong>, please make a selection from the list *</p></div>
 
     <div class="col-7"> 
-      <input type="hidden" class="form-check-input" name="company_eligibility" id="company_eligibility_0" value=''
+      <input type="hidden" class="form-check-input  {{ $errors->has('company_eligibility') ? 'is-invalid' : '' }}" name="company_eligibility" id="company_eligibility_0" value=''
            {{ Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility)? $account->company_eligibility:null, '') }}  > 
 
       <div class="form-check">
         <label class="col-5 form-check-label">
-          <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_1" value="UK University"   
+          <input type="radio" class="form-check-input  {{ $errors->has('company_eligibility') ? 'is-invalid' : '' }}" name="company_eligibility" id="company_eligibility_1" value="UK University"   
            {{ Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility)? $account->company_eligibility:null, 'UK University') }} 
          >
           UK University
@@ -393,7 +396,7 @@
 
       <div class="form-check">
       <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_2" value="UK School/College"
+          <input type="radio" class="form-check-input  {{ $errors->has('company_eligibility') ? 'is-invalid' : '' }}" name="company_eligibility" id="company_eligibility_2" value="UK School/College"
           {{ Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility)? $account->company_eligibility :null , 'UK School/College') }}
           >
           UK School/College
@@ -402,7 +405,7 @@
 
       <div class="form-check">
       <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="company_eligibility" id="company_eligibility_3" value="UK Government Dept"
+          <input type="radio" class="form-check-input  {{ $errors->has('company_eligibility') ? 'is-invalid' : '' }}" name="company_eligibility" id="company_eligibility_3" value="UK Government Dept"
               {!! Helper::display_radio_checked(old('company_eligibility'), isset($account->company_eligibility)? $account->company_eligibility: null, 'UK Government Dept') !!}
         >
           UK Government Dept
@@ -450,7 +453,7 @@
               <input type="text" class="form-control" id="company_eligibility_other" name="company_eligibility_other" value="{{ old('company_eligibility_other', isset($account->company_eligibility_other) ? $account->company_eligibility_other : null) }}">
       </div>
 
-      <div class="form-control-feedback">
+      <div class="invalid-feedback">
             {{  $errors->first('company_eligibility')   }}
       </div>
 

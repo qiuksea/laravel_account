@@ -20,15 +20,24 @@ class Helper
     // form.blade.php
     public static function display_radio_checked($val1, $val2, $val3)
     {
-    	    if (isset($val1) && ($val1 == $val3)){
+    	    if (isset($val1)){
 
-              return 'checked';
+                if( $val1 == $val3 ){
+
+                     return 'checked';
+
+                }         
 
             } 
 
-            elseif ( ($val2 == $val3)) {
+            elseif ( isset($val2)) {
 
-                return 'checked';
+                if ( ($val2 == $val3) ){
+
+                    return 'checked';
+
+                }
+                
             }           
             
     }
