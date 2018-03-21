@@ -24,6 +24,6 @@ class IsSuperAdmin
             return $next($request);
         }
 
-            return redirect('/')->with('success','You can\'t access');
+            return redirect('/')->with('warning','You can\'t access');
     }
 }
