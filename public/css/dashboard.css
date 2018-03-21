@@ -1,11 +1,29 @@
 body {
   font-size: .875rem;
+  /* Margin bottom by footer height */
+  margin-bottom: 50px;
 }
 
 .feather {
   width: 16px;
   height: 16px;
   vertical-align: text-bottom;
+}
+
+/* Sticky footer styles */
+.footer {
+  /*position: absolute;*/
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  line-height: 50px; /* Vertically center the text there */
+  background-color:#000;/*#f5f5f5*/
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 /*
@@ -15,7 +33,7 @@ body {
 .sidebar {
   position: fixed;
   top: 0;
-  bottom: 0;
+  bottom: 0px;
   left: 0;
   z-index: 100; /* Behind the navbar */
   padding: 0;
@@ -91,3 +109,4 @@ body {
 
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
+
