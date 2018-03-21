@@ -12,9 +12,12 @@
             <li class="nav-item active">
               <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
             </li>
-
             <li class="nav-item active">
-                  <a class="nav-link" href="#">Hello, {{ session('user_info.email') }}</a> 
+                  <a class="nav-link" href="#">
+                    Hello, 
+                    {{ session('user_info.firstname') }} {{ session('user_info.lastname') }} ( 
+                    {{ session('user_info.email') }} )
+                  </a> 
             </li>
             
             <li class="nav-item">
