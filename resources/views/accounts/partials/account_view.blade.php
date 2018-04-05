@@ -1,20 +1,19 @@
-<div id="accordion">
-<div id="showPage" role="tablist" aria-multiselectable="true">
+<div id="account_accordion">
 
         <div class="card">
-            <div class="card-header" role="tab" id="requestDetails">
-              <h5 class="mb-0">
-                <a data-toggle="collapse" data-parent="#showPage" href="#requestDetailsContent" aria-expanded="true" aria-controls="requestDetailsContent">
-                  Request Details
-                </a>
+            <div class="card-header" id="requestDetails">
+              <h5 class="mb-0">     
+                <button class="btn btn-link" data-toggle="collapse" data-target="#requestDetailsContent" aria-expanded="true" aria-controls="requestDetailsContent">
+                    Request Details
+                </button>
               </h5>
             </div>
 
-            <div id="requestDetailsContent" class="collapse show" role="tabpanel" aria-labelledby="requestDetails">
-                <div class="card-block">
+            <div id="requestDetailsContent" class="collapse show" aria-labelledby="requestDetails" data-parent="#account_accordion">
+                <div class="card-body">
                   <table class="table table-striped table-bordered">
                     <tbody>
-                      <tr  class="table-info">
+                      <tr class="table-info">
                         <th colspan="2">Request Details</th>
                       </tr>
                       <tr>
@@ -37,20 +36,19 @@
                   </table>
                 </div>
             </div>
-
         </div>
 
         <div class="card">
-            <div class="card-header" role="tab" id="staffDetails">
+            <div class="card-header" id="staffDetails">
               <h5 class="mb-0">
-                <a class="collapsed" data-toggle="collapse" data-parent="#showPage" href="#staffDetailsContent" aria-expanded="false" aria-controls="staffDetailsContent">
-                  Staff Details
-                </a>
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#staffDetailsContent" aria-expanded="false" aria-controls="staffDetailsContent">
+                    Staff Details
+                </button>
               </h5>
             </div>
 
-            <div id="staffDetailsContent" class="collapse" role="tabpanel" aria-labelledby="staffDetails">
-              <div class="card-block">
+            <div id="staffDetailsContent" class="collapse" aria-labelledby="staffDetails" data-parent="#account_accordion">
+              <div class="card-body">
                 <table class="table table-striped table-bordered">
                   <tr class="table-info">
                       <th colspan="2">Staff Details</th>
@@ -87,16 +85,16 @@
 
 
         <div class="card">
-          <div class="card-header" role="tab" id="companyDetails">
+          <div class="card-header" id="companyDetails">
             <h5 class="mb-0">
-              <a class="collapsed" data-toggle="collapse" data-parent="#showPage" href="#companyDetailsContent" aria-expanded="false" aria-controls="companyDetailsContent">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#companyDetailsContent" aria-expanded="false" aria-controls="companyDetailsContent">
                 Company Details
-              </a>
+              </button>
             </h5>
           </div>
 
-          <div id="companyDetailsContent" class="collapse" role="tabpanel" aria-labelledby="companyDetails">
-            <div class="card-block">
+          <div id="companyDetailsContent" class="collapse"  aria-labelledby="companyDetails" data-parent="#account_accordion">
+            <div class="card-body">
 
               <table class="table table-striped table-bordered">
                 <tr class="table-info">
@@ -211,15 +209,15 @@
 
 
         <div class="card">
-          <div class="card-header" role="tab" id="incomeOffice">
+          <div class="card-header" id="incomeOffice">
             <h5 class="mb-0">
-              <a class="collapsed" data-toggle="collapse" data-parent="#showPage" href="#incomeOfficeContent" aria-expanded="false" aria-controls="incomeOfficeContent">
-               Income Office
-              </a>
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#incomeOfficeContent" aria-expanded="false" aria-controls="incomeOfficeContent">
+                Income Office
+              </button>
             </h5>
           </div>
-          <div id="incomeOfficeContent" class="collapse" role="tabpanel" aria-labelledby="incomeOffice">
-            <div class="card-block">
+          <div id="incomeOfficeContent" class="collapse" aria-labelledby="incomeOffice" data-parent="#account_accordion">
+            <div class="card-body">
                 <table class="table table-striped table-bordered">
                   <tr class="table-info">
                       <th colspan="2">Income Office</th>
@@ -230,7 +228,7 @@
         </div>
 
 
-</div>
+
 </div>
 
 
