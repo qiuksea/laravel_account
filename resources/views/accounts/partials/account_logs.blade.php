@@ -1,15 +1,17 @@
-<ul class="list-group">
+<div class="card border-info mb-3">
+	<ul class="list-group list-group-flush">
 
-	 @foreach ($account->allLogs()->get() as $log)
+		@foreach ($account->allLogs()->get() as $log)
 
-		<li class="list-group-item">
+			<li class="list-group-item">
 
-			{{ $log -> created_at }} <br>
+				{{ $log -> created_at }} <br>
 
-			{{ $log -> content }} 
+				{{ $log -> content }} 
 
-		</li>
+			</li>
 
-	 @endforeach
+		@endforeach
 
-</ul>
+	</ul>
+</div>
