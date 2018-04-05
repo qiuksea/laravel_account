@@ -11,21 +11,18 @@
     <title>Finance Portal - The University of Sheffield</title>
 
     <!-- Bootstrap core CSS -->
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
     <link href="/css/dashboard.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/css/common.css" rel="stylesheet">       
-    
+    <link href="/css/common.css" rel="stylesheet">
 
   </head>
 
   <body>
-    <header>
-       @include ('layouts.topnav')
-    </header>
+    
+    @include ('layouts.topnav')    
 
     <div class="container-fluid">
       <div class="row">       
@@ -55,13 +52,13 @@
           </section>-->
 
         <div>
-           <img src="/img/index_banner.jpg" alt="The University of Sheffield" />
+           <!--img src="/img/index_banner.jpg" alt="The University of Sheffield" />-->
            
            <h1>Customer Account Request</h1>
 
            <hr>
 
-         </div>
+        </div>
 
           <div class="table-responsive"> 
             
