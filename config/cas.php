@@ -76,7 +76,7 @@ return [
         |
         */
 
-        'cas_cert' => env('CAS_CERT', ''),#/webusers/ad1jqi/public_html - on cpanel testing, set as ''
+        'cas_cert' => env('CAS_CERT', ''),#/webusers/my-user-id/public_html - on cpanel testing, set as ''
 
 
         /*
@@ -89,7 +89,7 @@ return [
         |
         */
 
-        'cas_pretend_user' => env('CAS_PRETEND_USER', 'ad1jqi'), #give user id to pretend already login, e.g. ad1sec, ad1ehlp
+        'cas_pretend_user' => env('CAS_PRETEND_USER', 'my user id'), #give user id to pretend already login, 
 
         /*
         |--------------------------------------------------------------------------
