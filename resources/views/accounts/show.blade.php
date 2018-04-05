@@ -17,13 +17,13 @@
         <a class="nav-link active" data-toggle="tab" href="#view" role="tab" aria-controls="view">View</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#notes" role="tab" ria-controls="notes">Notes</a>
+        <a class="nav-link" data-toggle="tab" href="#notes" role="tab" aria-controls="notes">Notes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#status" role="tab" aria-controls="status">Status</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#log" role="tab" ria-controls="log">Log</a>
+        <a class="nav-link" data-toggle="tab" href="#log" role="tab" aria-controls="log">Log</a>
       </li>
     </ul>
 
