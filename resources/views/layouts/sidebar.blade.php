@@ -11,7 +11,7 @@
                 </a>
               </li>
 							<li class="nav-item">
-								<a class="nav-link"	href="/accounts?status=N"><span data-feather="file"></span>New Requests</a>
+								<a class="nav-link"	href="/accounts?status=N"><span data-feather="file"></span> New Requests</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="/accounts?status=P"><span data-feather="watch"></span> Pending Requests</a>
@@ -23,7 +23,7 @@
 								<a class="nav-link" href="/accounts?status=Y"><span data-feather="thumbs-up"></span> Complete Requests</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="/accounts?status=R"><span data-feather="thumbs-down"></span>Rejected Requests</a>
+								<a class="nav-link" href="/accounts?status=R"><span data-feather="thumbs-down"></span> Rejected Requests</a>
 							</li>
 			 		@endif 
 
