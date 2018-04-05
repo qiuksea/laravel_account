@@ -1,17 +1,17 @@
 <div class="card border-primary mb-3">
   <div class="card-header">
-    Status: <strong>{{ Helper::display_status($account->status) }} </strong>
+    <h5>Status: <strong>{{ Helper::display_status($account->status) }} </strong></h5>
   </div>
   <div class="card-body text-primary" style="width: 22rem;">
 	<h5 class="card-title">Update Status</h5>
 	<div class="card-text">
-		<form method="POST" action="/accounts/{{ $account-> id }}/status">
+		<form class="form-inline" method="POST" action="/accounts/{{ $account-> id }}/status">
 
 			{{csrf_field() }} 
 
 			{{ method_field('PATCH') }}
 
-			<div class="form-group">
+			<div class="form-group mb-2">
 				<select class="form-control" id="status" name="status">
 					<option value="N"
 					{{ 
@@ -38,10 +38,12 @@
 
 				</select>
 			</div>
-		
-			<button type="submit" class="btn btn-primary">Submit</button>
-
+			<div class="col-auto">
+				<button type="submit" class="btn btn-primary mb-2">Submit</button>
+			</div>
 		</form>
+
+		<div style="margin: 100px"></div>
 	</div>
   </div>
 </div>
