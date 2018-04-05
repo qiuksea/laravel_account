@@ -11,7 +11,6 @@
       </li>
     </ul>
 
-
     <ul class="nav nav-tabs" id="recordTab" role="tablist">
       <li class="nav-item">
         <a class="nav-link active" data-toggle="tab" href="#view" role="tab" aria-controls="view">View</a>
@@ -27,9 +26,9 @@
       </li>
     </ul>
 
-    <div class="tab-content">
+    <div class="tab-content tab_space" id="recordContent">
     
-      <div class="tab-pane active" id="view" role="tabpanel">
+      <div class="tab-pane active" id="view" role="tabpanel" aria-labelledby="view-tab">
           @include ('accounts.partials/account_view')       
       </div>
 

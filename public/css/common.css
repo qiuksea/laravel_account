@@ -2,6 +2,12 @@ div .hidden {
     display: none;
 }
 
+.tab_space {
+    padding: 0px 0 10px 0;
+    margin: 50px 0 100px 0;
+
+}
+
 
 /*
 
