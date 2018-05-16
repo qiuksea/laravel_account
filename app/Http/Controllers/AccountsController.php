@@ -8,6 +8,7 @@ use App\Account;
 use Auth;
 #use App\Country;
 use Helper;
+use App\Mail\UserConfirm;
 
 use App\Http\Requests\StoreAccountRequest; 
 #https://laracasts.com/discuss/channels/laravel/form-request-validation-class-apphttpcontrollersstoreblogpost-does-not-exist
@@ -248,7 +249,7 @@ class AccountsController extends Controller
                 $request->session()->flash('danger', 'Error! Record not updated');
 
            }
-  
+            
         return redirect('/');
     }
 
@@ -296,14 +297,11 @@ class AccountsController extends Controller
         $account->addLog($logContent);
         #The update method expects an array of column and value pairs representing the columns that should be updated. https://laravel.com/docs/5.4/eloquent#updates
 
-
+        \Mail::to($account->staff_email)->send(new UserConfirm($account));
         #return view('accounts.show', compact('account'))->with('success', 'Status updated successfully.');
         return redirect("/accounts/$account->id")->with('success','Status updated successfully.'); 
 
-      }
-      
-
-     
+      }     
      
     }
 
