@@ -7,6 +7,7 @@
 Homestead.json
 Homestead.yaml
 .env
+/config/cas.php
 
 deploy.php
 

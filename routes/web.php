@@ -85,8 +85,3 @@ Route::get('check-connection-2', function () {
     $country_cou = DB::connection("oldAccount")->table("country_cou")->get();
     dd($country_cou);
 });
-
-
-
-
-
