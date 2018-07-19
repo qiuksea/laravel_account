@@ -24,6 +24,6 @@ class IsSuperAdmin
             return $next($request);
         }
 
-            return redirect('/')->with('warning','You can\'t access');
+            return redirect('/')->with('warning','You have to be a super admin to manager users.');
     }
 }

@@ -46,7 +46,7 @@
 							
 								<p class="card-text">
 										Email: {{ session('user_info.email') }} <br>
-										<strong>Role id:</strong> {{ Auth::user() ->role_id }} <br>
+										<strong>Role id:</strong> {{ Auth::user() ->role->name }} <br>
 										Uid: {{ session('user_info.uid')}} <br>
 										First Name: {{ session('user_info.firstname')}} <br>
 										Last Name: {{ session('user_info.lastname')}} <br>

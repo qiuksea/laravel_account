@@ -123,11 +123,11 @@ class CASAuthenticate
 
                         $dn = "ou=Users,dc=sheffield,dc=ac,dc=uk";
 
-                        $filter = "(uid=$uid*)";
+                        $filter = "(uid=$uid)";
 
                         $attributesNeed = array("shefreportingfaculty", "shefucardtype", "ou", "mail", "givenname", "sn", "uid");
 
-                        $result =ldap_search($ldapconn, $dn, $filter, $attributesNeed, 0, 2) or exit("unable to search"); 
+                        $result =ldap_search($ldapconn, $dn, $filter, $attributesNeed, 0, 1) or exit("unable to search"); 
 
                         $entries = ldap_get_entries($ldapconn, $result);                  
 

@@ -39,11 +39,11 @@ class AuthController extends Controller
     public function CASLogin(Request $request)
     {
 
-        if (session()->has('user_info')){
+        #if (session()->has('user_info')){
 			 
 			#session()->forget('login_error');		       	     
 
-        } 
+        #} 
         return redirect('/'); #->with('user_info', session('user_info')); 
 
         #https://stackoverflow.com/questions/34488194/set-session-variables-in-laravel

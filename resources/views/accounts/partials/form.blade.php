@@ -106,7 +106,7 @@
       <label class=" col-5 form-control-label" for="company_type"><strong> Type of Customer * </strong></label>
       <div class="col-7">
         <select class="form-control  {{ $errors->has('company_type') ? 'is-invalid' : '' }}" id="company_type" name="company_type">
-          <option value=" ">Please make a selection</option>
+          <option value="0">Please make a selection</option>
           <option value="Company"
           {{ 
              Helper::display_dropdown_selected(old('company_type'), isset($account->company_type) ?  $account->company_type : null, 'Company')
@@ -302,7 +302,7 @@
             <label class="col-5 form-control-label" for="company_eu_country_id"><strong>Please select your EU country * </strong></label>
             <div class="col-7">
               <select class="form-control  {{ $errors->has('company_eu_country_id') ? 'is-invalid' : '' }}" id="company_eu_country_id" name="company_eu_country_id">
-                  <option value="">Please make a selection</option>
+                  <option value="0">Please make a selection</option>
                 
                   @foreach($eu_countries as $eu_country)
                     <option value="{{ $eu_country->id }}"  
@@ -342,7 +342,7 @@
 
           <div class="col-7">
               <select class="form-control  {{ $errors->has('company_non_eu_country_id') ? 'is-invalid' : '' }}" id="company_non_eu_country_id" name="company_non_eu_country_id">
-                <option value="">Please make a selection</option>
+                <option value="0">Please make a selection</option>
             
                 @foreach($non_eu_countries as $non_eu_country)
                   <option value="{{ $non_eu_country->id }}"
